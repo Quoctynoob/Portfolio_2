@@ -12,21 +12,19 @@ export default function MainPage() {
   const [view, setView] = useState<string>('home');
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [fadeIn, setFadeIn] = useState<boolean>(false);
+  const [showContent, setShowContent] = useState<boolean>(false);
 
   useEffect(() => {
-    // For development, you can uncomment this to skip the loading screen
+    // For development, skip loading screen if want to
     // setIsLoading(false);
-    // setFadeIn(true);
+    // setShowContent(true);
   }, []);
   
   // Handle loading complete
   const handleLoadingComplete = () => {
     setIsLoading(false);
-    // Trigger fade in after a short delay
-    setTimeout(() => {
-      setFadeIn(true);
-    }, 100);
+    // Show content immediately after loading completes
+    setShowContent(true);
   };
 
   const getUnderlineClass = (tab: string) => {
@@ -50,62 +48,65 @@ export default function MainPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-amber-100">
+    <div className="flex flex-col min-h-screen bg-mintCream">
       {isLoading ? (
         <LoadingScreen onLoadingComplete={handleLoadingComplete} />
       ) : (
-        <div className={`transition-opacity duration-1000 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
-          <nav className="flex justify-between items-center bg-darkMint p-4 text-black"
-               style={{ transitionDelay: "100ms" }}>
+        <div className={`${showContent ? 'block' : 'hidden'}`}>
+          {/* Top Navbar - Pure fade in, no slide */}
+          <nav className="flex justify-between items-center bg-mintCream p-4 text-darkMint navbar-fade">
             {/* Logo on the left */}
-        <div>
-          <button 
-            className="p-2 px-4 font-semibold"
-            onClick={() => setView('home')}
-          >
-            Quoc Le
-          </button>
-        </div>
+            <div>
+              <button 
+                className="p-2 px-4 font-semibold"
+                onClick={() => setView('home')}
+              >
+                Quoc Le
+              </button>
+            </div>
 
-        {/* Navigation tabs on the right */}
-        <div className="flex gap-4 font-semibold">
-          <button 
-            className="p-2 px-4 group"
-            onClick={() => setView('about')} 
-            onMouseEnter={() => setHoveredTab('about')} 
-            onMouseLeave={() => setHoveredTab(null)}
-          >
-            About
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
-          </button>
+            {/* Navigation tabs on the right */}
+            <div className="flex gap-4 font-semibold">
+              <button 
+                className="p-2 px-4 group"
+                onClick={() => setView('about')} 
+                onMouseEnter={() => setHoveredTab('about')} 
+                onMouseLeave={() => setHoveredTab(null)}
+              >
+                About
+                <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
+              </button>
 
-          <button 
-            className="p-2 px-4 group"
-            onClick={() => setView('projects')} 
-            onMouseEnter={() => setHoveredTab('projects')} 
-            onMouseLeave={() => setHoveredTab(null)}
-          >
-            Projects
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
-          </button>
+              <button 
+                className="p-2 px-4 group"
+                onClick={() => setView('projects')} 
+                onMouseEnter={() => setHoveredTab('projects')} 
+                onMouseLeave={() => setHoveredTab(null)}
+              >
+                Projects
+                <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
+              </button>
 
-          <button 
-            className="p-2 px-4 group"
-            onClick={() => setView('work')} 
-            onMouseEnter={() => setHoveredTab('work')} 
-            onMouseLeave={() => setHoveredTab(null)}
-          >
-            Work
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
-          </button>
-        </div>
-      </nav>
+              <button 
+                className="p-2 px-4 group"
+                onClick={() => setView('work')} 
+                onMouseEnter={() => setHoveredTab('work')} 
+                onMouseLeave={() => setHoveredTab(null)}
+              >
+                Work
+                <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
+              </button>
+            </div>
+          </nav>
 
-      <main className="flex-grow text-black">
-        {renderContent()}
-      </main>
+          <main className="flex-grow text-darkMint">
+            {renderContent()}
+          </main>
 
-      <FloatingNavbar />
+          {/* FloatingNavbar - Same animation timing as top navbar */}
+          <div className="navbar-fade">
+            <FloatingNavbar />
+          </div>
         </div>
       )}
     </div>

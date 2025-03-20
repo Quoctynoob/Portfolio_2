@@ -7,20 +7,20 @@ import ResumeDownload from "../home/ResumeDownload";
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
-
+      {/* First item - StretchHi */}
+      <div className="content-item-1">
+        <StretchHi />
+      </div>
       
-      {/*<h1 className="text-black text-8xl md:text-9xl font-pacifico mb-6 staggered-fade">
-        Quoc Le<span className="text-yellow-400">.</span>
-      </h1>*/}
-      
-      <div className="text-4xl md:text-3xl max-w-3xl mb-12 staggered-fade leading-relaxed">
-      <StretchHi />
-        Hi! I'm Quoc Le, Software Engineer based in Toronto, Canada. 
+      {/* Second item - Description */}
+      <div className="content-item-2 text-2xl md:text-3xl max-w-3xl mb-12 leading-relaxed">
+        I'm Quoc Le, Software Engineer based in Toronto, Canada. 
         <br />
         But you can call me Leon.
       </div>
       
-      <div className="staggered-fade">
+      {/* Third item - Resume button */}
+      <div className="content-item-3">
         <ResumeDownload />
       </div>
     </div>
