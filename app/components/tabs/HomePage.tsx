@@ -14,7 +14,7 @@ export default function HomePage() {
       
       {/* Second item - Description */}
       <div className="content-item-2 text-2xl md:text-3xl max-w-3xl mb-12 leading-relaxed">
-        I'm Quoc Le, Software Engineer based in Toronto, Canada. 
+        I&apos;m Quoc Le, Software Engineer based in Toronto, Canada. 
         <br />
         But you can call me Leon.
       </div>
