@@ -33,7 +33,7 @@ export default function Typewriter() {
     <div>
       <span 
         ref={typedElementRef} 
-        className="text-3xl font-bold text-mintCream"
+        className="text-3xl font-bold text-black"
       ></span>
     </div>
   );

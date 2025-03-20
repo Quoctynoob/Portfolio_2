@@ -12,6 +12,8 @@ export default function MainPage() {
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   const getUnderlineClass = (tab: string) => {
+    // Only handle underline animation for 'about', 'projects', and 'work'
+    if (tab === 'home') return 'w-0';
     if (hoveredTab && hoveredTab !== tab) return 'w-0';
     return view === tab || hoveredTab === tab ? 'w-full' : 'w-0';
   };
@@ -30,20 +32,20 @@ export default function MainPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-amber-100">
-      <nav className="flex justify-between items-center bg-darkMint p-4 text-black fade-in-up">
-        {/* NavBar */}
-        <div className="flex gap-2 font-semibold">
+    <div className="flex flex-col min-h-screen bg-mintCream">
+      <nav className="flex justify-between items-center bg-mintCream p-4 text-black fade-in-up">
+        {/* Logo on the left */}
+        <div>
           <button 
-            className="p-2 px-4 group"
-            onClick={() => setView('home')} 
-            onMouseEnter={() => setHoveredTab('home')} 
-            onMouseLeave={() => setHoveredTab(null)}
+            className="p-2 px-4 font-semibold"
+            onClick={() => setView('home')}
           >
             Quoc Le
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('home')} transition-all duration-500 rounded-sm`}></div>
           </button>
+        </div>
 
+        {/* Navigation tabs on the right */}
+        <div className="flex gap-4 font-semibold">
           <button 
             className="p-2 px-4 group"
             onClick={() => setView('about')} 
@@ -51,7 +53,7 @@ export default function MainPage() {
             onMouseLeave={() => setHoveredTab(null)}
           >
             About
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
+            <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
           </button>
 
           <button 
@@ -61,7 +63,7 @@ export default function MainPage() {
             onMouseLeave={() => setHoveredTab(null)}
           >
             Projects
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
+            <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
           </button>
 
           <button 
@@ -71,7 +73,7 @@ export default function MainPage() {
             onMouseLeave={() => setHoveredTab(null)}
           >
             Work
-            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
+            <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
           </button>
         </div>
       </nav>
