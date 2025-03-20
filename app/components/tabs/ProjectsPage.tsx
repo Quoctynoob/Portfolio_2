@@ -15,6 +15,9 @@ type Project = {
   category: ('completed' | 'ongoing' | 'personal' | 'academic')[];
 };
 
+// Define category type to match the potential filter values
+type CategoryType = 'all' | 'completed' | 'ongoing' | 'personal' | 'academic';
+
 // Sample projects data (you can replace with your actual projects)
 const projectsData: Project[] = [
   {
@@ -56,12 +59,12 @@ const projectsData: Project[] = [
 
 const ProjectsPage = () => {
   // State for active filter
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [activeFilter, setActiveFilter] = useState<CategoryType>("all");
   
   // Filter projects based on active filter
   const filteredProjects = projectsData.filter(project => {
     if (activeFilter === "all") return true;
-    return project.category.includes(activeFilter as any);
+    return project.category.includes(activeFilter as 'completed' | 'ongoing' | 'personal' | 'academic');
   });
 
   return (
@@ -74,7 +77,7 @@ const ProjectsPage = () => {
           {["all", "completed", "ongoing", "personal", "academic"].map((filter) => (
             <button
               key={filter}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => setActiveFilter(filter as CategoryType)}
               className={`px-4 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
                 activeFilter === filter
                   ? "bg-teal-500 text-white shadow-md filter-active"
