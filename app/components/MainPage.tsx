@@ -5,6 +5,7 @@ import AboutPage from "./tabs/AboutPage";
 import HomePage from "./tabs/HomePage";
 import ProjectsPage from "./tabs/ProjectsPage";
 import FloatingNavbar from "./FloatingNavbar";
+import WorkPage from "./tabs/WorkPage";
 
 export default function MainPage() {
   const [view, setView] = useState<string>('home');
@@ -21,14 +22,16 @@ export default function MainPage() {
         return <AboutPage />
       case 'projects':
         return <ProjectsPage />
+      case 'work':
+        return <WorkPage />
       default:
         return <HomePage />
     }
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <nav className="flex justify-between items-center bg-darkMint p-4 text-mintCream fade-in-up">
+    <div className="flex flex-col min-h-screen bg-amber-100">
+      <nav className="flex justify-between items-center bg-darkMint p-4 text-black fade-in-up">
         {/* NavBar */}
         <div className="flex gap-2 font-semibold">
           <button 
@@ -60,10 +63,20 @@ export default function MainPage() {
             Projects
             <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
           </button>
+
+          <button 
+            className="p-2 px-4 group"
+            onClick={() => setView('work')} 
+            onMouseEnter={() => setHoveredTab('work')} 
+            onMouseLeave={() => setHoveredTab(null)}
+          >
+            Work
+            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
+          </button>
         </div>
       </nav>
 
-      <main className="flex-grow text-darkMint">
+      <main className="flex-grow text-black">
         {renderContent()}
       </main>
 
