@@ -1,15 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AboutPage from "./tabs/AboutPage";
 import HomePage from "./tabs/HomePage";
 import ProjectsPage from "./tabs/ProjectsPage";
 import FloatingNavbar from "./FloatingNavbar";
 import WorkPage from "./tabs/WorkPage";
+import LoadingScreen from "./LoadingScreen";
 
 export default function MainPage() {
   const [view, setView] = useState<string>('home');
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [fadeIn, setFadeIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    // For development, you can uncomment this to skip the loading screen
+    // setIsLoading(false);
+    // setFadeIn(true);
+  }, []);
+  
+  // Handle loading complete
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    // Trigger fade in after a short delay
+    setTimeout(() => {
+      setFadeIn(true);
+    }, 100);
+  };
 
   const getUnderlineClass = (tab: string) => {
     // Only handle underline animation for 'about', 'projects', and 'work'
@@ -32,9 +50,14 @@ export default function MainPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-mintCream">
-      <nav className="flex justify-between items-center bg-mintCream p-4 text-black fade-in-up">
-        {/* Logo on the left */}
+    <div className="flex flex-col min-h-screen bg-amber-100">
+      {isLoading ? (
+        <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+      ) : (
+        <div className={`transition-opacity duration-1000 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
+          <nav className="flex justify-between items-center bg-darkMint p-4 text-black"
+               style={{ transitionDelay: "100ms" }}>
+            {/* Logo on the left */}
         <div>
           <button 
             className="p-2 px-4 font-semibold"
@@ -53,7 +76,7 @@ export default function MainPage() {
             onMouseLeave={() => setHoveredTab(null)}
           >
             About
-            <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
+            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
           </button>
 
           <button 
@@ -63,7 +86,7 @@ export default function MainPage() {
             onMouseLeave={() => setHoveredTab(null)}
           >
             Projects
-            <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
+            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
           </button>
 
           <button 
@@ -73,7 +96,7 @@ export default function MainPage() {
             onMouseLeave={() => setHoveredTab(null)}
           >
             Work
-            <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
+            <div className={`bg-teal-500 h-[4px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
           </button>
         </div>
       </nav>
@@ -83,6 +106,8 @@ export default function MainPage() {
       </main>
 
       <FloatingNavbar />
+        </div>
+      )}
     </div>
   );
 }

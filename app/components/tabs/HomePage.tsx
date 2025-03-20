@@ -13,12 +13,12 @@ export default function HomePage() {
         Quoc Le<span className="text-yellow-400">.</span>
       </h1>*/}
       
-      <p className="text-4xl md:text-3xl max-w-3xl mb-12 staggered-fade leading-relaxed">
+      <div className="text-4xl md:text-3xl max-w-3xl mb-12 staggered-fade leading-relaxed">
       <StretchHi />
         Hi! I'm Quoc Le, Software Engineer based in Toronto, Canada. 
         <br />
         But you can call me Leon.
-      </p>
+      </div>
       
       <div className="staggered-fade">
         <ResumeDownload />
