@@ -31,12 +31,12 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    name: "E-commerce Platform",
-    description: "Full-stack e-commerce application with user authentication and payment processing",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/ecommerce",
-    website: "https://your-ecommerce.com",
-    category: ["ongoing", "personal"]
+    name: "Tennis Locator",
+    description: "A tennis app with login homepage and allows you to locate tennis courts",
+    image: "/projects/tennisproject.jpg",
+    github: "https://github.com/Quoctynoob/Tennis_Locator",
+    website: "https://tennis-locator.vercel.app/",
+    category: ["completed", "personal"]
   },
   {
     id: 3,
