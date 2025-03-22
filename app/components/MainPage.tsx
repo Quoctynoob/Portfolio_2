@@ -48,17 +48,17 @@ export default function MainPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-mintCream">
+    <div className="flex flex-col min-h-screen bg-lightGreen">
       {isLoading ? (
         <LoadingScreen onLoadingComplete={handleLoadingComplete} />
       ) : (
         <div className={`${showContent ? 'block' : 'hidden'}`}>
           {/* Top Navbar - Pure fade in, no slide */}
-          <nav className="flex justify-between items-center bg-mintCream p-4 text-darkMint navbar-fade">
+          <nav className="flex justify-between items-center bg-lightGreen p-4 text-darkMint navbar-fade">
             {/* Logo on the left */}
             <div>
               <button 
-                className="p-2 px-4 font-semibold"
+                className="p-2 px-4 font-semibold md:text-3xl"
                 onClick={() => setView('home')}
               >
                 Quoc Le
@@ -66,7 +66,7 @@ export default function MainPage() {
             </div>
 
             {/* Navigation tabs on the right */}
-            <div className="flex gap-4 font-semibold">
+            <div className="flex gap-4 ">
               <button 
                 className="p-2 px-4 group"
                 onClick={() => setView('about')} 

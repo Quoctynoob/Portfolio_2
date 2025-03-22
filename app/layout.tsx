@@ -1,7 +1,7 @@
 // app/layout.tsx
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Merriweather } from 'next/font/google';
 import { Libre_Barcode_39, Londrina_Sketch, Pacifico, Train_One } from 'next/font/google';
 
 // Load fonts using next/font/google
@@ -31,6 +31,14 @@ const trainOne = Train_One({
   display: 'swap'
 });
 
+const merriweather = Merriweather({ 
+  weight: '300', 
+  style: 'italic',
+  subsets: ['latin'],
+  variable: '--font-merriweather', 
+  display: 'swap'
+});
+
 export const metadata: Metadata = {
   title: 'Quoc Le | Portfolio',
   description: 'Personal portfolio website for Quoc Le',
@@ -45,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${pacifico.variable} ${trainOne.variable}`}>
+    <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${merriweather.variable} ${pacifico.variable} ${trainOne.variable}`}>
       <body className={`${inter.className} bg-beige min-h-screen`}>
         {children}
       </body>
