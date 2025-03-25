@@ -1,8 +1,7 @@
 const WorkPage = () => {
     return (
-        <div>
-            <h1>About Page</h1>
-            <p>This is the Work Page component.</p>
+        <div className="text-center py-12">
+          <p className="text-xl text-gray-600">Coming Soon</p>
         </div>
     );
 };

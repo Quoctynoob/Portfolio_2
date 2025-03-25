@@ -12,84 +12,84 @@ type Project = {
   image: string;
   github: string;
   website?: string;
-  category: ('completed' | 'ongoing' | 'personal' | 'academic')[];
+  category: ('completed' | 'ongoing' | 'personal' | 'academic' | 'side project')[];
 };
 
 // Define category type to match the potential filter values
-type CategoryType = 'all' | 'completed' | 'ongoing' | 'personal' | 'academic';
+type CategoryType = 'all' | 'completed' | 'ongoing' | 'side project' | 'academic';
 
 // Sample projects data (you can replace with your actual projects)
 const projectsData: Project[] = [
   {
     id: 1,
     name: "Frijio",
-    description: "Personal portfolio website built with Next.js and TailwindCSS",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/portfolio",
-    website: "https://yourwebsite.com",
-    category: ["completed", "personal"]
+    description: "A household management app for tracking inventory, splitting expenses, and suggesting AI-powered recipes.",
+    image: "/projects/Frijio.PNG",
+    github: "https://github.com/megdcosta/frijio",
+    website: "https://frijio.vercel.app",
+    category: ["completed", "side project"]
   },
   {
     id: 2,
-    name: "Tennis Locator",
-    description: "A tennis app with login homepage and allows you to locate tennis courts",
-    image: "/projects/tennisproject.jpg",
-    github: "https://github.com/Quoctynoob/Tennis_Locator",
-    website: "https://tennis-locator.vercel.app/",
-    category: ["completed", "personal"]
+    name: "Convoco",
+    description: "A real-time debate platform with AI moderation, fact-checking, translations, and rewards.",
+    image: "/projects/Convoco.png",
+    github: "https://github.com/Quoctynoob/Convoco",
+    website: "https://convoco.vercel.app/debates",
+    category: ["completed", "side project"]
   },
   {
     id: 3,
-    name: "Machine Learning Research",
+    name: "Tennis Locator",
     description: "Research project on neural networks for image classification",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/ml-research",
-    category: ["completed", "academic"]
+    image: "/projects/tennisproject.jpg",
+    github: "https://github.com/Quoctynoob/Tennis_Locator",
+    website: "https://tennis-locator.vercel.app/",
+    category: ["ongoing", "side project"]
   },
   {
     id: 4,
-    name: "Mobile App",
+    name: "eAssetTracker",
     description: "Cross-platform mobile application built with React Native",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/mobile-app",
-    website: "https://app-store-link.com",
-    category: ["ongoing", "personal"]
+    image: "/projects/eTracker.png",
+    github: "https://github.com/Quoctynoob",
+    website: "https://stock-portfolio-management-lac.vercel.app",
+    category: ["ongoing", "side project"]
   },
   {
     id: 5,
-    name: "Mobile App",
-    description: "Cross-platform mobile application built with React Native",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/mobile-app",
-    website: "https://app-store-link.com",
-    category: ["ongoing", "personal"]
+    name: "Online Menu",
+    description: "Simple online and responsive menu to assist with local business",
+    image: "/projects/restaurantproject.jpg",
+    github: "https://github.com/Quoctynoob/Me-s-restaurant",
+    website: "https://quoctynoob.github.io/Me-s-restaurant/",
+    category: ["completed", "side project"]
   },
   {
     id: 6,
-    name: "Mobile App",
-    description: "Cross-platform mobile application built with React Native",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/mobile-app",
-    website: "https://app-store-link.com",
-    category: ["ongoing", "personal"]
+    name: "Car Management System",
+    description: "Simple command-line application to manage car inventory",
+    image: "/projects/Car_management.png",
+    github: "https://github.com/Quoctynoob/Car-Management-System",
+    category: ["completed", "academic"]
   },
   {
     id: 7,
-    name: "Mobile App",
-    description: "Cross-platform mobile application built with React Native",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/mobile-app",
-    website: "https://app-store-link.com",
-    category: ["ongoing", "personal"]
+    name: "Todo List",
+    description: "Simple Todo-list",
+    image: "/projects/firebaseproject.jpg",
+    github: "https://github.com/Quoctynoob/Todo-List",
+    website: "https://quoctynoob.github.io/Todo-List/",
+    category: ["completed", "academic"]
   },
   {
     id: 8,
-    name: "Mobile App",
-    description: "Cross-platform mobile application built with React Native",
-    image: "/projects/placeholder.jpg",
-    github: "https://github.com/yourusername/mobile-app",
-    website: "https://app-store-link.com",
-    category: ["ongoing", "personal"]
+    name: "Joke/Weather Generator",
+    description: "Simple Joke/Weather Generator using API",
+    image: "/projects/jokeGenerator.jpg",
+    github: "https://github.com/Quoctynoob/Joke-Weather-Generator",
+    website: "https://quoctynoob.github.io/Joke-Weather-Generator/",
+    category: ["completed", "academic"]
   },
 ];
 
@@ -109,7 +109,7 @@ const ProjectsPage = () => {
       
       {/* Filter tabs */}
       <div className="flex justify-center mb-12 overflow-x-auto">
-        <div className="flex space-x-2 sm:space-x-4 bg-mintGreen/30 backdrop-blur-md px-4 py-2 rounded-full">
+        <div className="flex space-x-2 sm:space-x-4 bg-lightGreen backdrop-blur-md px-4 py-2 rounded-full">
           {["all", "completed", "ongoing", "personal", "academic"].map((filter) => (
             <button
               key={filter}
@@ -155,8 +155,7 @@ const ProjectsPage = () => {
                 rel="noopener noreferrer"
                 className="flex items-center px-4 py-2 bg-teal-600/70 hover:bg-teal-600 text-white rounded-full transition-colors duration-300 project-link"
               >
-                <Image src="/icons/github.svg" width={20} height={20} alt="GitHub" className="mr-2 filter invert" />
-                GitHub
+                <Image src="/icons/github.svg" width={20} height={20} alt="GitHub" className=" filter invert" />
               </Link>
               
               {project.website && (
@@ -166,12 +165,12 @@ const ProjectsPage = () => {
                   rel="noopener noreferrer"
                   className="flex items-center px-4 py-2 bg-mintGreen hover:bg-mintGreen/80 text-darkMint rounded-full transition-colors duration-300 project-link"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-0">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
                     <line x1="10" y1="14" x2="21" y2="3"></line>
                   </svg>
-                  View Site
+
                 </Link>
               )}
             </div>
@@ -182,7 +181,7 @@ const ProjectsPage = () => {
       {/* Show message if no projects match the filter */}
       {filteredProjects.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-xl text-gray-600">No projects found for this filter.</p>
+          <p className="text-xl text-gray-600">No projects found</p>
         </div>
       )}
     </div>

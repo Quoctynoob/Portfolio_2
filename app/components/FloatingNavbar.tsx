@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function FloatingNavbar() {
   return (
-    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center">
-      <div className="flex items-center gap-6 bg-lightGreen1 backdrop-blur-md px-6 py-3 rounded-full shadow-lg border border-beige/50 transition-all duration-300">
+    <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
+      <div className="flex items-center gap-6 bg-lightGreen1/70 backdrop-blur-sm backdrop-saturate-150 px-6 py-3 rounded-full shadow-lg border border-beige/50 transition-all duration-300 pointer-events-auto">
         <Link 
           href="https://www.linkedin.com/in/quoc-le-293333294/" 
           className="group p-2 hover:bg-teal-600/30 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-teal-500/50 hover:shadow-md text-black" 
