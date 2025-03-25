@@ -22,7 +22,7 @@ type CategoryType = 'all' | 'completed' | 'ongoing' | 'personal' | 'academic';
 const projectsData: Project[] = [
   {
     id: 1,
-    name: "Portfolio Website",
+    name: "Frijio",
     description: "Personal portfolio website built with Next.js and TailwindCSS",
     image: "/projects/placeholder.jpg",
     github: "https://github.com/yourusername/portfolio",
@@ -48,6 +48,42 @@ const projectsData: Project[] = [
   },
   {
     id: 4,
+    name: "Mobile App",
+    description: "Cross-platform mobile application built with React Native",
+    image: "/projects/placeholder.jpg",
+    github: "https://github.com/yourusername/mobile-app",
+    website: "https://app-store-link.com",
+    category: ["ongoing", "personal"]
+  },
+  {
+    id: 5,
+    name: "Mobile App",
+    description: "Cross-platform mobile application built with React Native",
+    image: "/projects/placeholder.jpg",
+    github: "https://github.com/yourusername/mobile-app",
+    website: "https://app-store-link.com",
+    category: ["ongoing", "personal"]
+  },
+  {
+    id: 6,
+    name: "Mobile App",
+    description: "Cross-platform mobile application built with React Native",
+    image: "/projects/placeholder.jpg",
+    github: "https://github.com/yourusername/mobile-app",
+    website: "https://app-store-link.com",
+    category: ["ongoing", "personal"]
+  },
+  {
+    id: 7,
+    name: "Mobile App",
+    description: "Cross-platform mobile application built with React Native",
+    image: "/projects/placeholder.jpg",
+    github: "https://github.com/yourusername/mobile-app",
+    website: "https://app-store-link.com",
+    category: ["ongoing", "personal"]
+  },
+  {
+    id: 8,
     name: "Mobile App",
     description: "Cross-platform mobile application built with React Native",
     image: "/projects/placeholder.jpg",
