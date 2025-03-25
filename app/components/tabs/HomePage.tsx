@@ -14,7 +14,7 @@ export default function HomePage() {
       
       {/* Second item - Description */}
       <div className="content-item-2 sm:text-xl md:text-7xl max-w-6xl leading-relaxed font-noto">
-        <p>I&apos;m Quoc Le, Software Engineer based in Toronto, Canada.</p> 
+        <p>I&apos;m Quoc Le, Aspiring Software Engineer based in Toronto, Canada.</p> 
         <br />
         
       </div>
