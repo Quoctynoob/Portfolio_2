@@ -6,7 +6,7 @@ import ResumeDownload from "../home/ResumeDownload";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center md:min-h-[90vh] text-center px-4">
+    <div className="flex flex-col items-center justify-center md:min-h-[80vh] text-center px-4">
       {/* First item - StretchHi */}
       <div className="content-item-1">
         <StretchHi />
@@ -20,7 +20,7 @@ export default function HomePage() {
       </div>
       
       {/* Third item - Resume button */}
-      <div className="content-item-3 md:text-xl resume">
+      <div className="content-item-3 md:text-lg resume">
         <ResumeDownload />
       </div>
     </div>
