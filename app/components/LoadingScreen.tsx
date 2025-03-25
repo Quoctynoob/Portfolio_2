@@ -9,7 +9,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
   
   // Animation effect
   useEffect(() => {
-    const animationDuration = 2500; // ms
+    const animationDuration = 2100; // ms
     const interval = 20; // ms
     const steps = animationDuration / interval;
     const incrementPerStep = 100 / steps;

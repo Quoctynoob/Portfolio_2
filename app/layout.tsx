@@ -1,8 +1,14 @@
 // app/layout.tsx
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Merriweather } from 'next/font/google';
-import { Libre_Barcode_39, Londrina_Sketch, Pacifico, Train_One } from 'next/font/google';
+import { 
+  Inter, Libre_Barcode_39, 
+  Londrina_Sketch, Pacifico, 
+  Train_One, 
+  Dancing_Script, 
+  Noto_Serif_Display, 
+  Playwrite_HU 
+} from 'next/font/google';
 
 // Load fonts using next/font/google
 const inter = Inter({ subsets: ['latin'] });
@@ -30,12 +36,24 @@ const trainOne = Train_One({
   variable: '--font-train-one', 
   display: 'swap'
 });
-
-const merriweather = Merriweather({ 
-  weight: '300', 
-  style: 'italic',
+const dancingScript = Dancing_Script({ 
+  weight: ['400', '700'],  // You can include multiple weights if needed
   subsets: ['latin'],
-  variable: '--font-merriweather', 
+  variable: '--font-dancing-script', 
+  display: 'swap'
+});
+
+const notoSerifDisplay = Noto_Serif_Display({
+  subsets: ['latin'],
+  weight: ['300'],
+  variable: '--font-noto-serif-display',
+  display: 'swap'
+});
+
+// Add Playwrite HU configuration
+const playWrite = Playwrite_HU({ 
+  weight: '300',
+  variable: '--font-playWrite', 
   display: 'swap'
 });
 
@@ -53,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${merriweather.variable} ${pacifico.variable} ${trainOne.variable}`}>
+    <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${playWrite.variable} ${pacifico.variable} ${trainOne.variable} ${dancingScript.variable} ${notoSerifDisplay.variable}`}>
       <body className={`${inter.className} bg-beige min-h-screen`}>
         {children}
       </body>

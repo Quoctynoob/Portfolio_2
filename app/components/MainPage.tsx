@@ -58,7 +58,7 @@ export default function MainPage() {
             {/* Logo on the left */}
             <div>
               <button 
-                className="p-2 px-4 font-semibold md:text-3xl"
+                className="p-2 px-4 font-semibold md:text-3xl font-play"
                 onClick={() => setView('home')}
               >
                 Quoc Le
