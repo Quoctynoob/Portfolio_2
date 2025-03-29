@@ -144,7 +144,7 @@ const ProjectsPage = () => {
             </div>
             
             {/* Project details (outside the block) */}
-            <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+            <h3 className="text-xl font-bold mb-1">{project.name}</h3>
             <p className="text-center text-gray-700 mb-4">{project.description}</p>
             
             {/* Links */}

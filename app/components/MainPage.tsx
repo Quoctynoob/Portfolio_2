@@ -66,7 +66,7 @@ export default function MainPage() {
             </div>
 
             {/* Navigation tabs on the right */}
-            <div className="flex gap-4 ">
+            <div className="flex gap-4 font-noto">
               <button 
                 className="p-2 px-4 group"
                 onClick={() => setView('about')} 
