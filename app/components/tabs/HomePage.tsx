@@ -13,8 +13,8 @@ export default function HomePage() {
       </div>
       
       {/* Second item - Description */}
-      <div className="content-item-2 sm:text-xl md:text-7xl max-w-6xl leading-relaxed font-noto">
-        <p>I&apos;m Quoc Le, Aspiring Software Engineer based in Toronto, Canada.</p> 
+      <div className="content-item-2 sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
+        <p>I&apos;m Quoc Le, Aspiring Software Developer based in Toronto, Canada.</p> 
         <br />
         
       </div>
