@@ -104,8 +104,8 @@ const ProjectsPage = () => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-7xl">
-      <h1 className="text-4xl font-bold mb-8 text-center">My Projects</h1>
+    <div className="container mx-auto px-4 py-12 max-w-7xl font-noto">
+      <p className="text-4xl font-bold mb-8 text-center">My Projects</p>
       
       {/* Filter tabs */}
       <div className="flex justify-center mb-12 overflow-x-auto">
@@ -144,7 +144,7 @@ const ProjectsPage = () => {
             </div>
             
             {/* Project details (outside the block) */}
-            <h3 className="text-xl font-bold mb-1">{project.name}</h3>
+            <h3 className="text-xl font-bold mb-2">{project.name}</h3>
             <p className="text-center text-gray-700 mb-4">{project.description}</p>
             
             {/* Links */}

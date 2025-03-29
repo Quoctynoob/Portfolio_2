@@ -7,6 +7,7 @@ import ProjectsPage from "./tabs/ProjectsPage";
 import FloatingNavbar from "./FloatingNavbar";
 import WorkPage from "./tabs/WorkPage";
 import LoadingScreen from "./LoadingScreen";
+import Footer from "./Footer";
 
 export default function MainPage() {
   const [view, setView] = useState<string>('home');
@@ -52,7 +53,7 @@ export default function MainPage() {
       {isLoading ? (
         <LoadingScreen onLoadingComplete={handleLoadingComplete} />
       ) : (
-        <div className={`${showContent ? 'block' : 'hidden'}`}>
+        <div className={`flex flex-col min-h-screen ${showContent ? 'block' : 'hidden'}`}>
           {/* Top Navbar - Pure fade in, no slide */}
           <nav className="flex justify-between items-center bg-lightGreen p-4 text-darkMint navbar-fade">
             {/* Logo on the left */}
@@ -102,6 +103,11 @@ export default function MainPage() {
           <main className="flex-grow text-darkMint">
             {renderContent()}
           </main>
+
+          {/* Footer component */}
+          <div className="navbar-fade">
+            <Footer />
+          </div>
 
           {/* FloatingNavbar - Same animation timing as top navbar */}
           <div className="navbar-fade">
