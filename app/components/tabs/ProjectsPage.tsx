@@ -103,6 +103,11 @@ const ProjectsPage = () => {
     return project.category.includes(activeFilter as 'completed' | 'ongoing' | 'side project' | 'academic');
   });
 
+  // Function to format category names
+  const formatCategory = (category: string) => {
+    return category.charAt(0).toUpperCase() + category.slice(1);
+  };
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl font-noto">
       <p className="text-4xl font-bold mb-8 text-center">My Projects</p>
@@ -129,7 +134,7 @@ const ProjectsPage = () => {
       {/* Projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
-          <div key={project.id} className="flex flex-col items-center project-card">
+          <div key={project.id} className="flex flex-col items-left project-card">
             {/* Project image block with hover effect */}
             <div className="relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4">
               <div className="relative w-full h-full flex items-center justify-center">
@@ -143,36 +148,53 @@ const ProjectsPage = () => {
               </div>
             </div>
             
-            {/* Project details (outside the block) */}
-            <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-            <p className="text-center text-gray-700 mb-4">{project.description}</p>
-            
-            {/* Links */}
-            <div className="flex space-x-4 mt-auto">
-              <Link 
-                href={project.github} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center px-4 py-2 bg-teal-600/70 hover:bg-teal-600 text-white rounded-full transition-colors duration-300 project-link"
-              >
-                <Image src="/icons/github.svg" width={20} height={20} alt="GitHub" className=" filter invert" />
-              </Link>
+            {/* Project header with title and links */}
+            <div className="w-full flex items-center justify-between mb-2">
+              <h3 className="text-xl font-bold">{project.name}</h3>
               
-              {project.website && (
+              {/* Links moved next to title */}
+              <div className="flex space-x-2">
                 <Link 
-                  href={project.website} 
+                  href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center px-4 py-2 bg-mintGreen hover:bg-mintGreen/80 text-darkMint rounded-full transition-colors duration-300 project-link"
+                  className="flex items-center justify-center w-8 h-8  hover:bg-teal-600 text-white rounded-full transition-colors duration-300"
+                  aria-label={`GitHub repo for ${project.name}`}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-0">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-
+                  <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
                 </Link>
-              )}
+                
+                {project.website && (
+                  <Link 
+                    href={project.website} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-8 h-8  hover:bg-mintGreen/80 text-darkMint rounded-full transition-colors duration-300"
+                    aria-label={`Live website for ${project.name}`}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </Link>
+                )}
+              </div>
+            </div>
+            
+            {/* Project description */}
+            <p className="text-left text-gray-700 mb-2 w-full">{project.description}</p>
+            
+            {/* Project categories */}
+            <div className="flex flex-wrap gap-2 mt-1 w-full">
+              {project.category.map((cat, index) => (
+                <span 
+                  key={index} 
+                  className="text-xs px-2 py-1 bg-teal-100 text-teal-800 rounded-full"
+                >
+                  {formatCategory(cat)}
+                </span>
+              ))}
             </div>
           </div>
         ))}
