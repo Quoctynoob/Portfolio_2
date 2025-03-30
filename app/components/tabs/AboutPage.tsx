@@ -56,12 +56,10 @@ const AboutPage = () => {
               HI! I'm Quoc Le, an aspiring software developer based in Toronto, Canada.
             </p>
             <p className="mb-4 text-lg">
-              [Your personal description here] Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Mauris egestas, nisi vitae hendrerit sagittis, nunc justo commodo urna, eget rhoncus nulla mi nec dolor.
+              
             </p>
             <p className="mb-4 text-lg">
-              [Your skills/interests here] Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Suspendisse sed fermentum nisl, non convallis ligula.
+              
             </p>
           </div>
         </div>
