@@ -275,3 +275,35 @@
 }
 
 
+/* Add these styles to your globals.css file */
+
+/* Smooth scrolling for the entire site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* About page item animations - staggered delays */
+.about-item-1 {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.about-item-2 {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Block hover effect */
+@keyframes floatUp {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.block-hover:hover {
+  animation: floatUp 0.8s ease-in-out;
+  box-shadow: 0 10px 25px -5px rgba(7, 39, 26, 0.1);
+  background-color: rgb(229, 255, 246, 0.5);
+}
