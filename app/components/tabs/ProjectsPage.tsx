@@ -12,7 +12,7 @@ type Project = {
   image: string;
   github: string;
   website?: string;
-  category: ('completed' | 'ongoing' | 'personal' | 'academic' | 'side project')[];
+  category: ('completed' | 'ongoing' | 'side project' | 'academic' )[];
 };
 
 // Define category type to match the potential filter values
@@ -100,7 +100,7 @@ const ProjectsPage = () => {
   // Filter projects based on active filter
   const filteredProjects = projectsData.filter(project => {
     if (activeFilter === "all") return true;
-    return project.category.includes(activeFilter as 'completed' | 'ongoing' | 'personal' | 'academic');
+    return project.category.includes(activeFilter as 'completed' | 'ongoing' | 'side project' | 'academic');
   });
 
   return (
@@ -110,7 +110,7 @@ const ProjectsPage = () => {
       {/* Filter tabs */}
       <div className="flex justify-center mb-12 overflow-x-auto">
         <div className="flex space-x-2 sm:space-x-4 bg-lightGreen backdrop-blur-md px-4 py-2 rounded-full">
-          {["all", "completed", "ongoing", "personal", "academic"].map((filter) => (
+          {["all", "completed", "ongoing", "side project", "academic"].map((filter) => (
             <button
               key={filter}
               onClick={() => setActiveFilter(filter as CategoryType)}

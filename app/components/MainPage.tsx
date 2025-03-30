@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import AboutPage from "./tabs/AboutPage";
 import HomePage from "./tabs/HomePage";
 import ProjectsPage from "./tabs/ProjectsPage";
-import FloatingNavbar from "./FloatingNavbar";
+import DockNavbar from "./DockNavbar";
 import WorkPage from "./tabs/WorkPage";
 import LoadingScreen from "./LoadingScreen";
 import Footer from "./Footer";
@@ -109,9 +109,9 @@ export default function MainPage() {
             <Footer />
           </div>
 
-          {/* FloatingNavbar - Same animation timing as top navbar */}
+          {/* DockNavbar - Same animation timing as top navbar */}
           <div className="navbar-fade">
-            <FloatingNavbar />
+            <DockNavbar />
           </div>
         </div>
       )}
