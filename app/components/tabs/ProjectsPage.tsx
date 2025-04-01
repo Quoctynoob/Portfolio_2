@@ -248,7 +248,7 @@ const ProjectsPage = () => {
                   href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-8 h-8 hover:bg-teal-600 text-white rounded-full transition-colors duration-300"
+                  className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-white rounded-full transition-colors duration-300"
                   aria-label={`GitHub repo for ${project.name}`}
                 >
                   <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
@@ -259,7 +259,7 @@ const ProjectsPage = () => {
                     href={project.website} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-8 h-8 hover:bg-mintGreen/80 text-darkMint rounded-full transition-colors duration-300"
+                    className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-darkMint rounded-full transition-colors duration-300"
                     aria-label={`Live website for ${project.name}`}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
