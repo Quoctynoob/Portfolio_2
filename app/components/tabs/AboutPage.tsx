@@ -38,9 +38,9 @@ const AboutPage = () => {
       <section className="flex flex-col md:flex-row min-h-[80vh] p-6 md:p-10">
         {/* Left side - Profile Image */}
         <div className="w-full md:w-1/2 flex justify-start items-center p-0 md:pl-0 about-item-1">
-          <div className="relative w-full h-[50vh] md:h-[80vh] overflow-hidden rounded-3xl">
+          <div className="relative w-[80vh] h-[50vh] md:h-[60vh] overflow-hidden rounded-3xl">
             <Image 
-              src="/projects/leon_pics.jpg" 
+              src="/projects/leon_pics_2.jpg" 
               alt="Quoc Le" 
               fill 
               className="object-cover object-center" 
@@ -51,10 +51,23 @@ const AboutPage = () => {
         
         {/* Right side - Text content */}
         <div className="w-full md:w-1/2 flex flex-col justify-center p-4 md:p-10 about-item-2">
-          <h2 className="text-3xl md:text-4xl font-bold text-darkMint mb-6 font-noto">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-darkMint mb-6 font-noto"></h2>
           <div className="prose text-darkMint/90 max-w-none">
-            <p className="mb-4 text-lg">
-              HI! I'm Quoc Le, an aspiring software developer based in Toronto, Canada.
+            <p className="mb-4 text-lg font-noto">
+              <b>Hi! I'm Quoc Le, but you can call me Leon.</b>
+              <br /><br />
+              Welcome to my site, where I showcase my career journey, my ongoing or imperfect project, and many other things
+              I'm exploring with.
+              <br /><br />
+              I'm a Computer Science and Geomatics student at the University of Guelph with a passion for building 
+              clean, useful, and creative software. I'm especially into game development and full-stack apps.
+              <br /><br />
+              Right now, I'm working on the mobile version of frijio, a smart food management app I co-built to help reduce waste 
+              and make grocery planning easier.
+              <br /><br />
+              When I'm not building, I like playing badminton, tennis, climbing TFT ladder, or working on new project ideas.
+              <br /><br />
+              I'm currently on the lookout for opportunities where I can grow, contribute, and work with inspiring people.
             </p>
             <p className="mb-4 text-lg">
               
@@ -62,16 +75,6 @@ const AboutPage = () => {
             <p className="mb-4 text-lg">
               
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Animation Video Section */}
-      <section className="px-6 md:px-10 py-16 about-item-2">
-        <h3 className="text-2xl md:text-3xl font-bold text-darkMint mb-6 font-noto text-center">My Animation</h3>
-        <div className="max-w-3xl mx-auto">
-          <div className="relative overflow-hidden rounded-xl shadow-xl">
-            
           </div>
         </div>
       </section>
@@ -79,7 +82,7 @@ const AboutPage = () => {
       {/* Four blocks section */}
       <section 
         ref={sectionRef} 
-        className="px-6 md:px-10 py-16 bg-mintGreen/20"
+        className="px-6 md:px-10 py-16 bg-lightGreen"
       >
         <div>
 
@@ -100,15 +103,6 @@ const AboutPage = () => {
             <h3 className="text-xl font-bold text-teal-600 mb-3">Skills</h3>
             <p className="text-darkMint/80">
               Your skills details here...
-            </p>
-          </div>
-
-          {/* Block 3 */}
-          <div className={` p-6 rounded-lg shadow-md transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-               style={{ transitionDelay: '300ms' }}>
-            <h3 className="text-xl font-bold text-teal-600 mb-3">Experience</h3>
-            <p className="text-darkMint/80">
-              Your experience details here...
             </p>
           </div>
 

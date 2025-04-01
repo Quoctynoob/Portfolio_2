@@ -16,24 +16,10 @@ type WorkExperience = {
 const workExperiences: WorkExperience[] = [
   {
     id: 1,
-    period: "Aug 2024 - May 2025",
-    company: "TechCorp Solutions",
-    position: "", // Left blank as requested
+    period: "May 2024 - Aug 2024",
+    company: "Fracht Group",
+    position: "IT Support Specialist",
     viewName: "job1"
-  },
-  {
-    id: 2,
-    period: "Jan 2024 - Jul 2024",
-    company: "Digital Innovations",
-    position: "", // Left blank as requested
-    viewName: "job2"
-  },
-  {
-    id: 3,
-    period: "May 2023 - Dec 2023",
-    company: "WebDev Studio",
-    position: "", // Left blank as requested
-    viewName: "job3"
   },
 ];
 
@@ -66,11 +52,7 @@ const TimelineEntry = ({
       {/* Left side timeline with dot */}
       <div className="flex items-start">
         {/* Left column with timeline */}
-        <div className="relative flex flex-col items-center mr-4">
-          <div className={`w-4 h-4 rounded-full border-2 ${isHovered ? 'bg-teal-500 border-teal-600' : 'bg-mintGreen border-teal-200'} z-10 transition-colors duration-300`}></div>
-          <div className="w-0.5 h-full bg-gradient-to-b from-teal-500 to-mintGreen absolute top-4"></div>
-        </div>
-
+       
         {/* Job information column */}
         <div className="flex-grow group">
           {/* Period */}
