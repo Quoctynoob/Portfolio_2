@@ -78,46 +78,44 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Four blocks section */}
-      <section 
-        ref={sectionRef} 
-        className="px-6 md:px-10 py-16 bg-lightGreen"
-      >
-        <div>
-
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Block 1 */}
-          <div className={`bg-mintCream p-6 rounded-lg shadow-md transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} 
-               style={{ transitionDelay: '100ms' }}>
-            <h3 className="text-xl font-bold text-teal-600 mb-3">Education</h3>
-            <p className="text-darkMint/80">
-              Your education details here...
-            </p>
-          </div>
-
-          {/* Block 2 */}
-          <div className={`p-6 rounded-lg transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-               style={{ transitionDelay: '200ms' }}>
-            <h3 className="text-xl font-bold text-teal-600 mb-3">Skills</h3>
-            <p className="text-darkMint/80">
-              Your skills details here...
-            </p>
-          </div>
-
-          {/* Block 4 */}
-          <div className={` p-6 rounded-lg shadow-md transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
-               style={{ transitionDelay: '400ms' }}>
-            <h3 className="text-xl font-bold text-teal-600 mb-3">Interests</h3>
-            <p className="text-darkMint/80">
-              Your interests details here...
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
 
 export default AboutPage;
+
+
+/*
+<section 
+ref={sectionRef} 
+className="px-6 md:px-10 py-16 bg-lightGreen"
+>
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  
+  <div className={`bg-mintCream p-6 rounded-lg shadow-md transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} 
+       style={{ transitionDelay: '100ms' }}>
+    <h3 className="text-xl font-bold text-teal-600 mb-3">Education</h3>
+    <p className="text-darkMint/80">
+      Your education details here...
+    </p>
+  </div>
+
+ 
+  <div className={`p-6 rounded-lg transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+       style={{ transitionDelay: '200ms' }}>
+    <h3 className="text-xl font-bold text-teal-600 mb-3">Skills</h3>
+    <p className="text-darkMint/80">
+      Your skills details here...
+    </p>
+  </div>
+
+  
+  <div className={` p-6 rounded-lg shadow-md transition-all duration-700 transform block-hover ${blocksVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+       style={{ transitionDelay: '400ms' }}>
+    <h3 className="text-xl font-bold text-teal-600 mb-3">Interests</h3>
+    <p className="text-darkMint/80">
+      Your interests details here...
+    </p>
+  </div>
+</div>
+</section>*/
