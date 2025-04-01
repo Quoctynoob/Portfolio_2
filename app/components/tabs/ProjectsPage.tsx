@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 // Define project type
 type Project = {
@@ -12,13 +13,103 @@ type Project = {
   image: string;
   github: string;
   website?: string;
-  category: ('completed' | 'ongoing' | 'side project' | 'academic' )[];
+  category: ('completed' | 'ongoing' | 'side project' | 'academic')[];
 };
 
 // Define category type to match the potential filter values
 type CategoryType = 'all' | 'completed' | 'ongoing' | 'side project' | 'academic';
 
-// Sample projects data (you can replace with your actual projects)
+// NavHeader component
+const NavHeader = ({ 
+  activeFilter, 
+  setActiveFilter 
+}: { 
+  activeFilter: CategoryType; 
+  setActiveFilter: (filter: CategoryType) => void;
+}) => {
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
+
+  const filters: CategoryType[] = ["all", "completed", "ongoing", "side project", "academic"];
+
+  return (
+    <ul
+      className="relative mx-auto flex w-fit rounded-full p-1"
+      onMouseLeave={() => setPosition((pv) => ({ ...pv, opacity: 0 }))}
+    >
+      {filters.map((filter) => (
+        <Tab 
+          key={filter} 
+          setPosition={setPosition} 
+          isActive={activeFilter === filter}
+          onClick={() => setActiveFilter(filter)}
+        >
+          {filter.charAt(0).toUpperCase() + filter.slice(1)}
+        </Tab>
+      ))}
+      <Cursor position={position} />
+    </ul>
+  );
+};
+
+const Tab = ({
+  children,
+  setPosition,
+  isActive,
+  onClick,
+}: {
+  children: React.ReactNode;
+  setPosition: React.Dispatch<React.SetStateAction<{
+    left: number;
+    width: number;
+    opacity: number;
+  }>>;
+  isActive: boolean;
+  onClick: () => void;
+}) => {
+  const ref = useRef<HTMLLIElement>(null);
+  
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref.current) return;
+        const { width } = ref.current.getBoundingClientRect();
+        setPosition({
+          width,
+          opacity: 1,
+          left: ref.current.offsetLeft,
+        });
+      }}
+      onClick={onClick}
+      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-darkMint md:px-5 md:py-3 md:text-base ${
+        isActive ? "font-bold" : ""
+      }`}
+    >
+      {children}
+    </li>
+  );
+};
+
+const Cursor = ({ position }: { 
+  position: {
+    left: number;
+    width: number;
+    opacity: number;
+  }; 
+}) => {
+  return (
+    <motion.li
+      animate={position}
+      className="absolute z-0 h-7 rounded-full bg-teal-500 md:h-12"
+    />
+  );
+};
+
+// Sample projects data
 const projectsData: Project[] = [
   {
     id: 1,
@@ -31,6 +122,15 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
+    name: "Frijio mobile",
+    description: "IOS version of Frijio, making it easier to manage your household on the go.",
+    image: "/projects/frij_mobile.png",
+    github: "https://github.com/Quoctynoob",
+    website: "https://github.com/Quoctynoob",
+    category: ["ongoing", "side project"]
+  },
+  {
+    id: 3,
     name: "Convoco",
     description: "A real-time debate platform with AI moderation, fact-checking, translations, and rewards.",
     image: "/projects/Convoco.png",
@@ -39,7 +139,7 @@ const projectsData: Project[] = [
     category: ["completed", "side project"]
   },
   {
-    id: 3,
+    id: 4,
     name: "Tennis Locator",
     description: "Research project on neural networks for image classification",
     image: "/projects/tennisproject.jpg",
@@ -48,7 +148,7 @@ const projectsData: Project[] = [
     category: ["ongoing", "side project"]
   },
   {
-    id: 4,
+    id: 5,
     name: "eAssetTracker",
     description: "Cross-platform mobile application built with React Native",
     image: "/projects/eTracker.png",
@@ -57,7 +157,7 @@ const projectsData: Project[] = [
     category: ["ongoing", "side project"]
   },
   {
-    id: 5,
+    id: 6,
     name: "Online Menu",
     description: "Simple online and responsive menu to assist with local business",
     image: "/projects/restaurantproject.jpg",
@@ -66,7 +166,7 @@ const projectsData: Project[] = [
     category: ["completed", "side project"]
   },
   {
-    id: 6,
+    id: 7,
     name: "Car Management System",
     description: "Simple command-line application to manage car inventory",
     image: "/projects/Car_management.png",
@@ -74,7 +174,7 @@ const projectsData: Project[] = [
     category: ["completed", "academic"]
   },
   {
-    id: 7,
+    id: 8,
     name: "Todo List",
     description: "Simple Todo-list",
     image: "/projects/firebaseproject.jpg",
@@ -83,7 +183,7 @@ const projectsData: Project[] = [
     category: ["completed", "academic"]
   },
   {
-    id: 8,
+    id: 9,
     name: "Joke/Weather Generator",
     description: "Simple Joke/Weather Generator using API",
     image: "/projects/jokeGenerator.jpg",
@@ -112,23 +212,9 @@ const ProjectsPage = () => {
     <div className="container mx-auto px-4 py-12 max-w-7xl font-noto">
       <p className="text-4xl font-bold mb-8 text-center">My Projects</p>
       
-      {/* Filter tabs */}
-      <div className="flex justify-center mb-12 overflow-x-auto">
-        <div className="flex space-x-2 sm:space-x-4 bg-lightGreen backdrop-blur-md px-4 py-2 rounded-full">
-          {["all", "completed", "ongoing", "side project", "academic"].map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter as CategoryType)}
-              className={`px-4 py-2 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
-                activeFilter === filter
-                  ? "bg-teal-500 text-white shadow-md filter-active"
-                  : "text-darkMint hover:bg-teal-500/20"
-              }`}
-            >
-              {filter.charAt(0).toUpperCase() + filter.slice(1)}
-            </button>
-          ))}
-        </div>
+      {/* New Navigation Header */}
+      <div className="flex justify-center mb-12">
+        <NavHeader activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       </div>
       
       {/* Projects grid */}
@@ -158,7 +244,7 @@ const ProjectsPage = () => {
                   href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-8 h-8  hover:bg-teal-600 text-white rounded-full transition-colors duration-300"
+                  className="flex items-center justify-center w-8 h-8 hover:bg-teal-600 text-white rounded-full transition-colors duration-300"
                   aria-label={`GitHub repo for ${project.name}`}
                 >
                   <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
@@ -169,7 +255,7 @@ const ProjectsPage = () => {
                     href={project.website} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-8 h-8  hover:bg-mintGreen/80 text-darkMint rounded-full transition-colors duration-300"
+                    className="flex items-center justify-center w-8 h-8 hover:bg-mintGreen/80 text-darkMint rounded-full transition-colors duration-300"
                     aria-label={`Live website for ${project.name}`}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

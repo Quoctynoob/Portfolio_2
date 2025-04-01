@@ -97,8 +97,8 @@
 
 .content-item-3 {
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.9s; /* Resume button */
+  animation: fadeInUp 0.6s ease-out forwards;
+  animation-delay: 0.7s; /* Resume button */
 }
 
 /* Project card styles */
