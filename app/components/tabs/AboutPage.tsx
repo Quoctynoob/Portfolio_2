@@ -71,16 +71,7 @@ const AboutPage = () => {
         <h3 className="text-2xl md:text-3xl font-bold text-darkMint mb-6 font-noto text-center">My Animation</h3>
         <div className="max-w-3xl mx-auto">
           <div className="relative overflow-hidden rounded-xl shadow-xl">
-            <video 
-              className="w-full h-full object-cover"
-              src="/videos/Me_moving.mov"
-              autoPlay
-              muted
-              loop
-              playsInline
-            >
-              Your browser does not support the video tag.
-            </video>
+            
           </div>
         </div>
       </section>

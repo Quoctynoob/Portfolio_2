@@ -6,11 +6,15 @@ import HomePage from "./tabs/HomePage";
 import ProjectsPage from "./tabs/ProjectsPage";
 import DockNavbar from "./DockNavbar";
 import WorkPage from "./tabs/WorkPage";
+import Job1 from "./tabs/Job1";
+import Job2 from "./tabs/Job2";
+import Job3 from "./tabs/Job3";
 import LoadingScreen from "./LoadingScreen";
 import Footer from "./Footer";
 
 export default function MainPage() {
   const [view, setView] = useState<string>('home');
+  const [jobView, setJobView] = useState<string | null>(null);
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showContent, setShowContent] = useState<boolean>(false);
@@ -35,18 +39,44 @@ export default function MainPage() {
     return view === tab || hoveredTab === tab ? 'w-full' : 'w-0';
   };
 
+  // Handle tab click (main navigation)
+  const handleTabClick = (tabName: string) => {
+    setView(tabName);
+    setJobView(null); // Reset job view when changing tabs
+  };
+
+  // Handle job selection from WorkPage
+  const handleJobSelect = (jobViewName: string) => {
+    setJobView(jobViewName);
+  };
+
   const renderContent = () => {
+    // First check if we're in work section and have a job selected
+    if (view === 'work' && jobView) {
+      switch (jobView) {
+        case 'job1':
+          return <Job1 />;
+        case 'job2':
+          return <Job2 />;
+        case 'job3':
+          return <Job3 />;
+        default:
+          return <WorkPage onJobSelect={handleJobSelect} />;
+      }
+    }
+    
+    // Otherwise render based on main view
     switch (view) {
       case 'about':
-        return <AboutPage />
+        return <AboutPage />;
       case 'projects':
-        return <ProjectsPage />
+        return <ProjectsPage />;
       case 'work':
-        return <WorkPage />
+        return <WorkPage onJobSelect={handleJobSelect} />;
       default:
-        return <HomePage />
+        return <HomePage />;
     }
-  }
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-lightGreen">
@@ -60,7 +90,7 @@ export default function MainPage() {
             <div>
               <button 
                 className="p-2 px-4 font-semibold md:text-3xl font-play"
-                onClick={() => setView('home')}
+                onClick={() => handleTabClick('home')}
               >
                 Quoc Le
               </button>
@@ -70,7 +100,7 @@ export default function MainPage() {
             <div className="flex gap-4 font-noto">
               <button 
                 className="p-2 px-4 group"
-                onClick={() => setView('about')} 
+                onClick={() => handleTabClick('about')} 
                 onMouseEnter={() => setHoveredTab('about')} 
                 onMouseLeave={() => setHoveredTab(null)}
               >
@@ -80,7 +110,7 @@ export default function MainPage() {
 
               <button 
                 className="p-2 px-4 group"
-                onClick={() => setView('projects')} 
+                onClick={() => handleTabClick('projects')} 
                 onMouseEnter={() => setHoveredTab('projects')} 
                 onMouseLeave={() => setHoveredTab(null)}
               >
@@ -90,7 +120,7 @@ export default function MainPage() {
 
               <button 
                 className="p-2 px-4 group"
-                onClick={() => setView('work')} 
+                onClick={() => handleTabClick('work')} 
                 onMouseEnter={() => setHoveredTab('work')} 
                 onMouseLeave={() => setHoveredTab(null)}
               >
