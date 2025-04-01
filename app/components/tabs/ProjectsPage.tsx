@@ -14,6 +14,7 @@ type Project = {
   github: string;
   website?: string;
   category: ('completed' | 'ongoing' | 'side project' | 'academic')[];
+  isVertical?: boolean; // Added property to handle vertical images
 };
 
 // Define category type to match the potential filter values
@@ -127,7 +128,8 @@ const projectsData: Project[] = [
     image: "/projects/frij_mobile.png",
     github: "https://github.com/Quoctynoob",
     website: "https://github.com/Quoctynoob",
-    category: ["ongoing", "side project"]
+    category: ["ongoing", "side project"],
+    isVertical: true // Mark the iPhone image as vertical
   },
   {
     id: 3,
@@ -221,7 +223,7 @@ const ProjectsPage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project) => (
           <div key={project.id} className="flex flex-col items-left project-card">
-            {/* Project image block with hover effect */}
+            {/* Project image block with hover effect - All containers have the same size */}
             <div className="relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4">
               <div className="relative w-full h-full flex items-center justify-center">
                 <Image
@@ -229,7 +231,9 @@ const ProjectsPage = () => {
                   alt={project.name}
                   width={500}
                   height={300}
-                  className="rounded-lg object-cover max-w-[85%] max-h-[85%] project-image"
+                  className={`rounded-lg ${project.isVertical 
+                    ? 'object-contain max-h-[90%] max-w-[50%]' 
+                    : 'object-cover max-w-[85%] max-h-[85%]'} project-image`}
                 />
               </div>
             </div>

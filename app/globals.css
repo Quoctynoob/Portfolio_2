@@ -132,9 +132,7 @@
   justify-content: center;
 }
 
-.project-image-container:hover {
-  box-shadow: 0 8px 20px rgba(7, 39, 26, 0.15);
-}
+
 
 .project-image {
   transition: transform 0.5s ease;
