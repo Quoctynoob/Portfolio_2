@@ -10,29 +10,52 @@ export default function HomePage() {
       {/* First item - Animated Hi! */}
       <div>
         <VerticalCutReveal 
-          splitBy="characters"
-          staggerDuration={0.25}
+          splitBy="lines"
+          staggerDuration={0.7}
           reverse={false}
+          staggerFrom="first"
           containerClassName="text-4xl md:text-6xl mb-2 font-noto font-semibold"
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 30,
+          }}
         >
-          Hi!
+          {'Hi!'}
         </VerticalCutReveal>
       </div>
       
-      {/* Second item - Description with line split */}
       <div className=" sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
         <VerticalCutReveal 
           splitBy="lines"
-          staggerDuration={0.35}
-          staggerFrom="first"
+          staggerDuration={0.8}
+          reverse={false}
+          staggerFrom="center"
           containerClassName="flex flex-col items-center justify-center"
           transition={{
             type: "spring",
             stiffness: 100,
-            damping: 20,
+            damping: 40,
+          }}
+          
+        >
+          {`I'm Quoc Le, Aspiring Software`}
+        </VerticalCutReveal>
+      </div>
+      {/* Second item - Description with line split */}
+      <div className=" sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
+        <VerticalCutReveal 
+          splitBy="lines"
+          staggerDuration={0.9}
+          staggerFrom="last"
+          containerClassName="flex flex-col items-center justify-center"
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 40,
           }}
         >
-          {`I'm Quoc Le, Aspiring Software\nDeveloper based in Toronto, Canada.`}
+          {`Developer based in Toronto, Canada.`}
         </VerticalCutReveal>
       </div>
       
