@@ -13,12 +13,12 @@ type Project = {
   image: string;
   github: string;
   website?: string;
-  category: ('completed' | 'ongoing' | 'side project' | 'academic')[];
+  category: ('completed' | 'ongoing' | 'side projects' | 'academic')[];
   isVertical?: boolean; // Added property to handle vertical images
 };
 
 // Define category type to match the potential filter values
-type CategoryType = 'all' | 'completed' | 'ongoing' | 'side project' | 'academic';
+type CategoryType = 'all' | 'completed' | 'ongoing' | 'side projects' | 'academic';
 
 // NavHeader component
 const NavHeader = ({ 
@@ -34,7 +34,7 @@ const NavHeader = ({
     opacity: 0,
   });
 
-  const filters: CategoryType[] = ["all", "completed", "ongoing", "side project", "academic"];
+  const filters: CategoryType[] = ["all", "completed", "ongoing", "side projects", "academic"];
 
   return (
     <ul
@@ -119,7 +119,7 @@ const projectsData: Project[] = [
     image: "/projects/Frijio.PNG",
     github: "https://github.com/megdcosta/frijio",
     website: "https://frijio.vercel.app",
-    category: ["completed", "side project"]
+    category: ["completed", "side projects"]
   },
   {
     id: 2,
@@ -128,7 +128,7 @@ const projectsData: Project[] = [
     image: "/projects/frij_mobile.png",
     github: "https://github.com/Quoctynoob",
     website: "https://github.com/Quoctynoob",
-    category: ["ongoing", "side project"],
+    category: ["ongoing", "side projects"],
     isVertical: true // Mark the iPhone image as vertical
   },
   {
@@ -138,7 +138,7 @@ const projectsData: Project[] = [
     image: "/projects/Convoco.png",
     github: "https://github.com/Quoctynoob/Convoco",
     website: "https://convoco.vercel.app/debates",
-    category: ["completed", "side project"]
+    category: ["completed", "side projects"]
   },
   {
     id: 4,
@@ -147,7 +147,7 @@ const projectsData: Project[] = [
     image: "/projects/tennisproject.jpg",
     github: "https://github.com/Quoctynoob/Tennis_Locator",
     website: "https://tennis-locator.vercel.app/",
-    category: ["ongoing", "side project"]
+    category: ["ongoing", "side projects"]
   },
   {
     id: 5,
@@ -156,7 +156,7 @@ const projectsData: Project[] = [
     image: "/projects/eTracker.png",
     github: "https://github.com/Quoctynoob",
     website: "https://stock-portfolio-management-lac.vercel.app",
-    category: ["ongoing", "side project"]
+    category: ["ongoing", "side projects"]
   },
   {
     id: 6,
@@ -165,7 +165,7 @@ const projectsData: Project[] = [
     image: "/projects/restaurantproject.jpg",
     github: "https://github.com/Quoctynoob/Me-s-restaurant",
     website: "https://quoctynoob.github.io/Me-s-restaurant/",
-    category: ["completed", "side project"]
+    category: ["completed", "side projects"]
   },
   {
     id: 7,
@@ -202,7 +202,7 @@ const ProjectsPage = () => {
   // Filter projects based on active filter
   const filteredProjects = projectsData.filter(project => {
     if (activeFilter === "all") return true;
-    return project.category.includes(activeFilter as 'completed' | 'ongoing' | 'side project' | 'academic');
+    return project.category.includes(activeFilter as 'completed' | 'ongoing' | 'side projects' | 'academic');
   });
 
   // Function to format category names
