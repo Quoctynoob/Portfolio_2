@@ -39,7 +39,7 @@ export default function HomePage() {
           }}
           
         >
-          {`I'm Quoc Le, Aspiring Software`}
+          {`I'm Quoc Le, an aspiring Software`}
         </VerticalCutReveal>
       </div>
       {/* Second item - Description with line split */}
