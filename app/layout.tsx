@@ -45,7 +45,7 @@ const dancingScript = Dancing_Script({
 
 const notoSerifDisplay = Noto_Serif_Display({
   subsets: ['latin'],
-  weight: ['300'],
+  weight: ['400'],
   variable: '--font-noto-serif-display',
   display: 'swap'
 });
