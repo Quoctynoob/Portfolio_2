@@ -83,7 +83,7 @@ const NavHeader = ({
             }
           }}
           onClick={() => setActiveFilter(filter)}
-          className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase md:px-5 md:py-3 md:text-base  ${
+          className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase md:px-5 md:py-3 md:text-base ${
             activeFilter === filter 
           }`}
         >
