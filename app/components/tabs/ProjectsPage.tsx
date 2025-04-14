@@ -86,8 +86,8 @@ const Tab = ({
         });
       }}
       onClick={onClick}
-      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-darkMint md:px-5 md:py-3 md:text-base ${
-        isActive ? "font-bold" : ""
+      className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-darkMint md:px-5 md:py-3 md:text-base font-semibold ${
+        isActive ? "" : ""
       }`}
     >
       {children}

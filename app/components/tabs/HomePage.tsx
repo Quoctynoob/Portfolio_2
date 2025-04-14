@@ -6,7 +6,7 @@ import { VerticalCutReveal } from "../animations/VerticalCutReveal";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center md:min-h-[80vh] text-center px-4">
+    <div className="flex flex-col items-center justify-center md:min-h-[80vh] text-center px-4 font-noto">
       {/* First item - Animated Hi! */}
       <div>
         <VerticalCutReveal 
@@ -14,7 +14,7 @@ export default function HomePage() {
           staggerDuration={0.7}
           reverse={false}
           staggerFrom="first"
-          containerClassName="text-4xl md:text-6xl mb-2 font-noto font-semibold"
+          containerClassName="text-4xl md:text-6xl mb-2 font-noto"
           transition={{
             type: "spring",
             stiffness: 100,
