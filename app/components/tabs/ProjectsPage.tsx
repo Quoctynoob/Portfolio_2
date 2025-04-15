@@ -245,7 +245,7 @@ const ProjectsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl font-noto">
-      <p className="text-4xl font-bold mb-8 text-center">My Projects</p>
+      <h1 className="text-4xl font-bold mb-8 text-center">My Projects<span className='text-teal-500'>.</span></h1>
       
       {/* Navigation Header */}
       <div className="flex justify-center mb-12">
@@ -294,7 +294,7 @@ const ProjectsPage = () => {
                       href={project.github} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-white rounded-full transition-colors duration-300"
+                      className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-darkMint rounded-full transition-colors duration-300"
                       aria-label={`GitHub repo for ${project.name}`}
                     >
                       <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
@@ -305,7 +305,7 @@ const ProjectsPage = () => {
                         href={project.website} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-darkMint rounded-full transition-colors duration-300"
+                        className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-black rounded-full transition-colors duration-300"
                         aria-label={`Live website for ${project.name}`}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

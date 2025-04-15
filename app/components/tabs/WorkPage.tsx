@@ -101,7 +101,7 @@ const WorkPage: React.FC<WorkPageProps> = ({ onJobSelect }) => {
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl font-noto">
       <h2 className={`text-4xl font-bold mb-12 text-center transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-        Work Experience
+        Work Experiences<span className='text-teal-500'>.</span>
       </h2>
       
       <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
