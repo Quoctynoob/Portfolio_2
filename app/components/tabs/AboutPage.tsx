@@ -50,19 +50,57 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-        
           </motion.div>
           
-          <div className="md:col-span-7 space-y-12">
-          Welcome to my site, where I showcase my career journey, my ongoing or imperfect project, and many other things I'm exploring with.
+          {/* Right content section */}
+          <div className="md:col-span-5 space-y-8">
+            {/* Welcome text section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className=" rounded-xl relative h-[60vh] flex items-center"
+            >
+              <div className="flex flex-col h-full py-12 px-8 w-full">
+                <div className="self-start">
+                  <h2 className="text-4xl md:text-7xl lg:text-7xl font-noto font-bold text-darkMint">
+                    Thanks
+                  </h2>
+                </div>
+                
+                <div className="self-start">
+                  <h2 className="text-4xl md:text-7xl lg:text-7xl font-noto font-bold text-darkMint">
+                    for
+                  </h2>
+                </div>
+                
+                <div className="self-start">
+                  <h2 className="text-4xl md:text-7xl lg:text-7xl font-noto font-bold text-darkMint">
+                    stopping
+                  </h2>
+                </div>
 
-I'm a Computer Science and Geomatics student at the University of Guelph with a passion for building clean, useful, and creative software. I'm especially into game development and full-stack apps.
-
-Right now, I'm working on the mobile version of frijio, a smart food management app I co-built to help reduce waste and make grocery planning easier.
-
-When I'm not building, I like playing badminton, tennis, climbing TFT ladder, or working on new project ideas.
-
-I'm currently on the lookout for opportunities where I can grow, contribute, and work with inspiring people
+                <div className="self-start">
+                  <h2 className="text-4xl md:text-7xl lg:text-7xl font-noto font-bold text-darkMint">
+                    by!
+                  </h2>
+                </div>
+              </div>
+              
+              {/* Curved arrow - using your actual arrow image */}
+              <div className="absolute -bottom-16 right-8">
+                <Image 
+                  src="/image/arrow_1.png" 
+                  alt="Curved arrow" 
+                  width={120} 
+                  height={120} 
+                  className="object-contain"
+                />
+              </div>
+            </motion.div>
+            
+            {/* Space for future content */}
+            <div className="h-24"></div>
           </div>
         </div>
       </div>

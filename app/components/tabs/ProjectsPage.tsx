@@ -104,7 +104,7 @@ const NavHeader = ({
 const projectsData: Project[] = [
   {
     id: 1,
-    name: "Frijio",
+    name: "frijio",
     description: "A household management app for tracking inventory, splitting expenses, and suggesting AI-powered recipes.",
     image: "/projects/Frijio.PNG",
     github: "https://github.com/megdcosta/frijio",
@@ -113,8 +113,8 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    name: "Frijio mobile",
-    description: "IOS version of Frijio, making it easier to manage your household on the go.",
+    name: "frijio mobile",
+    description: "IOS version of frijio, making it easier to manage your household on the go.",
     image: "/projects/frij_mobile.png",
     github: "https://github.com/Quoctynoob",
     website: "https://github.com/Quoctynoob",
