@@ -14,6 +14,7 @@
   --color-beige1: #FAEDCD;
   --color-lightGreen: #E9EDC9;
   --color-lightGreen1: #CCD5AE;
+  --color-lightYellow: #e9db8e;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-play: var(--font-playWrite);
@@ -304,4 +305,33 @@ html {
   animation: floatUp 0.8s ease-in-out;
   box-shadow: 0 10px 25px -5px rgba(7, 39, 26, 0.1);
   background-color: rgb(229, 255, 246, 0.5);
+}
+
+
+.smooth-scroll-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Ensure fixed elements like nav and dock remain above the smooth scroll content */
+nav, .dock, [class*="fixed"] {
+  z-index: 50;
+}
+
+/* Adjust DockNavbar positioning to work with the smooth scroll setup */
+.smooth-scroll-container ~ .fixed {
+  position: fixed !important;
+  pointer-events: auto !important;
+}
+
+/* Override any pointer-events behavior for interactive elements */
+button, a, [role="button"] {
+  pointer-events: auto !important;
+}
+
+/* Fix for when body height changes (dynamic content) */
+html.overflow-hidden body {
+  overflow: hidden;
 }

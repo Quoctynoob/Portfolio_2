@@ -39,7 +39,7 @@ export default function HomePage() {
           }}
           
         >
-          {`I'm Quoc Le, an aspiring Software`}
+          {`I'm Quoc Le, a 2nd year Computer`}
         </VerticalCutReveal>
       </div>
       {/* Second item - Description with line split */}
@@ -55,7 +55,7 @@ export default function HomePage() {
             damping: 40,
           }}
         >
-          {`Developer based in Toronto, Canada.`}
+          {`Science student @UofGuelph.`}
         </VerticalCutReveal>
       </div>
       
