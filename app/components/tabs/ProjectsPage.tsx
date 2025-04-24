@@ -133,7 +133,7 @@ const projectsData: Project[] = [
   {
     id: 4,
     name: "Tennis Locator",
-    description: "Research project on neural networks for image classification",
+    description: "A full-stack app for real-time tennis court searches",
     image: "/projects/tennisproject.jpg",
     github: "https://github.com/Quoctynoob/Tennis_Locator",
     website: "https://tennis-locator.vercel.app/",
@@ -142,7 +142,7 @@ const projectsData: Project[] = [
   {
     id: 5,
     name: "eAssetTracker",
-    description: "Cross-platform mobile application built with React Native",
+    description: "App to help track and manage your assets valuable for trading and investing.",
     image: "/projects/eTracker.png",
     github: "https://github.com/Quoctynoob",
     website: "https://stock-portfolio-management-lac.vercel.app",
