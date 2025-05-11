@@ -157,7 +157,7 @@ const AboutPage = () => {
                   Quoc Le
                 </h2>
                 <p className="text-md md:text-md mb-8 text-darkMint/90">
-                  Thanks for stopping by! I'm a software engineer who likes exploring with all kinds of tech. I've worked 
+                  Thanks for stopping by! I'm a software developer who likes exploring with all kinds of tech. I've worked 
                   on web app, mobile, game develoment and pretty much anything that seems interesting at the moment.
                 </p>
               </div>

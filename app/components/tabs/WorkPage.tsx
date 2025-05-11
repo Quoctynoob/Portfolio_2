@@ -18,7 +18,7 @@ const workExperiences: WorkExperience[] = [
     id: 1,
     period: "May 2024 - Aug 2024",
     company: "Fracht Group",
-    position: "IT Support Specialist",
+    position: "IT Support Developer",
     viewName: "job1"
   },
 ];
