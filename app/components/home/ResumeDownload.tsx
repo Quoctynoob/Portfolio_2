@@ -3,21 +3,17 @@
 import React from 'react';
 
 export default function ResumeDownload() {
-  const handleDownload = () => {
-    const filePath = '/resume.pdf';
-    const link = document.createElement('a');
-    link.href = filePath;
-    link.download = 'resume.pdf';
-    link.click();
+  const handleOpen = () => {
+    window.open('/resume.pdf', '_blank');
   };
 
   return (
     <button 
       className="button-resume" 
-      onClick={handleDownload}
-      aria-label="Download Resume"
+      onClick={handleOpen}
+      aria-label="Open Resume"
     >
-      Download Resume
+      Open Resume
     </button>
   );
 }

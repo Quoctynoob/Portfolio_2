@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Define project type
+// Define project type with both categories and languages
 type Project = {
   id: number;
   name: string;
@@ -14,7 +14,8 @@ type Project = {
   github: string;
   website?: string;
   category: ('completed' | 'ongoing' | 'side projects' | 'academic')[];
-  isVertical?: boolean; // Added property to handle vertical images
+  languages: string[]; // Added languages field
+  isVertical?: boolean;
 };
 
 // Define category type to match the potential filter values
@@ -100,7 +101,7 @@ const NavHeader = ({
   );
 };
 
-// Sample projects data
+// Sample projects data with languages
 const projectsData: Project[] = [
   {
     id: 1,
@@ -109,7 +110,8 @@ const projectsData: Project[] = [
     image: "/projects/Frijio.PNG",
     github: "https://github.com/megdcosta/frijio",
     website: "https://frijio.vercel.app",
-    category: ["completed", "side projects"]
+    category: ["completed", "side projects"],
+    languages: ["React", "TypeScript", "Node.js", "Firestore", "OpenAI"]
   },
   {
     id: 2,
@@ -119,7 +121,8 @@ const projectsData: Project[] = [
     github: "https://github.com/Quoctynoob",
     website: "https://github.com/Quoctynoob",
     category: ["ongoing", "side projects"],
-    isVertical: true // Mark the iPhone image as vertical
+    languages: ["Swift", "Supabase", "OpenAI"],
+    isVertical: true
   },
   {
     id: 3,
@@ -128,7 +131,8 @@ const projectsData: Project[] = [
     image: "/projects/Convoco.png",
     github: "https://github.com/Quoctynoob/Convoco",
     website: "https://convoco.vercel.app/debates",
-    category: ["completed", "side projects"]
+    category: ["completed", "side projects"],
+    languages: ["React", "TypeScript", "Node.js", "Firestore"]
   },
   {
     id: 4,
@@ -137,7 +141,8 @@ const projectsData: Project[] = [
     image: "/projects/tennisproject.jpg",
     github: "https://github.com/Quoctynoob/Tennis_Locator",
     website: "https://tennis-locator.vercel.app/",
-    category: ["ongoing", "side projects"]
+    category: ["ongoing", "side projects"],
+    languages: ["React", "TypeScript", "Firestore"]
   },
   {
     id: 5,
@@ -146,7 +151,8 @@ const projectsData: Project[] = [
     image: "/projects/eTracker.png",
     github: "https://github.com/Quoctynoob",
     website: "https://stock-portfolio-management-lac.vercel.app",
-    category: ["ongoing", "side projects"]
+    category: ["ongoing", "side projects"],
+    languages: ["React", "TypeScript", "PostgreSQL"]
   },
   {
     id: 6,
@@ -155,7 +161,8 @@ const projectsData: Project[] = [
     image: "/projects/restaurantproject.jpg",
     github: "https://github.com/Quoctynoob/Me-s-restaurant",
     website: "https://quoctynoob.github.io/Me-s-restaurant/",
-    category: ["completed", "side projects"]
+    category: ["completed", "side projects"],
+    languages: ["HTML", "CSS", "JavaScript"]
   },
   {
     id: 7,
@@ -163,7 +170,8 @@ const projectsData: Project[] = [
     description: "Simple command-line application to manage car inventory",
     image: "/projects/Car_management.png",
     github: "https://github.com/Quoctynoob/Car-Management-System",
-    category: ["completed", "academic"]
+    category: ["completed", "academic"],
+    languages: ["C"]
   },
   {
     id: 8,
@@ -172,7 +180,8 @@ const projectsData: Project[] = [
     image: "/projects/firebaseproject.jpg",
     github: "https://github.com/Quoctynoob/Todo-List",
     website: "https://quoctynoob.github.io/Todo-List/",
-    category: ["completed", "academic"]
+    category: ["completed", "academic"],
+    languages: ["JavaScript", "Firebase", "HTML", "CSS"]
   },
   {
     id: 9,
@@ -181,7 +190,8 @@ const projectsData: Project[] = [
     image: "/projects/jokeGenerator.jpg",
     github: "https://github.com/Quoctynoob/Joke-Weather-Generator",
     website: "https://quoctynoob.github.io/Joke-Weather-Generator/",
-    category: ["completed", "academic"]
+    category: ["completed", "academic"],
+    languages: ["JavaScript", "HTML", "CSS"]
   },
 ];
 
@@ -200,6 +210,59 @@ const ProjectsPage = () => {
   // Function to format category names
   const formatCategory = (category: string) => {
     return category.charAt(0).toUpperCase() + category.slice(1);
+  };
+
+  // Function to get appropriate color class for each language
+  const getLanguageColor = (lang: string) => {
+    switch(lang.toLowerCase()) {
+      case 'react':
+        return 'bg-blue-100 text-blue-800';
+      case 'typescript':
+        return 'bg-blue-100 text-blue-800';
+      case 'javascript':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'node.js':
+        return 'bg-green-100 text-green-800';
+      case 'swift':
+        return 'bg-orange-100 text-orange-800';
+      case 'firebase':
+        return 'bg-yellow-100 text-yellow-800';
+      case 'c':
+        return 'bg-gray-100 text-gray-800';
+      case 'python':
+        return 'bg-blue-100 text-blue-800';
+      case 'html':
+      case 'css':
+        return 'bg-orange-100 text-orange-800';
+      case 'mongodb':
+        return 'bg-green-100 text-green-800';
+      case 'postgresql':
+        return 'bg-blue-100 text-blue-800';
+      case 'openai':
+        return 'bg-white text-black';
+      case 'supabase':
+        return 'bg-darkMint text-mintCream';
+      default:
+        return 'bg-teal-100 text-teal-800';
+    }
+  };
+
+  // Function to get status icon and color (only for completed and ongoing)
+  const getStatusIcon = (status: string) => {
+    switch(status.toLowerCase()) {
+      case 'completed':
+        return {
+          text: 'Completed',
+          dot: 'bg-green-500',
+        };
+      case 'ongoing':
+        return {
+          text: 'Ongoing',
+          dot: 'bg-yellow-500',
+        };
+      default:
+        return null; // Don't show icons for other categories
+    }
   };
   
   // Reset and trigger animation when filter changes
@@ -271,6 +334,25 @@ const ProjectsPage = () => {
               >
                 {/* Project image block with hover effect */}
                 <div className="relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4">
+                  {/* Status indicator in top right - only for completed and ongoing */}
+                  {project.category.find(cat => cat === 'completed' || cat === 'ongoing') && (
+                    <div className="absolute top-2 right-2 z-10">
+                      {project.category
+                        .filter(status => status === 'completed' || status === 'ongoing')
+                        .slice(0, 1)
+                        .map((status, index) => {
+                          const statusInfo = getStatusIcon(status);
+                          if (!statusInfo) return null;
+                          return (
+                            <div key={index} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full">
+                              <span className="text-xs text-gray-700">{statusInfo.text}</span>
+                              <div className={`w-2 h-2 rounded-full ${statusInfo.dot}`}></div>
+                            </div>
+                          );
+                        })}
+                    </div>
+                  )}
+                  
                   <div className="relative w-full h-full flex items-center justify-center">
                     <Image
                       src={project.image}
@@ -321,14 +403,14 @@ const ProjectsPage = () => {
                 {/* Project description */}
                 <p className="text-left text-gray-700 mb-2 w-full">{project.description}</p>
                 
-                {/* Project categories */}
+                {/* Project languages - CHANGED FROM CATEGORIES */}
                 <div className="flex flex-wrap gap-2 mt-1 w-full">
-                  {project.category.map((cat, index) => (
+                  {project.languages.map((lang, index) => (
                     <span 
                       key={index} 
-                      className="text-xs px-2 py-1 bg-teal-100 text-teal-800 rounded-full"
+                      className={`text-xs px-2 py-1 rounded-full ${getLanguageColor(lang)}`}
                     >
-                      {formatCategory(cat)}
+                      {lang}
                     </span>
                   ))}
                 </div>

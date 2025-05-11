@@ -124,7 +124,7 @@ export default function MainPage() {
                 onMouseEnter={() => setHoveredTab('work')} 
                 onMouseLeave={() => setHoveredTab(null)}
               >
-                Work
+                Experience
                 <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
               </button>
             </div>
