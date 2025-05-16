@@ -16,11 +16,27 @@ type WorkExperience = {
 const workExperiences: WorkExperience[] = [
   {
     id: 1,
+    period: "June 2025 - Present",
+    company: "Abinsula",
+    position: "Software Developer",
+    viewName: "job1"
+  },
+
+  {
+    id: 2, 
+    period: "May 2025 - Present",
+    company: "Mathesar",
+    position: "Open-Source Software Developer",
+    viewName: "job2"
+  },
+
+  {
+    id: 3,
     period: "May 2024 - Aug 2024",
     company: "Fracht Group",
     position: "IT Support Developer",
-    viewName: "job1"
-  },
+    viewName: "job3"
+  }
 ];
 
 // Props for the WorkPage component

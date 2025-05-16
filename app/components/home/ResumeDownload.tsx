@@ -13,7 +13,7 @@ export default function ResumeDownload() {
       onClick={handleOpen}
       aria-label="Open Resume"
     >
-      Open Resume
+      View Resume
     </button>
   );
 }
