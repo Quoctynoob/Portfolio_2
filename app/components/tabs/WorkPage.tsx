@@ -14,16 +14,9 @@ type WorkExperience = {
 
 // Sample work experiences
 const workExperiences: WorkExperience[] = [
-  {
-    id: 1,
-    period: "June 2025 - Present",
-    company: "Abinsula",
-    position: "Software Developer",
-    viewName: "job1"
-  },
 
   {
-    id: 2, 
+    id: 1, 
     period: "May 2025 - Present",
     company: "Mathesar",
     position: "Open-Source Software Developer",
@@ -31,7 +24,7 @@ const workExperiences: WorkExperience[] = [
   },
 
   {
-    id: 3,
+    id: 2,
     period: "May 2024 - Aug 2024",
     company: "Fracht Group",
     position: "IT Support Developer",
@@ -144,3 +137,12 @@ const WorkPage: React.FC<WorkPageProps> = ({ onJobSelect }) => {
 };
 
 export default WorkPage;
+
+
+/*{
+    id: 1,
+    period: "June 2025 - Present",
+    company: "Abinsula",
+    position: "Software Developer",
+    viewName: "job1"
+  },*/
