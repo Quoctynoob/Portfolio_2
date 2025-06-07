@@ -164,45 +164,81 @@ const AboutPage = () => {
             </div>
           </motion.div>
         </div>
+
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="rounded-xl mb-12"
+          >
+            <h2 className='text-2xl font-noto font-bold mb-6 text-darkMint'>
+              Educations
+              </h2>
+
+              <div>
+                <p className='text-md md:text-md mb-4 text-darkMint/90'>
+                  <span className='font-noto font-semibold'>Bachelor of Computing in Computer Science</span> - 
+                  University of Guelph (2023 - 2028)
+                </p>
+              </div>
+          </motion.div>
+        </div>
             
         {/* Skills section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="rounded-xl p-6"
-        >
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="rounded-xl"
+          >
 
-          <h2 className="text-2xl font-noto font-bold mb-6 text-darkMint">
-            Skills
-          </h2>
-          
-          <div className="space-y-8">
-            {skillCategories.map((category, index) => (
-              <div key={index} className="mb-6">
-                <h3 className="text-xl font-noto font-semibold mb-4 text-darkMint">
-                  {category.title}
-                </h3>
-                <div className="flex flex-wrap gap-4">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skillIndex}
-                      initial={{ scale: 0.9, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ 
-                        delay: 0.6 + (index * 0.1) + (skillIndex * 0.05),
-                        type: "spring",
-                        stiffness: 100
-                      }}
-                    >
-                      <IconWithTooltip name={skill.name} icon={skill.icon} />
-                    </motion.div>
-                  ))}
+            <h2 className="text-2xl font-noto font-bold mb-6 text-darkMint">
+              Skills
+            </h2>
+            
+            <div className="space-y-8">
+              {skillCategories.map((category, index) => (
+                <div key={index} className="mb-6">
+                  <h3 className="text-xl font-noto font-semibold mb-4 text-darkMint">
+                    {category.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-4">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skillIndex}
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ 
+                          delay: 0.6 + (index * 0.1) + (skillIndex * 0.05),
+                          type: "spring",
+                          stiffness: 100
+                        }}
+                      >
+                        <IconWithTooltip name={skill.name} icon={skill.icon} />
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+        
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 30}}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30}}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="rounded-xl mb-12"
+          >
+            <h2 className="text-2xl font-noto font-bold mb-6 text-darkMint">
+              Hall of Fame
+            </h2>
+            
+          </motion.div>
+        </div>
       </div>
     </div>
   );

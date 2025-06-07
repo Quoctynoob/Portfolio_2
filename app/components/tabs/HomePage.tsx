@@ -7,7 +7,7 @@ import { VerticalCutReveal } from "../animations/VerticalCutReveal";
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center md:min-h-[80vh] text-center px-4 font-noto">
-      {/* First item - Animated Hi! */}
+      {/* First item*/}
       <div>
         <VerticalCutReveal 
           splitBy="lines"
@@ -28,7 +28,7 @@ export default function HomePage() {
       <div className=" sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
         <VerticalCutReveal 
           splitBy="lines"
-          staggerDuration={0.8}
+          staggerDuration={0.9}
           reverse={false}
           staggerFrom="center"
           containerClassName="flex flex-col items-center justify-center"
@@ -39,14 +39,14 @@ export default function HomePage() {
           }}
           
         >
-          {`I'm Quoc Le, a 2nd year Computer`}
+          {`I'm Quoc Le, `}
         </VerticalCutReveal>
       </div>
       {/* Second item - Description with line split */}
       <div className=" sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
         <VerticalCutReveal 
           splitBy="lines"
-          staggerDuration={0.9}
+          staggerDuration={1.1}
           staggerFrom="last"
           containerClassName="flex flex-col items-center justify-center"
           transition={{
@@ -55,7 +55,23 @@ export default function HomePage() {
             damping: 40,
           }}
         >
-          {`Science student @UofGuelph.`}
+          {`a 2nd year Computer Science`}
+        </VerticalCutReveal>
+      </div>
+
+      <div className=' sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto'>
+        <VerticalCutReveal 
+          splitBy="lines"
+          staggerDuration={1.3}
+          staggerFrom="last"
+          containerClassName="flex flex-col items-center justify-center"
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 40,
+          }}
+        >
+          {`student @UofGuelph.`}
         </VerticalCutReveal>
       </div>
       

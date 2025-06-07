@@ -193,6 +193,16 @@ const projectsData: Project[] = [
     category: ["completed", "academic"],
     languages: ["JavaScript", "HTML", "CSS"]
   },
+  {
+    id: 10,
+    name: "Portfolio 1",
+    description: "My previous portfolio website",
+    image: "/projects/old_portfolio.png",
+    github: "https://github.com/Quoctynoob/Portfolio",
+    website: "https://portfolio-quoctynoobs-projects.vercel.app",
+    category: ["completed", "side projects"],
+    languages: ["React", "TypeScript", "Next.js", "Tailwind CSS"]
+  },
 ];
 
 const ProjectsPage = () => {
@@ -242,6 +252,10 @@ const ProjectsPage = () => {
         return 'bg-white text-black';
       case 'supabase':
         return 'bg-darkMint text-mintCream';
+      case 'firestore':
+        return 'bg-yellow-200 text-red-500';
+      case 'postgresql':
+        return 'bg-blue-100 text-blue-800';
       default:
         return 'bg-teal-100 text-teal-800';
     }
