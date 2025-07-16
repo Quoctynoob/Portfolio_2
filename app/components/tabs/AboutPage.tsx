@@ -234,7 +234,7 @@ const AboutPage = () => {
             className="rounded-xl mb-12"
           >
             <h2 className="text-2xl font-noto font-bold mb-6 text-darkMint">
-              Hall of Fame
+              
             </h2>
             
           </motion.div>
