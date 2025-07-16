@@ -11,6 +11,7 @@ import Job2 from "./tabs/Job2";
 import Job3 from "./tabs/Job3";
 import LoadingScreen from "./LoadingScreen";
 import Footer from "./Footer";
+import { MenuDemo } from "./demo";
 
 export default function MainPage() {
   const [view, setView] = useState<string>('home');
@@ -18,6 +19,7 @@ export default function MainPage() {
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showContent, setShowContent] = useState<boolean>(false);
+
 
   useEffect(() => {
     // For development, skip loading screen if want to
@@ -89,15 +91,17 @@ export default function MainPage() {
             {/* Logo on the left */}
             <div>
               <button 
-                className="p-2 px-4 font-semibold md:text-3xl font-play"
+                className="p-2 px-4 font-semibold md:text-3xl font-play text-2xl"
                 onClick={() => handleTabClick('home')}
               >
                 Quoc Le
               </button>
             </div>
 
+
+
             {/* Navigation tabs on the right */}
-            <div className="flex gap-4 font-noto">
+            <div className="hidden md:flex gap-4 font-noto">
               <button 
                 className="p-2 px-4 group"
                 onClick={() => handleTabClick('about')} 
@@ -127,6 +131,10 @@ export default function MainPage() {
                 Experience
                 <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
               </button>
+            </div>
+
+            <div className="md:hidden">
+              <MenuDemo onTabSelect={handleTabClick} />
             </div>
           </nav>
 

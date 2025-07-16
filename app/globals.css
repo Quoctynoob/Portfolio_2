@@ -195,6 +195,13 @@
   transform: scale(0.9);
  }
 
+ @media (max-width: 768px) {
+  .resume {
+    padding: 0.8em 1.5em;
+    font-size: 15px;
+  }
+ }
+
  :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

@@ -172,7 +172,7 @@ export function Dock({
 
   return (
     <motion.div 
-      className={`flex items-center gap-4 bg-lightGreen1/70 backdrop-blur-sm backdrop-saturate-150 px-6 py-2 rounded-full shadow-lg border border-beige/50 transition-colors duration-300 pointer-events-auto h-14 ${className}`}
+      className={`hidden md:flex items-center gap-4 bg-lightGreen1/70 backdrop-blur-sm backdrop-saturate-150 px-6 py-2 rounded-full shadow-lg border border-beige/50 transition-colors duration-300 pointer-events-auto h-14  ${className}`}
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >

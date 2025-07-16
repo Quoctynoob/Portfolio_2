@@ -6,7 +6,7 @@ import { VerticalCutReveal } from "../animations/VerticalCutReveal";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center md:min-h-[80vh] text-center px-4 font-noto">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4  font-noto">
       {/* First item*/}
       <div>
         <VerticalCutReveal 
@@ -25,7 +25,7 @@ export default function HomePage() {
         </VerticalCutReveal>
       </div>
       
-      <div className=" sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
+      <div className="text-4xl md:text-6xl max-w-5xl leading-relaxed font-noto">
         <VerticalCutReveal 
           splitBy="lines"
           staggerDuration={0.9}
@@ -43,7 +43,7 @@ export default function HomePage() {
         </VerticalCutReveal>
       </div>
       {/* Second item - Description with line split */}
-      <div className=" sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto">
+      <div className=" text-4xl md:text-6xl max-w-5xl leading-relaxed font-noto">
         <VerticalCutReveal 
           splitBy="lines"
           staggerDuration={1.1}
@@ -55,11 +55,11 @@ export default function HomePage() {
             damping: 40,
           }}
         >
-          {`a 2nd year Computer Science`}
+          {`a 3rd year Computer Science`}
         </VerticalCutReveal>
       </div>
 
-      <div className=' sm:text-xl md:text-6xl max-w-5xl leading-relaxed font-noto'>
+      <div className=' text-4xl md:text-6xl max-w-5xl leading-relaxed font-noto'>
         <VerticalCutReveal 
           splitBy="lines"
           staggerDuration={1.3}

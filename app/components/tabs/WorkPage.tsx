@@ -16,9 +16,9 @@ type WorkExperience = {
 const workExperiences: WorkExperience[] = [
   {
     id: 1,
-    period: "June 2024",
+    period: "June 2025",
     company: "Abinsula",
-    position: "Incoming Software Developer Intern",
+    position: "Software Developer Intern",
     viewName: "job1"
   },
 
