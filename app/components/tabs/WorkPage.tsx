@@ -9,7 +9,7 @@ type WorkExperience = {
   period: string;
   company: string;
   position: string;
-  viewName: string; // Name to use for view in MainPage
+  viewName?: string; // Name to use for view in MainPage (optional)
 };
 
 // Sample work experiences
@@ -27,24 +27,23 @@ const workExperiences: WorkExperience[] = [
     period: "May 2024 - Aug 2024",
     company: "Fracht Group",
     position: "IT Support Developer",
-    viewName: "job3"
   },
 
   {
     id: 3,
-    period: "Oct 2022 - Jan 2023",
-    company: "Milano Coffee",
-    position: "Cashier",
-    viewName: "job4"
+    period: "Sep 2023 - April 2025",
+    company: "Google Developer Student Club",
+    position: "Staff Member",
+
   },
 
   {
     id: 4,
-    period: "May 2022 - Aug 2022",
-    company: "Fracht Group",
-    position: "IT Support Developer",
-    viewName: "job5"
-  }
+    period: "Oct 2022 - Jan 2023",
+    company: "Milano Coffee",
+    position: "Cashier",
+  },
+
 ];
 
 // Props for the WorkPage component
@@ -68,10 +67,10 @@ const TimelineEntry = ({
 }) => {
   return (
     <div 
-      className="relative mb-12 cursor-pointer"
-      onMouseEnter={onHover}
-      onMouseLeave={onLeave}
-      onClick={onSelect}
+      className={`relative mb-12 ${experience.viewName ? 'cursor-pointer' : ''}`}
+      onMouseEnter={experience.viewName ? onHover : undefined}
+      onMouseLeave={experience.viewName ? onLeave : undefined}
+      onClick={experience.viewName ? onSelect : undefined}
     >
       {/* Left side timeline with dot */}
       <div className="flex items-start">
@@ -91,18 +90,20 @@ const TimelineEntry = ({
           )}
         </div>
 
-        {/* Arrow on the right */}
-        <div className="ml-4 pt-4">
-          <motion.div 
-            animate={isHovered ? { x: 5 } : { x: 0 }}
-            transition={{ duration: 0.2 }}
-            className="w-6 h-6 flex items-center justify-center text-darkMint"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.div>
-        </div>
+        {/* Arrow on the right - only show if viewName exists */}
+        {experience.viewName && (
+          <div className="ml-4 pt-4">
+            <motion.div 
+              animate={isHovered ? { x: 5 } : { x: 0 }}
+              transition={{ duration: 0.2 }}
+              className="w-6 h-6 flex items-center justify-center text-darkMint"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </motion.div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -118,8 +119,10 @@ const WorkPage: React.FC<WorkPageProps> = ({ onJobSelect }) => {
   }, []);
 
   // Function to handle job selection
-  const handleJobSelect = (viewName: string) => {
-    onJobSelect(viewName);
+  const handleJobSelect = (viewName?: string) => {
+    if (viewName) {
+      onJobSelect(viewName);
+    }
   };
 
   return (
