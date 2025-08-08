@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Dock, DockIcon } from "./Dock";
+import { Dock, DockIcon } from "../common/Dock";
 
 export default function DockNavbar() {
   return (

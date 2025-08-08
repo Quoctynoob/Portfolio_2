@@ -1,0 +1,110 @@
+/* Filter buttons active state glow effect */
+.filter-active {
+  box-shadow: 0 0 10px rgba(37, 187, 177, 0.5);
+}
+
+/* Image hover effect */
+.project-image-container {
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-image {
+  transition: transform 0.5s ease;
+  transform: scale(0.95);
+}
+
+.project-image-container:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Project links hover effect */
+.project-link {
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+}
+
+/* Resume button styles */
+.resume {
+  padding: 1.1em 2em;
+  background: none;
+  border: 2px solid #fff;
+  font-size: 15px;
+  color: #131313;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: 12px;
+  background-color: #e9db8e;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #055837;
+}
+
+.resume:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 120%;
+  background-color: #feb17e;
+  top: 50%;
+  transform: skewX(30deg) translate(-150%, -50%);
+  transition: all 0.5s;
+}
+
+.resume:hover {
+  background-color: #ADC178;
+  color: #fff;
+  box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.resume:hover::before {
+  transform: skewX(30deg) translate(150%, -50%);
+  transition-delay: 0.1s;
+}
+
+.resume:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 768px) {
+  .resume {
+    padding: 0.8em 1.5em;
+    font-size: 15px;
+  }
+}
+
+/* Smooth scroll setup */
+.smooth-scroll-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Ensure fixed elements like nav and dock remain above the smooth scroll content */
+nav, .dock, [class*="fixed"] {
+  z-index: 50;
+}
+
+/* Adjust DockNavbar positioning to work with the smooth scroll setup */
+.smooth-scroll-container ~ .fixed {
+  position: fixed !important;
+  pointer-events: auto !important;
+}
+
+/* Override any pointer-events behavior for interactive elements */
+button, a, [role="button"] {
+  pointer-events: auto !important;
+}
+
+/* Fix for when body height changes (dynamic content) */
+html.overflow-hidden body {
+  overflow: hidden;
+}

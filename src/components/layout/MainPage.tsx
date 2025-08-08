@@ -1,22 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import AboutPage from "./tabs/AboutPage";
-import HomePage from "./tabs/HomePage";
-import ProjectsPage from "./tabs/ProjectsPage";
-import DockNavbar from "./DockNavbar";
-import WorkPage from "./tabs/WorkPage";
-import Job1 from "./tabs/Job1";
-import Job2 from "./tabs/Job2";
-import Job3 from "./tabs/Job3";
-import LoadingScreen from "./LoadingScreen";
-import Footer from "./Footer";
-import { MenuDemo } from "./demo";
+import { AboutPage } from "../features/about";
+import { HomePage } from "../features/home";
+import { ProjectsPage } from "../features/projects";
+import { WorkPage, Job1, Job2, Job3 } from "../features/work";
+import { DockNavbar, LoadingScreen, Footer } from "./";
+import { MenuDemo } from "../common";
+import type { TabName, JobView } from "@/src/contexts/NavigationContext";
 
 export default function MainPage() {
-  const [view, setView] = useState<string>('home');
-  const [jobView, setJobView] = useState<string | null>(null);
-  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
+  const [view, setView] = useState<TabName>('home');
+  const [jobView, setJobView] = useState<JobView>(null);
+  const [hoveredTab, setHoveredTab] = useState<TabName | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showContent, setShowContent] = useState<boolean>(false);
 
@@ -42,14 +38,14 @@ export default function MainPage() {
   };
 
   // Handle tab click (main navigation)
-  const handleTabClick = (tabName: string) => {
+  const handleTabClick = (tabName: TabName) => {
     setView(tabName);
     setJobView(null); // Reset job view when changing tabs
   };
 
   // Handle job selection from WorkPage
   const handleJobSelect = (jobViewName: string) => {
-    setJobView(jobViewName);
+    setJobView(jobViewName as JobView);
   };
 
   const renderContent = () => {

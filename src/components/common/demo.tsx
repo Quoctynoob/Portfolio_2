@@ -1,10 +1,11 @@
 import React from 'react';
-import { MenuItem, MenuContainer } from "@/components/ui/fluid-menu"
-import { Menu as MenuIcon, X, Home, Mail, User, Settings, AppWindow, BriefcaseBusiness } from "lucide-react"
+import { MenuItem, MenuContainer } from "../ui/fluid-menu"
+import { Menu as MenuIcon, X, User, AppWindow, BriefcaseBusiness } from "lucide-react"
+import type { TabName } from "@/src/contexts/NavigationContext";
 
 // A fluid circular menu that elegantly expands to reveal navigation items with smooth icon transitions
 interface MenuDemoProps {
-  onTabSelect: (tabName: string) => void;
+  onTabSelect: (tabName: TabName) => void;
 }
 
 export function MenuDemo({ onTabSelect }: MenuDemoProps) {
@@ -28,23 +29,15 @@ export function MenuDemo({ onTabSelect }: MenuDemoProps) {
     
           <MenuItem 
             icon={<User size={22} strokeWidth={1.5} />} 
-            onClick={() => {
-                onTabSelect('about')
-                 // Close the menu when selecting a tab
-            }}
+            onClick={() => onTabSelect('about')}
           />
           <MenuItem 
             icon={<AppWindow size={22} strokeWidth={1.5} />} 
-            onClick={() => {
-                onTabSelect('projects')
-                 // Close the menu when selecting a tab
-            }}
+            onClick={() => onTabSelect('projects')}
           />
           <MenuItem 
             icon={<BriefcaseBusiness size={22} strokeWidth={1.5} />} 
-            onClick={() => {
-                onTabSelect('work') // Close the menu when selecting a tab
-            }}
+            onClick={() => onTabSelect('work')}
           />
         </MenuContainer>
       </div>

@@ -1,6 +1,13 @@
-// app/page.tsx
-import MainPage from "@/app/components/MainPage";
+'use client';
+
+import React from 'react';
+import { NavigationProvider } from '@/src/contexts/NavigationContext';
+import MainPortfolio from '@/src/components/layout/MainPortfolio';
 
 export default function Home() {
-  return <MainPage />;
+  return (
+    <NavigationProvider>
+      <MainPortfolio />
+    </NavigationProvider>
+  );
 }

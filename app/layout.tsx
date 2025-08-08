@@ -1,5 +1,4 @@
-// app/layout.tsx
-import './globals.css';
+import '@/src/styles/globals.css';
 import type { Metadata } from 'next';
 import { 
   Inter, Libre_Barcode_39, 
@@ -37,20 +36,17 @@ const trainOne = Train_One({
   display: 'swap'
 });
 const dancingScript = Dancing_Script({ 
-  weight: ['400', '700'],  // You can include multiple weights if needed
+  weight: ['400', '700'],
   subsets: ['latin'],
   variable: '--font-dancing-script', 
   display: 'swap'
 });
-
 const notoSerifDisplay = Noto_Serif_Display({
   subsets: ['latin'],
   weight: ['300'],
   variable: '--font-noto-serif-display',
   display: 'swap'
 });
-
-// Add Playwrite HU configuration
 const playWrite = Playwrite_HU({ 
   weight: '300',
   variable: '--font-playWrite', 
