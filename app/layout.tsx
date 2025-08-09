@@ -1,5 +1,6 @@
 import '@/src/styles/globals.css';
 import type { Metadata } from 'next';
+import { Toaster } from 'sonner';
 import { 
   Inter, Libre_Barcode_39, 
   Londrina_Sketch, Pacifico, 
@@ -70,6 +71,19 @@ export default function RootLayout({
     <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${playWrite.variable} ${pacifico.variable} ${trainOne.variable} ${dancingScript.variable} ${notoSerifDisplay.variable}`}>
       <body className={`${inter.className} bg-beige min-h-screen`}>
         {children}
+        <Toaster 
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: '#e1f4ed',
+              color: '#07271a',
+              fontSize: '15px',
+              fontWeight: '500',
+              boxShadow: '0 4px 12px rgba(37, 187, 177, 0.15), 0 2px 0 2px rgba(7, 39, 26, 0.1)',
+            },
+            className: 'custom-toast',
+          }}
+        />
       </body>
     </html>
   );

@@ -1,10 +1,14 @@
 "use client";
 
 import React from 'react';
+import { toast } from 'sonner';
 
 export default function ResumeDownload() {
   const handleOpen = () => {
-    window.open('/resume.pdf', '_blank');
+    toast('Please reach out to my email for my resume', {
+      description: 'I\'d be happy to share my detailed resume directly with you!',
+      duration: 4000,
+    });
   };
 
   return (
