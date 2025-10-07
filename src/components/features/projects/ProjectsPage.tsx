@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Define project type with both categories and languages
@@ -16,6 +17,7 @@ type Project = {
   category: ('completed' | 'ongoing' | 'side projects' | 'academic')[];
   languages: string[]; // Added languages field
   isVertical?: boolean;
+  slug?: string; // URL slug for detailed project page (optional)
 };
 
 // Define category type to match the potential filter values
@@ -111,9 +113,10 @@ const projectsData: Project[] = [
     github: "https://github.com/megdcosta/frijio",
     website: "https://frijio.vercel.app",
     category: ["completed", "side projects"],
-    languages: ["React", "TypeScript", "Node.js", "Firestore", "OpenAI"]
+    languages: ["React", "TypeScript", "Node.js", "Firestore", "OpenAI"],
+    slug: "frijio"
   },
-  {
+  /*{
     id: 2,
     name: "frijio mobile",
     description: "IOS version of frijio, making it easier to manage your household on the go.",
@@ -123,7 +126,7 @@ const projectsData: Project[] = [
     category: ["ongoing", "side projects"],
     languages: ["Swift", "Supabase", "OpenAI"],
     isVertical: true
-  },
+  },*/
   {
     id: 3,
     name: "Convoco",
@@ -132,7 +135,8 @@ const projectsData: Project[] = [
     github: "https://github.com/Quoctynoob/Convoco",
     website: "https://convoco.vercel.app/debates",
     category: ["completed", "side projects"],
-    languages: ["React", "TypeScript", "Node.js", "Firestore"]
+    languages: ["React", "TypeScript", "Node.js", "Firestore"],
+    slug: "convoco"
   },
   {
     id: 4,
@@ -142,7 +146,8 @@ const projectsData: Project[] = [
     github: "https://github.com/Quoctynoob/Tennis_Locator",
     website: "https://tennis-locator.vercel.app/",
     category: ["ongoing", "side projects"],
-    languages: ["React", "TypeScript", "Firestore"]
+    languages: ["React", "TypeScript", "Firestore"],
+    slug: "tennis-locator"
   },
   {
     id: 5,
@@ -206,6 +211,7 @@ const projectsData: Project[] = [
 ];
 
 const ProjectsPage = () => {
+  const router = useRouter();
   // State for active filter
   const [activeFilter, setActiveFilter] = useState<CategoryType>("all");
   // Animation state
@@ -341,13 +347,18 @@ const ProjectsPage = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {filteredProjects.map((project) => (
-              <motion.div 
-                key={project.id} 
+              <motion.div
+                key={project.id}
                 variants={itemVariants}
                 className="flex flex-col items-left"
               >
-                {/* Project image block with hover effect */}
-                <div className="relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4">
+                {/* Project image block with hover effect - clickable if slug exists */}
+                <div
+                  className={`relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4 ${
+                    project.slug ? 'cursor-pointer hover:shadow-xl transition-shadow duration-300' : ''
+                  }`}
+                  onClick={() => project.slug && router.push(`/projects/${project.slug}`)}
+                >
                   {/* Status indicator in top right - only for completed and ongoing */}
                   {project.category.find(cat => cat === 'completed' || cat === 'ongoing') && (
                     <div className="absolute top-2 right-2 z-10">

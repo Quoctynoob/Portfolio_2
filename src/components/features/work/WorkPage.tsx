@@ -9,7 +9,6 @@ type WorkExperience = {
   period: string;
   company: string;
   position: string;
-  viewName?: string; // Name to use for view in MainPage (optional)
 };
 
 // Sample work experiences
@@ -19,7 +18,6 @@ const workExperiences: WorkExperience[] = [
     period: "June 2025 - Present",
     company: "Abinsula",
     position: "Software Developer Intern",
-    viewName: "job1"
   },
 
   {
@@ -48,30 +46,17 @@ const workExperiences: WorkExperience[] = [
 
 // Props for the WorkPage component
 interface WorkPageProps {
-  onJobSelect: (jobView: string) => void;
+  onJobSelect?: (jobView: string) => void;
 }
 
 // Timeline Entry Component
-const TimelineEntry = ({ 
-  experience, 
-  isHovered,
-  onHover,
-  onLeave,
-  onSelect
-}: { 
+const TimelineEntry = ({
+  experience
+}: {
   experience: WorkExperience;
-  isHovered: boolean;
-  onHover: () => void;
-  onLeave: () => void;
-  onSelect: () => void;
 }) => {
   return (
-    <div 
-      className={`relative mb-12 ${experience.viewName ? 'cursor-pointer' : ''}`}
-      onMouseEnter={experience.viewName ? onHover : undefined}
-      onMouseLeave={experience.viewName ? onLeave : undefined}
-      onClick={experience.viewName ? onSelect : undefined}
-    >
+    <div className="relative mb-12">
       {/* Left side timeline with dot */}
       <div className="flex items-start">
         {/* Left column with timeline */}
@@ -90,40 +75,18 @@ const TimelineEntry = ({
           )}
         </div>
 
-        {/* Arrow on the right - only show if viewName exists */}
-        {experience.viewName && (
-          <div className="ml-4 pt-4">
-            <motion.div 
-              animate={isHovered ? { x: 5 } : { x: 0 }}
-              transition={{ duration: 0.2 }}
-              className="w-6 h-6 flex items-center justify-center text-darkMint"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </motion.div>
-          </div>
-        )}
       </div>
     </div>
   );
 };
 
-const WorkPage: React.FC<WorkPageProps> = ({ onJobSelect }) => {
+const WorkPage: React.FC<WorkPageProps> = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredJob, setHoveredJob] = useState<number | null>(null);
 
   useEffect(() => {
     // Trigger animation on component mount
     setIsVisible(true);
   }, []);
-
-  // Function to handle job selection
-  const handleJobSelect = (viewName?: string) => {
-    if (viewName) {
-      onJobSelect(viewName);
-    }
-  };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl font-noto">
@@ -133,13 +96,9 @@ const WorkPage: React.FC<WorkPageProps> = ({ onJobSelect }) => {
       
       <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         {workExperiences.map((experience) => (
-          <TimelineEntry 
+          <TimelineEntry
             key={experience.id}
             experience={experience}
-            isHovered={hoveredJob === experience.id}
-            onHover={() => setHoveredJob(experience.id)}
-            onLeave={() => setHoveredJob(null)}
-            onSelect={() => handleJobSelect(experience.viewName)}
           />
         ))}
       </div>

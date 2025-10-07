@@ -4,14 +4,13 @@ import React, { useState, useEffect } from "react";
 import { AboutPage } from "../features/about";
 import { HomePage } from "../features/home";
 import { ProjectsPage } from "../features/projects";
-import { WorkPage, Job1, Job2, Job3 } from "../features/work";
+import { WorkPage } from "../features/work";
 import { DockNavbar, LoadingScreen, Footer } from "./";
 import { MenuDemo } from "../common";
 import type { TabName, JobView } from "@/src/contexts/NavigationContext";
 
 export default function MainPage() {
   const [view, setView] = useState<TabName>('home');
-  const [jobView, setJobView] = useState<JobView>(null);
   const [hoveredTab, setHoveredTab] = useState<TabName | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [showContent, setShowContent] = useState<boolean>(false);
@@ -40,37 +39,16 @@ export default function MainPage() {
   // Handle tab click (main navigation)
   const handleTabClick = (tabName: TabName) => {
     setView(tabName);
-    setJobView(null); // Reset job view when changing tabs
-  };
-
-  // Handle job selection from WorkPage
-  const handleJobSelect = (jobViewName: string) => {
-    setJobView(jobViewName as JobView);
   };
 
   const renderContent = () => {
-    // First check if we're in work section and have a job selected
-    if (view === 'work' && jobView) {
-      switch (jobView) {
-        case 'job1':
-          return <Job1 />;
-        case 'job2':
-          return <Job2 />;
-        case 'job3':
-          return <Job3 />;
-        default:
-          return <WorkPage onJobSelect={handleJobSelect} />;
-      }
-    }
-    
-    // Otherwise render based on main view
     switch (view) {
       case 'about':
         return <AboutPage />;
       case 'projects':
         return <ProjectsPage />;
       case 'work':
-        return <WorkPage onJobSelect={handleJobSelect} />;
+        return <WorkPage />;
       default:
         return <HomePage />;
     }
