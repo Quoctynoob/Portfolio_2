@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
-  SiCss3,
+  SiCss,
   SiDocker,
   SiHtml5,
   SiJavascript,
@@ -75,7 +75,7 @@ const AboutPage = () => {
         { name: "TypeScript", icon: SiTypescript },
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "HTML5", icon: SiHtml5 },
-        { name: "CSS3", icon: SiCss3 },
+        { name: "CSS3", icon: SiCss },
         { name: "Sass", icon: SiSass },
       ]
     },
