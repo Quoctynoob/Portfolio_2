@@ -1,13 +1,27 @@
 'use client';
 
-import React from 'react';
-import { NavigationProvider } from '@/src/contexts/NavigationContext';
-import MainPortfolio from '@/src/components/layout/MainPortfolio';
+import React, { useState } from 'react';
+import HomePage from '@/components/home/HomePage';
+import LoadingScreen from '@/components/layout/LoadingScreen';
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+    setShowContent(true);
+  };
+
   return (
-    <NavigationProvider>
-      <MainPortfolio />
-    </NavigationProvider>
+    <>
+      {isLoading ? (
+        <LoadingScreen onLoadingComplete={handleLoadingComplete} />
+      ) : (
+        <div className={showContent ? 'block' : 'hidden'}>
+          <HomePage />
+        </div>
+      )}
+    </>
   );
 }

@@ -1,14 +1,15 @@
-import '@/src/styles/globals.css';
+import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
-import { 
-  Inter, Libre_Barcode_39, 
-  Londrina_Sketch, Pacifico, 
-  Train_One, 
-  Dancing_Script, 
-  Noto_Serif_Display, 
-  Playwrite_HU 
+import {
+  Inter, Libre_Barcode_39,
+  Londrina_Sketch, Pacifico,
+  Train_One,
+  Dancing_Script,
+  Noto_Serif_Display,
+  Playwrite_HU
 } from 'next/font/google';
+import ClientLayout from '@/components/layout/ClientLayout';
 
 // Load fonts using next/font/google
 const inter = Inter({ subsets: ['latin'] });
@@ -69,9 +70,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${playWrite.variable} ${pacifico.variable} ${trainOne.variable} ${dancingScript.variable} ${notoSerifDisplay.variable}`}>
-      <body className={`${inter.className} bg-beige min-h-screen`}>
-        {children}
-        <Toaster 
+      <body className={`${inter.className} bg-lightGreen min-h-screen`}>
+        <ClientLayout>{children}</ClientLayout>
+        <Toaster
           position="bottom-right"
           toastOptions={{
             style: {
