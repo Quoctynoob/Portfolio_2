@@ -64,12 +64,12 @@ function HandWrittenTitle({
                            C 5 18, 35 8, 100 8
                            C 155 8, 165 22, 165 22"
                         fill="none"
-                        strokeWidth="2"
+                        strokeWidth="2.5"
                         stroke="currentColor"
                         strokeLinecap="butt"
                         strokeLinejoin="round"
                         variants={draw}
-                        className="text-black dark:text-white opacity-70"
+                        className="text-black dark:text-white"
                     />
                 </motion.svg>
             </div>

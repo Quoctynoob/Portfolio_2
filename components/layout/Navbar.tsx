@@ -8,13 +8,12 @@ import { HandWrittenTitle } from '../features/HandWriting';
 
 export default function Navbar() {
   const {
-    handleTabClick,
     getUnderlineClass,
     setHoveredTab
   } = useNavigation();
 
   return (
-    <nav className="flex justify-between items-center bg-lightGreen p-4 text-darkMint navbar-fade">
+    <nav className="flex justify-between items-center bg-lightGreen p-4 text-darkMint navbar-fade md:pt-5">
       {/* Logo on the left */}
       <div>
         <Link
@@ -60,7 +59,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div className="md:hidden">
-        <MenuDemo onTabSelect={handleTabClick} />
+        <MenuDemo />
       </div>
     </nav>
   );

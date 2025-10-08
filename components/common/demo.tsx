@@ -1,14 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 import { MenuItem, MenuContainer } from "../ui/fluid-menu";
 import { Menu as MenuIcon, X, User, AppWindow, BriefcaseBusiness } from "lucide-react"
-import type { TabName } from "@/contexts/NavigationContext";
 
 // A fluid circular menu that elegantly expands to reveal navigation items with smooth icon transitions
-interface MenuDemoProps {
-  onTabSelect: (tabName: TabName) => void;
-}
-
-export function MenuDemo({ onTabSelect }: MenuDemoProps) {
+export function MenuDemo() {
   return (
     <div className="flex flex-col items-center gap-8 p-8">
       <div className="relative">
@@ -27,18 +23,21 @@ export function MenuDemo({ onTabSelect }: MenuDemoProps) {
             }
           />
     
-          <MenuItem 
-            icon={<User size={22} strokeWidth={1.5} />} 
-            onClick={() => onTabSelect('about')}
-          />
-          <MenuItem 
-            icon={<AppWindow size={22} strokeWidth={1.5} />} 
-            onClick={() => onTabSelect('projects')}
-          />
-          <MenuItem 
-            icon={<BriefcaseBusiness size={22} strokeWidth={1.5} />} 
-            onClick={() => onTabSelect('work')}
-          />
+          <Link href="/about">
+            <MenuItem
+              icon={<User size={22} strokeWidth={1.5} />}
+            />
+          </Link>
+          <Link href="/projects">
+            <MenuItem
+              icon={<AppWindow size={22} strokeWidth={1.5} />}
+            />
+          </Link>
+          <Link href="/work">
+            <MenuItem
+              icon={<BriefcaseBusiness size={22} strokeWidth={1.5} />}
+            />
+          </Link>
         </MenuContainer>
       </div>
     </div>

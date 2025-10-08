@@ -3,29 +3,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import {
-  SiCss,
-  SiDocker,
-  SiHtml5,
-  SiJavascript,
-  SiMongodb,
-  SiMysql,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiSass,
-  SiTailwindcss,
-  SiTypescript,
-  SiFigma,
-  SiGit,
-  SiExpress,
-  SiC,
-  SiCanva,
-  SiFirebase,
-  SiPython,
-  SiSwift,
-  SiNextdotjs,
-} from '@icons-pack/react-simple-icons';
+import { skillCategories } from '@/data/aboutData';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const AboutPage = () => {
 
@@ -65,44 +45,6 @@ const AboutPage = () => {
     );
   };
 
-  // Skill categories with their respective icons
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: [
-        { name: "React", icon: SiReact },
-        { name: "JavaScript", icon: SiJavascript },
-        { name: "TypeScript", icon: SiTypescript },
-        { name: "Tailwind CSS", icon: SiTailwindcss },
-        { name: "HTML5", icon: SiHtml5 },
-        { name: "CSS3", icon: SiCss },
-        { name: "Sass", icon: SiSass },
-      ]
-    },
-    {
-      title: "Backend",
-      skills: [
-        { name: "Node.js", icon: SiNodedotjs },
-        { name: "Express", icon: SiExpress },
-        { name: "MongoDB", icon: SiMongodb },
-        { name: "PostgreSQL", icon: SiPostgresql },
-        { name: "MySQL", icon: SiMysql },
-        { name: "Docker", icon: SiDocker },
-        { name: "C", icon: SiC },
-        { name: "Python", icon: SiPython },
-        { name: "Firebase", icon: SiFirebase },
-        { name: "Swift", icon: SiSwift },
-      ]
-    },
-    {
-      title: "Tools",
-      skills: [
-        { name: "Git", icon: SiGit },
-        { name: "Figma", icon: SiFigma },
-      ]
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-lightGreen px-4 md:px-8 py-12">
       <div className="max-w-4xl mx-auto">
@@ -116,26 +58,48 @@ const AboutPage = () => {
         {/* Bio Section */}
         <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="flex flex-col md:flex-row gap-8 items-center">
-            {/* Profile Image with Overlay */}
+            {/* Profile Image Carousel */}
             <div className="w-full md:w-1/3">
-              <div className="relative h-80 w-full overflow-hidden rounded-xl">
-                <Image 
-                  src="/projects/leon_pics_2.jpg" 
-                  alt="Quoc Le" 
-                  fill 
-                  className="object-cover object-center"
-                  priority
-                />
-                {/* Overlay text caption */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-mint backdrop-blur-xs">
-                  <p className="text-white text-base italic font-noto">
-                  </p>
-                </div>
-              </div>
+              <Carousel
+                className="w-full"
+                plugins={[
+                  Autoplay({
+                    delay: 3000,
+                  }),
+                ]}
+              >
+                <CarouselContent>
+                  <CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image
+                        src="/image/leon_linkedin.JPG"
+                        alt="Quoc Le"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                      />
+                    </div>
+                  </CarouselItem>
+
+                   <CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image
+                        src="/image/leon_niagara.jpg"
+                        alt="Quoc Le"
+                        fill
+                        className="object-cover object-center"
+                        priority
+                      />
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselPrevious className="-left-12" />
+                <CarouselNext className="-right-12" />
+              </Carousel>
             </div>
             
             {/* Bio Text */}
-            <div className="w-full md:w-2/3">
+            <div className="w-full md:w-2/3 pl-3">
               <div className="p-4 rounded-xl">
                 <h2 className='text-2xl md:text-3xl font-noto font-bold text-darkMint mb-6'>
                   Quoc Le
@@ -157,7 +121,7 @@ const AboutPage = () => {
           <div>
             <p className='text-md md:text-md mb-4 text-darkMint/90'>
               <span className='font-noto font-semibold'>Bachelor of Computing in Computer Science</span> -
-              University of Guelph (2023 - 2028)
+              University of Guelph (2023 - Present)
             </p>
           </div>
         </div>

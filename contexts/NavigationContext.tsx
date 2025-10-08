@@ -1,43 +1,39 @@
 'use client';
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export type TabName = 'home' | 'about' | 'projects' | 'work';
-export type JobView = 'job1' | 'job2' | 'job3' | null;
 
 interface NavigationState {
   view: TabName;
-  jobView: JobView;
   hoveredTab: TabName | null;
-  isLoading: boolean;
-  showContent: boolean;
 }
 
 interface NavigationContextType extends NavigationState {
-  setView: (view: TabName) => void;
-  setJobView: (jobView: JobView) => void;
   setHoveredTab: (tab: TabName | null) => void;
-  setIsLoading: (loading: boolean) => void;
-  setShowContent: (show: boolean) => void;
-  handleTabClick: (tabName: TabName) => void;
-  handleJobSelect: (jobViewName: string) => void;
-  handleLoadingComplete: () => void;
   getUnderlineClass: (tab: string) => string;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
 export function NavigationProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const [view, setView] = useState<TabName>('home');
-  const [jobView, setJobView] = useState<JobView>(null);
   const [hoveredTab, setHoveredTab] = useState<TabName | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [showContent, setShowContent] = useState<boolean>(false);
 
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-    setShowContent(true);
-  };
+  // Update view based on current pathname
+  useEffect(() => {
+    if (pathname === '/') {
+      setView('home');
+    } else if (pathname === '/about') {
+      setView('about');
+    } else if (pathname === '/projects') {
+      setView('projects');
+    } else if (pathname === '/work') {
+      setView('work');
+    }
+  }, [pathname]);
 
   const getUnderlineClass = (tab: string) => {
     if (tab === 'home') return 'w-0';
@@ -45,29 +41,10 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     return view === tab || hoveredTab === tab ? 'w-full' : 'w-0';
   };
 
-  const handleTabClick = (tabName: TabName) => {
-    setView(tabName);
-    setJobView(null);
-  };
-
-  const handleJobSelect = (jobViewName: string) => {
-    setJobView(jobViewName as JobView);
-  };
-
   const contextValue: NavigationContextType = {
     view,
-    jobView,
     hoveredTab,
-    isLoading,
-    showContent,
-    setView,
-    setJobView,
     setHoveredTab,
-    setIsLoading,
-    setShowContent,
-    handleTabClick,
-    handleJobSelect,
-    handleLoadingComplete,
     getUnderlineClass
   };
 
