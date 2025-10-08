@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import ResumeDownload from './ResumeDownload';
+import ResumeDownload from '../features/ResumeDownload';
 import { VerticalCutReveal } from '../common/VerticalCutReveal';
 
 export default function HomePage() {

@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { MenuDemo } from '../common/demo';
+import { HandWrittenTitle } from '../features/HandWriting';
 
 export default function Navbar() {
   const {
@@ -17,10 +18,10 @@ export default function Navbar() {
       {/* Logo on the left */}
       <div>
         <Link
-          className="p-2 px-4 font-semibold md:text-3xl font-play text-2xl"
+          className="font-semibold md:text-3xl font-play text-2xl"
           href="/"
         >
-          Quoc Le
+          <HandWrittenTitle title="Quoc Le" />
         </Link>
       </div>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import HomePage from '@/components/home/HomePage';
+import HomePage from '@/components/layout/HomePage';
 import LoadingScreen from '@/components/layout/LoadingScreen';
 
 export default function Home() {
