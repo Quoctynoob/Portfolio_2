@@ -62,36 +62,55 @@ const AboutPage = () => {
             <div className="w-full md:w-1/3">
               <Carousel
                 className="w-full"
-                plugins={[
+                /*plugins={[
                   Autoplay({
-                    delay: 3000,
+                    delay: 10000,
                   }),
-                ]}
+                ]}*/
               >
                 <CarouselContent>
                   <CarouselItem>
                     <div className="relative h-80 w-full overflow-hidden rounded-xl">
-                      <Image
-                        src="/image/leon_linkedin.JPG"
-                        alt="Quoc Le"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                      />
+                      <Image src="/image/leon_linkedin.JPG" alt="Quoc Le" fill className="object-cover object-center" priority />
                     </div>
                   </CarouselItem>
 
                    <CarouselItem>
                     <div className="relative h-80 w-full overflow-hidden rounded-xl">
-                      <Image
-                        src="/image/leon_niagara.jpg"
-                        alt="Quoc Le"
-                        fill
-                        className="object-cover object-center"
-                        priority
-                      />
+                      <Image src="/image/leon_niagara.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
                     </div>
                   </CarouselItem>
+
+                  <CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image src="/image/leon_hack.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                    </div>
+                  </CarouselItem>
+
+                  <CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image src="/image/leon_friends_hack.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                    </div>
+                  </CarouselItem>
+
+                  <CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image src="/image/leon_tennis.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                    </div>
+                  </CarouselItem>
+
+                  <CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image src="/image/leon_working.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                    </div>
+                  </CarouselItem>
+
+                  {/*<CarouselItem>
+                    <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                      <Image src="/image/leon_baby.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                    </div>
+                  </CarouselItem>*/}
+
                 </CarouselContent>
                 <CarouselPrevious className="-left-12" />
                 <CarouselNext className="-right-12" />
@@ -120,8 +139,7 @@ const AboutPage = () => {
           </h2>
           <div>
             <p className='text-md md:text-md mb-4 text-darkMint/90'>
-              <span className='font-noto font-semibold'>Bachelor of Computing in Computer Science</span> -
-              University of Guelph (2023 - Present)
+              Bachelor of Computing in Computer Science - University of Guelph (2023 - Present)
             </p>
           </div>
         </div>
