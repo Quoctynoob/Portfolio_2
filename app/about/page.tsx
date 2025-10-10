@@ -95,7 +95,7 @@ const AboutPage = () => {
 
                   <CarouselItem>
                     <div className="relative h-80 w-full overflow-hidden rounded-xl">
-                      <Image src="/image/leon_tennis.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                      <Image src="/image/leon_tennis.JPG" alt="Quoc Le" fill className="object-cover object-center" priority />
                     </div>
                   </CarouselItem>
 

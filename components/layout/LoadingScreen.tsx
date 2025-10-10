@@ -21,7 +21,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
     // Mark that user has seen the loading screen
     sessionStorage.setItem('hasSeenLoadingScreen', 'true');
 
-    const animationDuration = 2100; // ms
+    const animationDuration = 2000; // ms
     const interval = 20; // ms
     const steps = animationDuration / interval;
     const incrementPerStep = 100 / steps;
