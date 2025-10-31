@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { skillCategories } from '@/data/aboutData';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import Link from 'next/link';
 
 const AboutPage = () => {
 
@@ -120,12 +121,20 @@ const AboutPage = () => {
             {/* Bio Text */}
             <div className="w-full md:w-2/3 pl-3">
               <div className="p-4 rounded-xl">
-                <h2 className='text-2xl md:text-3xl font-noto font-bold text-darkMint mb-6'>
-                  Quoc Le
+                <h2 className='text-xl md:text-2xl font-noto font-bold text-darkMint mb-6'>
+                  Hi, welcome to my page!
                 </h2>
                 <p className="text-md md:text-md mb-8 text-darkMint/90">
-                  Thanks for stopping by! I'm a software developer who likes exploring with all kinds of tech. I've worked 
-                  on web app, mobile, game development and pretty much anything that seems interesting at the moment.
+                   I like building things with code, and lately I've been getting more into embedded systems and IoT projects.
+                  I find it very fun and interesting to combine my full-stack development skills with embedded systems to 
+                  bridge software and hardware.
+                  Right now I'm working on a fridge management app with a built-in camera. You can check it out
+                  <span> <Link href="/projects/" className='underline hover:text-amber-900'>here</Link></span>.
+                  <br></br><br></br>
+                  Outside of work, I'm pretty into tennis, tbh I could honestly play at any time lol. 
+                  Recently I've picked up video editing, and I also enjoy travelling and capturing the scenery 
+                  I see along the way. Anyways, thanks for stopping by and feel free to look around!
+
                 </p>
               </div>
             </div>
@@ -135,12 +144,16 @@ const AboutPage = () => {
         {/* Education Section */}
         <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
           <h2 className='text-2xl font-noto font-bold mb-6 text-darkMint'>
-            Educations
+            Education
           </h2>
-          <div>
-            <p className='text-md md:text-md mb-4 text-darkMint/90'>
+          <div className='pl-3'>
+            <p className='text-md md:text-md mb-2 text-darkMint/90'>
               Bachelor of Computing in Computer Science - University of Guelph (2023 - Present)
             </p>
+            <ul className='list-disc list-inside text-md text-darkMint/90 ml-4 space-y-1'>
+              <li>Major in Computer Science</li>
+              <li>Minor in Geomatics</li>
+            </ul>
           </div>
         </div>
             
@@ -179,18 +192,4 @@ export default AboutPage;
           <p className='font-noto text-darkMint/90 font-semibold text-xl mb-4'>
             My Current Age: <AgeCalculator />
           </p>
-
-          <p className='font-noto text-darkMint/90 font-semibold text-xl mb-4'>
-            Favorite sport:
-            🎾 and 🏸
-          </p>
-          
-          
-          <p className='text-md md:text-md mb-4 text-darkMint/90'>
-                  Currently:
-                </p>
-
-                <p className="text-md md:text-md mb-8 text-darkMint/90">
-                  Working on <span className='underline'>frijio</span>
-                </p>
           */ 

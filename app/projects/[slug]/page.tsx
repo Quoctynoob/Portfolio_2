@@ -5,6 +5,7 @@ import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectDetailContent } from '@/data/projectsData';
+import { ChevronLeft } from 'lucide-react';
 
 export default function ProjectDetailPage({
   params,
@@ -25,7 +26,7 @@ export default function ProjectDetailPage({
             onClick={() => router.back()}
             className="text-teal-600 hover:text-teal-700 underline"
           >
-            Go back to projects
+            Back to projects
           </button>
         </div>
       </div>
@@ -40,9 +41,7 @@ export default function ProjectDetailPage({
           onClick={() => router.back()}
           className="mb-6 text-darkMint hover:text-teal-600 transition-colors flex items-center gap-2"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <ChevronLeft className="w-5 h-5" />
           Back to Projects
         </button>
 
@@ -90,11 +89,7 @@ export default function ProjectDetailPage({
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2 border-2 border-teal-600 text-teal-600 rounded-lg hover:bg-teal-50 transition-colors"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                      <polyline points="15 3 21 3 21 9"></polyline>
-                      <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
+                    
                     Live Demo
                   </Link>
                 )}
@@ -116,9 +111,6 @@ export default function ProjectDetailPage({
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-teal-500 mt-1 flex-shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
                     </span>
                     <span className="text-gray-700 text-lg">{feature}</span>
                   </li>

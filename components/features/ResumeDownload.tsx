@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 export default function ResumeDownload() {
   const handleOpen = () => {
     toast('Please reach out to my email for my resume', {
-      description: 'I\'d be happy to share my detailed resume directly with you!',
+      description: 'I\'m currently updating my resume.',
       duration: 4000,
     });
   };
