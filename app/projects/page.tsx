@@ -232,7 +232,7 @@ const ProjectsPage = () => {
                 {/* Project image block with hover effect - clickable if slug exists */}
                 <div
                   className={`relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4 ${
-                    project.slug ? 'cursor-pointer hover:shadow-xl transition-shadow duration-300' : ''
+                    project.slug ? 'cursor-pointer transition-shadow duration-300' : ''
                   }`}
                   onClick={() => project.slug && router.push(`/projects/${project.slug}`)}
                 >

@@ -57,7 +57,7 @@ export const projectsData: Project[] = [
     image: "/projects/tennisproject.jpg",
     github: "https://github.com/Quoctynoob/Tennis_Locator",
     website: "https://tennis-locator.vercel.app/",
-    category: ["ongoing", "side projects"],
+    category: ["completed", "side projects"],
     languages: ["React", "TypeScript", "Firestore"],
   },
   {
@@ -65,9 +65,8 @@ export const projectsData: Project[] = [
     name: "eAssetTracker",
     description: "App to help track and manage your assets valuable for trading and investing.",
     image: "/projects/eTracker.png",
-    github: "https://github.com/Quoctynoob",
-    website: "https://stock-portfolio-management-lac.vercel.app",
-    category: ["ongoing", "side projects"],
+    github: "https://github.com/Quoctynoob/eAsset_Tracker",
+    category: ["completed", "side projects"],
     languages: ["React", "TypeScript", "PostgreSQL"]
   },
   {
