@@ -59,7 +59,6 @@ export const projectsData: Project[] = [
     website: "https://tennis-locator.vercel.app/",
     category: ["ongoing", "side projects"],
     languages: ["React", "TypeScript", "Firestore"],
-    slug: "tennis-locator"
   },
   {
     id: 5,
@@ -132,8 +131,8 @@ export type ProjectDetail = {
   languages: string[];
   overview: string;
   features: string[];
-  challenges?: string[];
   technologies: { name: string; purpose: string }[];
+  credit: string;
 };
 
 export const projectDetailContent: Record<string, ProjectDetail> = {
@@ -144,25 +143,22 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
     github: 'https://github.com/megdcosta/frijio',
     website: 'https://frijio.vercel.app',
     languages: ['React', 'TypeScript', 'Node.js', 'Firestore', 'OpenAI'],
-    overview: 'Frijio is a comprehensive household management application designed to streamline daily household tasks. From tracking what\'s in your fridge to splitting bills with roommates, Frijio makes household management effortless and intelligent.',
+    overview: `We created frij.io to tackle a problem we kept seeing in Canadian households, the chaos of food management that leads to waste and unnecessary spending. Our platform helps users manage their pantry and fridge inventory, collaborate on shared grocery lists, and split expenses with household members. We integrated AI to make it smarter the app suggests recipes based on your actual inventory, helping you minimize waste. The project earned us the Best AI Award at Hack Canada, validating that our solution addresses a real need while leveraging technology to make food management more efficient.`,
     features: [
-      'Real-time inventory tracking with expiration date alerts',
+      'Inventory tracking with expiration date alerts',
       'AI-powered recipe suggestions based on available ingredients',
-      'Expense splitting with automatic calculation and notifications',
-      'Shopping list generation from missing ingredients',
-      'Multi-user household support with role-based permissions'
-    ],
-    challenges: [
-      'Implementing real-time synchronization across multiple users',
-      'Optimizing OpenAI API calls for cost-effective recipe generation',
-      'Designing an intuitive UX for complex household management tasks'
+      'Recipe scanning with OCR technology',
+      'Expense splitting with automatic calculation',
+      'Shopping list',
+      'Multi-user household support'
     ],
     technologies: [
       { name: 'React & TypeScript', purpose: 'Building a type-safe, component-based UI' },
       { name: 'Node.js', purpose: 'Backend API for business logic and data processing' },
       { name: 'Firestore', purpose: 'Real-time database for multi-user synchronization' },
       { name: 'OpenAI API', purpose: 'Generating contextual recipe recommendations' }
-    ]
+    ],
+    credit: 'Developed during HackCanada 2025 by me and my team (Meg D\'Costa, Emily Chang, Eleazar Videna)'
   },
   'convoco': {
     name: 'Convoco',
@@ -174,42 +170,15 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
     overview: 'Convoco transforms online debates into structured, fact-based discussions. With AI-powered moderation and fact-checking, users can engage in meaningful debates while earning rewards for quality contributions.',
     features: [
       'Real-time debate rooms with live participant updates',
-      'AI moderation to maintain civil discourse',
-      'Automated fact-checking with source citations',
-      'Multi-language translation for global discussions',
+      'AI automated fact-checking with source citations',
       'Reputation system and rewards for quality contributions'
-    ],
-    challenges: [
-      'Implementing low-latency real-time communication',
-      'Balancing AI moderation with free speech',
-      'Designing fair reward mechanisms to prevent gaming'
     ],
     technologies: [
       { name: 'React & TypeScript', purpose: 'Interactive real-time debate interface' },
       { name: 'Node.js', purpose: 'WebSocket server for real-time communication' },
       { name: 'Firestore', purpose: 'Storing debate history and user profiles' },
       { name: 'AI APIs', purpose: 'Moderation, fact-checking, and translation' }
-    ]
-  },
-  'tennis-locator': {
-    name: 'Tennis Locator',
-    description: 'A full-stack app for real-time tennis court searches',
-    image: '/projects/tennisproject.jpg',
-    github: 'https://github.com/Quoctynoob/Tennis_Locator',
-    website: 'https://tennis-locator.vercel.app/',
-    languages: ['React', 'TypeScript', 'Firestore'],
-    overview: 'Tennis Locator helps tennis enthusiasts find available courts near them in real-time. Users can check court availability, book courts, and connect with other players.',
-    features: [
-      'Interactive map view of tennis courts',
-      'Real-time availability status',
-      'Court booking system',
-      'Player matching for doubles games',
-      'Court ratings and reviews'
     ],
-    technologies: [
-      { name: 'React & TypeScript', purpose: 'Building the interactive map interface' },
-      { name: 'Firestore', purpose: 'Real-time court availability updates' },
-      { name: 'Maps API', purpose: 'Location services and court mapping' }
-    ]
-  }
-};
+    credit: 'Developed during GenAI Genesis 2025 by me and my team (Meg D\'Costa, Emily Chang, Eleazar Videna)'
+  },
+}

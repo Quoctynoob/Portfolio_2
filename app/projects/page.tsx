@@ -305,7 +305,7 @@ const ProjectsPage = () => {
                 {/* Project description */}
                 <p className="text-left text-gray-700 mb-2 w-full">{project.description}</p>
                 
-                {/* Project languages - CHANGED FROM CATEGORIES */}
+                {/* Project languages */}
                 <div className="flex flex-wrap gap-2 mt-1 w-full">
                   {project.languages.map((lang, index) => (
                     <span 
