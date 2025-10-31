@@ -22,7 +22,6 @@ export const workExperiences: WorkExperience[] = [
     period: "May 2024 - Aug 2024",
     company: "Fracht Group",
     position: "IT Support Developer",
-    slug: "fracht-group"
   },
 
   {
