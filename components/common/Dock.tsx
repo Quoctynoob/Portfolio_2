@@ -56,7 +56,7 @@ export function DockIcon({ href, src, alt, external = true }: DockIconProps) {
     >
       <Link 
         href={href} 
-        className="group p-2 hover:bg-teal-600/30 rounded-full transition-colors duration-300 text-black w-full flex items-center justify-center" 
+        className="group p-2 hover:bg-navbar-icon-hover rounded-full transition-colors duration-300 text-black w-full flex items-center justify-center" 
         target={external ? "_blank" : "_self"} 
         rel={external ? "noopener noreferrer" : ""}
       >
@@ -116,7 +116,7 @@ function InternalDockIcon({
     >
       <Link 
         href={href} 
-        className="group p-2 hover:bg-teal-600/30 rounded-full transition-colors duration-300 text-black w-full flex items-center justify-center" 
+        className="group p-2 hover:bg-navbar-icon-hover rounded-full transition-colors duration-300 text-black w-full flex items-center justify-center" 
         target={external ? "_blank" : "_self"} 
         rel={external ? "noopener noreferrer" : ""}
       >
@@ -172,7 +172,7 @@ export function Dock({
 
   return (
     <motion.div 
-      className={`hidden md:flex items-center gap-4 bg-lightGreen1/70 backdrop-blur-sm backdrop-saturate-150 px-6 py-2 rounded-full shadow-lg border border-beige/50 transition-colors duration-300 pointer-events-auto h-14  ${className}`}
+      className={`hidden md:flex items-center gap-4 bg-navbar-bg backdrop-blur-sm backdrop-saturate-150 px-6 py-2 rounded-full shadow-lg border-2 border-navbar-border transition-colors duration-300 pointer-events-auto h-14  ${className}`}
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
     >

@@ -34,17 +34,17 @@
 .resume {
   padding: 1.1em 2em;
   background: none;
-  border: 2px solid #fff;
+  border: 2px solid #E8DCC6;
   font-size: 15px;
-  color: #131313;
+  color: #2A2A2A;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 12px;
-  background-color: #e9db8e;
+  background-color: #D4A574;
   font-weight: bolder;
-  box-shadow: 0 2px 0 2px #055837;
+  box-shadow: 0 2px 0 2px #8B6F47;
 }
 
 .resume:before {
@@ -52,16 +52,16 @@
   position: absolute;
   width: 100px;
   height: 120%;
-  background-color: #feb17e;
+  background-color: #D4A574;
   top: 50%;
   transform: skewX(30deg) translate(-150%, -50%);
   transition: all 0.5s;
 }
 
 .resume:hover {
-  background-color: #ADC178;
-  color: #fff;
-  box-shadow: 0 2px 0 2px #0d3b66;
+  background-color: #D4A574;
+  color: #2A2A2A;
+  box-shadow: 0 2px 0 2px #8B6F47;
 }
 
 .resume:hover::before {

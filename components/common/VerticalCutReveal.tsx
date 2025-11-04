@@ -137,9 +137,10 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
     }, [autoStart, startAnimation])
 
     const variants = {
-      hidden: { y: reverse ? "-100%" : "100%" },
+      hidden: { y: reverse ? "-100%" : "100%", opacity: 0 },
       visible: (i: number) => ({
         y: 0,
+        opacity: 1,
         transition: {
           ...transition,
           delay: ((transition?.delay as number) || 0) + getStaggerDelay(i),
@@ -175,7 +176,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
             <span
               key={wordIndex}
               aria-hidden="true"
-              className={cn("inline-flex overflow-hidden", wordLevelClassName)}
+              className={cn("inline-flex overflow-hidden py-1", wordLevelClassName)}
             >
               {wordObj.characters.map((char, charIndex) => (
                 <span

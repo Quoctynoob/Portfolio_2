@@ -52,7 +52,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
   }, [onLoadingComplete]);
   
   return (
-    <div className={`fixed inset-0 bg-lightGreen flex items-center justify-center z-50 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+    <div className={`fixed inset-0 bg-lightPeach flex items-center justify-center z-50 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
       <div className="relative h-36 w-36">
         <svg 
           viewBox="0 0 100 100" 

@@ -10,7 +10,6 @@ import {
   SiSass,
   SiTailwindcss,
   SiTypescript,
-  SiFigma,
   SiGit,
   SiC,
   SiFirebase,

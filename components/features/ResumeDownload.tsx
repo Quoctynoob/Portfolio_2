@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { toast } from 'sonner';
+import { CartoonButton } from '../ui/cartoon-button';
 
 export default function ResumeDownload() {
   const handleOpen = () => {
@@ -12,12 +13,13 @@ export default function ResumeDownload() {
   };
 
   return (
-    <button 
-      className="button-resume md:text-lg text-sm" 
-      onClick={handleOpen}
-      aria-label="Open Resume"
-    >
-      View Resume
-    </button>
+    <div>
+      <CartoonButton
+        label="Download Resume"
+        color="bg-yellow-400"
+        hasHighlight={true}
+        onClick={handleOpen}
+      />
+    </div>
   );
 }

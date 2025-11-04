@@ -73,15 +73,16 @@ export default function ProjectDetailPage({
 
               {/* Links */}
               <div className="flex gap-4">
-                <Link
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-2 py-2 rounded-full border-amber-950 border-2"
-                >
-                  <Image src="/icons/github.svg" width={20} height={20} alt="GitHub" className="filter invert" />
-                  
-                </Link>
+                {project.github && (
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-2 py-2 rounded-full border-amber-950 border-2"
+                  >
+                    <Image src="/icons/github.svg" width={20} height={20} alt="GitHub" className="filter invert" />
+                  </Link>
+                )}
                 {project.website && (
                   <Link
                     href={project.website}

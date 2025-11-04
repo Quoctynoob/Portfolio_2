@@ -4,7 +4,7 @@ export type Project = {
   name: string;
   description: string;
   image: string;
-  github: string;
+  github?: string;
   website?: string;
   category: ('completed' | 'ongoing' | 'side projects' | 'academic')[];
   languages: string[];
@@ -18,6 +18,15 @@ export type CategoryType = 'all' | 'completed' | 'ongoing' | 'side projects' | '
 // Projects data
 export const projectsData: Project[] = [
   {
+    id: 0,
+    name: "Water Pump Controller",
+    description: "A distributed IoT system for remote water pump management with tank level sensor, smart shutoffs, and Android app control.",
+    image: "/image/water_pump.png",
+    category: ["ongoing"],
+    languages: ["Arduino", "Kotlin", "ESP32", "Cloudflare"],
+    slug: "water-pump-controller"
+  },
+  {
     id: 1,
     name: "frijio",
     description: "A household management app for tracking inventory, splitting expenses, and suggesting AI-powered recipes.",
@@ -25,7 +34,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/megdcosta/frijio",
     website: "https://frijio.vercel.app",
     category: ["completed", "side projects"],
-    languages: ["React", "TypeScript", "Node.js", "Firestore", "OpenAI"],
+    languages: ["React", "TypeScript", "Next.js", "Firestore", "OpenAI"],
     slug: "frijio"
   },
   /*{
@@ -47,7 +56,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/Quoctynoob/Convoco",
     website: "https://convoco.vercel.app/debates",
     category: ["completed", "side projects"],
-    languages: ["React", "TypeScript", "Node.js", "Firestore"],
+    languages: ["React", "TypeScript", "Next.js", "Firestore"],
     slug: "convoco"
   },
   {
@@ -116,7 +125,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/Quoctynoob/Portfolio",
     website: "https://portfolio-quoctynoobs-projects.vercel.app",
     category: ["completed", "side projects"],
-    languages: ["React", "TypeScript", "Next.js", "Tailwind CSS"]
+    languages: ["React", "TypeScript", "Tailwind CSS"]
   },
 ];
 
@@ -125,7 +134,7 @@ export type ProjectDetail = {
   name: string;
   description: string;
   image: string;
-  github: string;
+  github?: string;
   website?: string;
   languages: string[];
   overview: string;
@@ -141,7 +150,7 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
     image: '/projects/Frijio.PNG',
     github: 'https://github.com/megdcosta/frijio',
     website: 'https://frijio.vercel.app',
-    languages: ['React', 'TypeScript', 'Node.js', 'Firestore', 'OpenAI'],
+    languages: ['React', 'TypeScript', 'Next.js', 'Firestore', 'OpenAI'],
     overview: `We created frij.io to tackle a problem we kept seeing in Canadian households, the chaos of food management that leads to waste and unnecessary spending. Our platform helps users manage their pantry and fridge inventory, collaborate on shared grocery lists, and split expenses with household members. We integrated AI to make it smarter the app suggests recipes based on your actual inventory, helping you minimize waste. The project earned us the Best AI Award at Hack Canada, validating that our solution addresses a real need while leveraging technology to make food management more efficient.`,
     features: [
       'Inventory tracking with expiration date alerts',
@@ -165,7 +174,7 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
     image: '/projects/Convoco.png',
     github: 'https://github.com/Quoctynoob/Convoco',
     website: 'https://convoco.vercel.app/debates',
-    languages: ['React', 'TypeScript', 'Node.js', 'Firestore'],
+    languages: ['React', 'TypeScript', 'Next.js', 'Firestore'],
     overview: 'Convoco transforms online debates into structured, fact-based discussions. With AI-powered moderation and fact-checking, users can engage in meaningful debates while earning rewards for quality contributions.',
     features: [
       'Real-time debate rooms with live participant updates',

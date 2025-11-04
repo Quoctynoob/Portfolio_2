@@ -9,18 +9,18 @@ import DockNavbar from '@/components/layout/DockNavbar';
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <NavigationProvider>
-      <div className="flex flex-col min-h-screen bg-lightGreen">
+      <div className="flex flex-col min-h-screen bg-lightPeach">
         <Navbar />
 
-        <main className="flex-grow text-darkMint">
+        <main className="flex-grow text-darkCharcoal">
           {children}
         </main>
 
-        <div className="navbar-fade">
+        <div className="navbar-fade text-darkCharcoal">
           <Footer />
         </div>
 
-        <div className="navbar-fade">
+        <div className="navbar-fade text-darkCharcoal">
           <DockNavbar />
         </div>
       </div>

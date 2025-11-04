@@ -81,7 +81,7 @@ const NavHeader = ({
         animate={position}
         initial={false}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        className="absolute z-0 h-7 rounded-full bg-green-200 md:h-12"
+        className="absolute z-0 h-7 rounded-full bg-subtle md:h-12"
       />
     </ul>
   );
@@ -106,43 +106,6 @@ const ProjectsPage = () => {
   };
 
   // Function to get appropriate color class for each language
-  const getLanguageColor = (lang: string) => {
-    switch(lang.toLowerCase()) {
-      case 'react':
-        return 'bg-blue-100 text-blue-800';
-      case 'typescript':
-        return 'bg-blue-100 text-blue-800';
-      case 'javascript':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'node.js':
-        return 'bg-green-100 text-green-800';
-      case 'swift':
-        return 'bg-orange-100 text-orange-800';
-      case 'firebase':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'c':
-        return 'bg-gray-100 text-gray-800';
-      case 'python':
-        return 'bg-blue-100 text-blue-800';
-      case 'html':
-      case 'css':
-        return 'bg-orange-100 text-orange-800';
-      case 'mongodb':
-        return 'bg-green-100 text-green-800';
-      case 'postgresql':
-        return 'bg-blue-100 text-blue-800';
-      case 'openai':
-        return 'bg-white text-black';
-      case 'supabase':
-        return 'bg-darkMint text-mintCream';
-      case 'firestore':
-        return 'bg-yellow-200 text-red-500';
-      case 'postgresql':
-        return 'bg-blue-100 text-blue-800';
-      default:
-        return 'bg-teal-100 text-teal-800';
-    }
-  };
 
   // Function to get status icon and color (only for completed and ongoing)
   const getStatusIcon = (status: string) => {
@@ -205,10 +168,10 @@ const ProjectsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl font-noto">
-      <h1 className="text-4xl font-bold mb-8 text-center">My Projects<span className='text-teal-500'>.</span></h1>
+      <h1 className="text-4xl font-inter font-bold mb-8 text-center">My Projects<span className='text-subtle'>.</span></h1>
       
       {/* Navigation Header */}
-      <div className="flex justify-center mb-12">
+      <div className="flex justify-center mb-12 font-inter text-darkCharcoal">
         <NavHeader activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       </div>
       
@@ -231,7 +194,7 @@ const ProjectsPage = () => {
               >
                 {/* Project image block with hover effect - clickable if slug exists */}
                 <div
-                  className={`relative w-full h-64 rounded-lg bg-mintGreen/50 overflow-hidden mb-4 shadow-md project-image-container p-4 ${
+                  className={`relative w-full h-64 rounded-lg bg-project-bg overflow-hidden mb-4 border-2 border-project-border project-image-container p-4 ${
                     project.slug ? 'cursor-pointer transition-shadow duration-300' : ''
                   }`}
                   onClick={() => project.slug && router.push(`/projects/${project.slug}`)}
@@ -247,7 +210,7 @@ const ProjectsPage = () => {
                           if (!statusInfo) return null;
                           return (
                             <div key={index} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full">
-                              <span className="text-xs text-gray-700">{statusInfo.text}</span>
+                              <span className="text-xs text-darkCharcoal font-inter font-light">{statusInfo.text}</span>
                               <div className={`w-2 h-2 rounded-full ${statusInfo.dot}`}></div>
                             </div>
                           );
@@ -270,26 +233,28 @@ const ProjectsPage = () => {
                 
                 {/* Project header with title and links */}
                 <div className="w-full flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-bold">{project.name}</h3>
+                  <h3 className="text-xl font-inter font-medium">{project.name}</h3>
                   
                   {/* Links moved next to title */}
                   <div className="flex space-x-2">
-                    <Link 
-                      href={project.github} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-darkMint rounded-full transition-colors duration-300"
-                      aria-label={`GitHub repo for ${project.name}`}
-                    >
-                      <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
-                    </Link>
+                    {project.github && (
+                      <Link 
+                        href={project.github} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-8 h-8 hover:bg-subtle text-darkCharcoal rounded-full transition-colors duration-300"
+                        aria-label={`GitHub repo for ${project.name}`}
+                      >
+                        <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
+                      </Link>
+                    )}
                     
                     {project.website && (
                       <Link 
                         href={project.website} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center w-8 h-8 hover:bg-teal-100 text-black rounded-full transition-colors duration-300"
+                        className="flex items-center justify-center w-8 h-8 hover:bg-subtle text-darkCharcoal rounded-full transition-colors duration-300"
                         aria-label={`Live website for ${project.name}`}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -303,19 +268,7 @@ const ProjectsPage = () => {
                 </div>
                 
                 {/* Project description */}
-                <p className="text-left text-gray-700 mb-2 w-full">{project.description}</p>
-                
-                {/* Project languages */}
-                <div className="flex flex-wrap gap-2 mt-1 w-full">
-                  {project.languages.map((lang, index) => (
-                    <span 
-                      key={index} 
-                      className={`text-xs px-2 py-1 rounded-full ${getLanguageColor(lang)}`}
-                    >
-                      {lang}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-left font-inter font-light text-darkCharcoal mb-2 w-full">{project.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -329,7 +282,7 @@ const ProjectsPage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center py-12"
         >
-          <p className="text-xl text-gray-600">No projects found</p>
+          <p className="text-xl text-darkCharcoal font-inter">No projects found</p>
         </motion.div>
       )}
     </div>

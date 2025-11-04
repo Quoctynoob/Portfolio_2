@@ -34,12 +34,12 @@ const AboutPage = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: -8 }}
             exit={{ opacity: 0, y: 10 }}
-            className="absolute -top-2 px-2 py-1 bg-lightYellow text-black text-xs rounded-md whitespace-nowrap border border-darkMint"
+            className="absolute -top-2 px-2 py-1 bg-subtle text-darkCharcoal text-xs rounded-md whitespace-nowrap border border-darkCharcoal"
           >
             {name}
           </motion.div>
         )}
-        <div className="text-darkMint mb-2">
+        <div className="text-darkSubtle mb-2">
           <Icon className="w-8 h-8" />
         </div>
       </motion.div>
@@ -47,12 +47,12 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-lightGreen px-4 md:px-8 py-12">
+    <div className="min-h-screen bg-lightPeach px-4 md:px-8 py-12">
       <div className="max-w-4xl mx-auto">
         {/* Page Header */}
         <div className="mb-12 text-center animate-fade-in">
-          <h1 className="text-4xl font-noto font-bold mb-2 text-center">
-            About<span className="text-teal-500">.</span>
+          <h1 className="text-4xl font-inter font-bold mb-2 text-center">
+            About<span className="text-subtle">.</span>
           </h1>
         </div>
 
@@ -121,10 +121,10 @@ const AboutPage = () => {
             {/* Bio Text */}
             <div className="w-full md:w-2/3 pl-3">
               <div className="p-4 rounded-xl">
-                <h2 className='text-xl md:text-2xl font-noto font-bold text-darkMint mb-6'>
+                <h2 className='text-xl md:text-2xl font-inter text-darkCharcoal mb-6'>
                   Hi, welcome to my page!
                 </h2>
-                <p className="text-md md:text-md mb-8 text-darkMint/90">
+                <p className="text-md md:text-md mb-8 text-darkCharcoal font-inter">
                    I like building things with code, and lately I've been getting more into embedded systems and IoT projects.
                   I find it very fun and interesting to combine my full-stack development skills with embedded systems to 
                   bridge software and hardware.
@@ -143,14 +143,14 @@ const AboutPage = () => {
 
         {/* Education Section */}
         <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          <h2 className='text-2xl font-noto font-bold mb-6 text-darkMint'>
+          <h2 className='text-2xl font-inter mb-6 text-darkCharcoal'>
             Education
           </h2>
           <div className='pl-3'>
-            <p className='text-md md:text-md mb-2 text-darkMint/90'>
+            <p className='text-md md:text-md mb-2 text-darkCharcoal font-inter'>
               Bachelor of Computing in Computer Science - University of Guelph (2023 - Present)
             </p>
-            <ul className='list-disc list-inside text-md text-darkMint/90 ml-4 space-y-1'>
+            <ul className='list-disc list-inside text-md text-darkCharcoal font-inter ml-4 space-y-1'>
               <li>Major in Computer Science</li>
               <li>Minor in Geomatics</li>
             </ul>
@@ -159,14 +159,14 @@ const AboutPage = () => {
             
         {/* Skills section - Keep motion for interactive tooltips */}
         <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          <h2 className="text-2xl font-noto font-bold mb-6 text-darkMint">
+          <h2 className="text-2xl font-inter font-bold mb-6 text-darkCharcoal">
             Skills
           </h2>
 
           <div className="space-y-8">
             {skillCategories.map((category, index) => (
               <div key={index} className="mb-6">
-                <h3 className="text-xl font-noto font-semibold mb-4 text-darkMint">
+                <h3 className="text-xl font-inter font-semibold mb-4 text-darkCharcoal">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-4">

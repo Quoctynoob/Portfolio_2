@@ -12,7 +12,12 @@ import {
 import ClientLayout from '@/components/layout/ClientLayout';
 
 // Load fonts using next/font/google
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // better loading performance
+  variable: '--font-inter'
+});
+
 const libreBarcode = Libre_Barcode_39({ 
   weight: '400', 
   subsets: ['latin'],
@@ -69,8 +74,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${playWrite.variable} ${pacifico.variable} ${trainOne.variable} ${dancingScript.variable} ${notoSerifDisplay.variable}`}>
-      <body className={`${inter.className} bg-lightGreen min-h-screen`}>
+    <html lang="en" className={`${libreBarcode.variable} ${londrinaSketch.variable} ${playWrite.variable} ${pacifico.variable} ${trainOne.variable} ${dancingScript.variable} ${notoSerifDisplay.variable} ${inter.variable} `}>
+      <body className={`${inter.className} bg-lightPeach min-h-screen`}>
         <ClientLayout>{children}</ClientLayout>
         <Toaster
           position="bottom-right"

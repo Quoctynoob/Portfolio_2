@@ -13,7 +13,7 @@ export default function Navbar() {
   } = useNavigation();
 
   return (
-    <nav className="flex justify-between items-center bg-lightGreen p-4 text-darkMint navbar-fade md:pt-5">
+    <nav className="flex justify-between items-center bg-lightPeach p-4 text-darkCharcoal navbar-fade md:pt-5">
       {/* Logo on the left */}
       <div>
         <Link
@@ -25,7 +25,7 @@ export default function Navbar() {
       </div>
 
       {/* Navigation tabs on the right */}
-      <div className="hidden md:flex gap-4 font-noto">
+      <div className="hidden md:flex gap-4 font-inter">
         <Link
           href="/about"
           className="p-2 px-4 group"
@@ -33,7 +33,7 @@ export default function Navbar() {
           onMouseLeave={() => setHoveredTab(null)}
         >
           About
-          <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
+          <div className={`bg-subtle h-[2px] ${getUnderlineClass('about')} transition-all duration-500 rounded-sm`}></div>
         </Link>
 
         <Link
@@ -43,7 +43,7 @@ export default function Navbar() {
           onMouseLeave={() => setHoveredTab(null)}
         >
           Projects
-          <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
+          <div className={`bg-subtle h-[2px] ${getUnderlineClass('projects')} transition-all duration-500 rounded-sm`}></div>
         </Link>
 
         <Link
@@ -53,7 +53,7 @@ export default function Navbar() {
           onMouseLeave={() => setHoveredTab(null)}
         >
           Experience
-          <div className={`bg-teal-500 h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
+          <div className={`bg-subtle h-[2px] ${getUnderlineClass('work')} transition-all duration-500 rounded-sm`}></div>
         </Link>
       </div>
 
