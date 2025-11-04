@@ -16,7 +16,6 @@ export default function ResumeDownload() {
     <div>
       <CartoonButton
         label="Download Resume"
-        color="bg-yellow-400"
         hasHighlight={true}
         onClick={handleOpen}
       />
