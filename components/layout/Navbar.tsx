@@ -1,16 +1,31 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useNavigation } from '@/contexts/NavigationContext';
 import { MenuDemo } from '../common/demo';
-import { HandWrittenTitle } from '../features/HandWriting';
+import SignatureAnimation from '../ui/signature';
 
 export default function Navbar() {
   const {
     getUnderlineClass,
     setHoveredTab
   } = useNavigation();
+
+  const [signatureDelay, setSignatureDelay] = useState(500);
+
+  useEffect(() => {
+    // Check if user has seen the loading screen
+    const hasSeenLoading = sessionStorage.getItem('hasSeenLoadingScreen');
+
+    if (hasSeenLoading === 'true') {
+      // Loading screen was skipped, wait for intro text to finish
+      setSignatureDelay(2600);
+    } else {
+      // Wait for loading screen (~3300ms) + intro text (~2600ms)
+      setSignatureDelay(5900);
+    }
+  }, []);
 
   return (
     <nav className="flex justify-between items-center bg-lightPeach p-4 text-darkCharcoal navbar-fade md:pt-5">
@@ -20,7 +35,15 @@ export default function Navbar() {
           className="font-semibold md:text-3xl font-play text-2xl"
           href="/"
         >
-          <HandWrittenTitle title="Quoc Le" />
+          <SignatureAnimation
+            speed="normal"
+            strokeColor="#2A2A2A"
+            strokeWidth={2.5}
+            autoPlay={true}
+            loop={false}
+            scale={1.2}
+            initialDelay={signatureDelay}
+          />
         </Link>
       </div>
 

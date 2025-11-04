@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import ResumeDownload from '../features/ResumeDownload';
 import { VerticalCutReveal } from '../common/VerticalCutReveal';
 
@@ -19,6 +20,7 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
+          delay: 0.2,
         }}
       >
         {`Hi!`}
@@ -32,7 +34,7 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
-          delay: 0.5,
+          delay: 0.8,
         }}
       >
         {`I'm Quoc Le.`}
@@ -47,7 +49,7 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
-          delay: 1.1,
+          delay: 1.4,
         }}
       >
         {`a 3rd year Computer Science`}
@@ -62,18 +64,23 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
-          delay: 1.7,
+          delay: 2.0,
         }}
       >
         {`student @UofGuelph.`}
       </VerticalCutReveal>
       </div>
       
-      
-      {/* Third item - Resume button */}
-      <div className="content-item-3 md:text-lg mt-8">
+
+      {/* Resume button - No animation for immediate visibility */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0, duration: 0.6 }}
+        className="md:text-lg mt-8"
+      >
         <ResumeDownload />
-      </div>
+      </motion.div>
     </div>
   );
 }
