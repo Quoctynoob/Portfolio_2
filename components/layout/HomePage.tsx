@@ -34,7 +34,7 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
-          delay: 0.8,
+          delay: 0.6,
         }}
       >
         {`I'm Quoc Le.`}
@@ -49,7 +49,7 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
-          delay: 1.4,
+          delay: 1,
         }}
       >
         {`a 3rd year Computer Science`}
@@ -64,7 +64,7 @@ export default function HomePage() {
           type: "spring",
           stiffness: 200,
           damping: 21,
-          delay: 2.0,
+          delay: 1.4,
         }}
       >
         {`student @UofGuelph.`}

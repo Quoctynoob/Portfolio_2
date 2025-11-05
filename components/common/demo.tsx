@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { MenuItem, MenuContainer } from "../ui/fluid-menu";
 import { Menu as MenuIcon, X, User, AppWindow, BriefcaseBusiness } from "lucide-react"
 
+
+//FOR MOBILE VIEW ------ NEEDS TO CHANGE
+
 // A fluid circular menu that elegantly expands to reveal navigation items with smooth icon transitions
 export function MenuDemo() {
   return (

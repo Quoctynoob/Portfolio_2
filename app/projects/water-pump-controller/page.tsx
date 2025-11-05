@@ -119,7 +119,7 @@ export default function WaterPumpControllerPage() {
             {/* Add more custom sections here as you want! */}
             {/* Example: */}
             {/* <section className="mt-10">
-              <h2 className="text-2xl font-bold text-darkMint mb-4">Custom Section</h2>
+              <h2 className="text-2xl font-bold text- mb-4">Custom Section</h2>
               <p className="text-gray-700 text-lg">Your custom content here...</p>
             </section> */}
           </div>

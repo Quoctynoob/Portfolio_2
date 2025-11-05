@@ -20,10 +20,10 @@ export default function Navbar() {
 
     if (hasSeenLoading === 'true') {
       // Loading screen was skipped, wait for intro text to finish
-      setSignatureDelay(2600);
+      setSignatureDelay(1800);
     } else {
-      // Wait for loading screen (~3300ms) + intro text (~2600ms)
-      setSignatureDelay(5900);
+      // Wait for loading screen (~3300ms) + intro text (~1800ms)
+      setSignatureDelay(5100);
     }
   }, []);
 

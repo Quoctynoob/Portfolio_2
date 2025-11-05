@@ -79,8 +79,8 @@ const SignatureAnimation: React.FC<SignatureAnimationProps> = ({
   // Speed configurations
   const speedConfig = {
     slow: { q1: 2.5, q2: 1.5, l: 2.0, pause: 0.8 },
-    normal: { q1: 1.8, q2: 1.0, l: 1.5, pause: 0.5 },
-    fast: { q1: 0.8, q2: 0.5, l: 0.7, pause: 0.2 }
+    normal: { q1: 1.5, q2: 1.0, l: 1.2, pause: 0.3 },
+    fast: { q1: 0.8, q2: 0.5, l: 0.6, pause: 0.1 }
   };
 
   // Initialize paths for animation

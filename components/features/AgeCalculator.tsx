@@ -20,7 +20,7 @@ const AgeCalculator = () => {
 
   return (
     <div className="relative overflow-x-auto sm:rounded-lg" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <td className="text-darkMint mt-4">
+        <td className="text-darkCharcoal mt-4">
             <p>{age}</p>
         </td>
     </div>

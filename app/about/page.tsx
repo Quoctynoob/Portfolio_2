@@ -186,10 +186,10 @@ const AboutPage = () => {
 export default AboutPage;
 
 
-/*<h2 className="text-2xl font-noto font-bold mb-6 text-darkMint">
+/*<h2 className="text-2xl font-noto font-bold mb-6 text-">
             Fun Facts
           </h2>
-          <p className='font-noto text-darkMint/90 font-semibold text-xl mb-4'>
+          <p className='font-noto text-/90 font-semibold text-xl mb-4'>
             My Current Age: <AgeCalculator />
           </p>
           */ 
