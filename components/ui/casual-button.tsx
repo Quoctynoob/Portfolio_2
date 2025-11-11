@@ -24,9 +24,9 @@ export function CasualButton({
       <button
         disabled={disabled}
         onClick={handleClick}
-        className={`relative p-2 rounded-full font-bold text-darkCharcoal border-2 border-darkCharcoal transition-all duration-150 overflow-hidden group
-        bg-navbar-bg hover:shadow-[0_4px_0_0_#2A2A2A]
-        ${disabled ? 'opacity-50 pointer-events-none' : 'hover:-translate-y-1 active:translate-y-0 active:shadow-none'}`}
+        className={`relative p-2 rounded-full font-bold shadow-[0_4px_0_0_#2A2A2A] text-darkCharcoal border-2 border-darkCharcoal transition-all duration-150 overflow-hidden group
+        bg-navbar-bg hover:shadow-none
+        ${disabled ? 'opacity-50 pointer-events-none' : 'hover:translate-y-1 active:translate-y-0 active:shadow-[0_4px_0_0_#2A2A2A]'}`}
       >
         <span className="relative z-10 whitespace-nowrap">{label}</span>
         {hasHighlight && !disabled && (

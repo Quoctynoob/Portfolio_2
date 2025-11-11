@@ -8,6 +8,7 @@ import { projectDetailContent } from '@/data/projectsData';
 import { ChevronLeft, SquareArrowOutUpRight } from 'lucide-react';
 import { FiGithub } from 'react-icons/fi';
 import { CasualButton } from '@/components/ui/casual-button';
+import { Button } from '@/components/ui/button';
 
 export default function ProjectDetailPage({
   params,
@@ -34,14 +35,14 @@ export default function ProjectDetailPage({
       </div>
     );
   }
-
+//transition-transform group-hover:-translate-x-1
   return (
     <div className="min-h-screen bg-lightPeach py-12">
       <div className="container mx-auto px-4 max-w-5xl font-inter">
         {/* Back button */}
         <button
           onClick={() => router.back()}
-          className="mb-6 text-darkCharcoal hover:text-subtle transition-colors flex items-center gap-2"
+          className="mb-6 text-darkCharcoal group flex items-center gap-2 hover:text-subtle"
         >
           <ChevronLeft className="w-5 h-5" />
           Back to Projects
@@ -101,15 +102,22 @@ export default function ProjectDetailPage({
             {/* My Contributions */}
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">My Contributions</h2>
-              <div>
-                ....
+              <div className='font-inter font-light space-y-2'>
+                {project.contributions.map((contribution, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <span className="text-darkCharcoal mt-1 flex-shrink-0">
+                      ‣
+                    </span>
+                    <span className="text-darkCharcoal text-lg ">{contribution}</span>
+                  </li>
+                ))}
               </div>
             </section>
 
             {/* Key Features */}
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">Key Features</h2>
-              <ul className="space-y-3 font-inter font-light">
+              <ul className="space-y-2 font-inter font-light">
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-darkCharcoal mt-1 flex-shrink-0">

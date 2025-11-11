@@ -136,6 +136,7 @@ export type ProjectDetail = {
   image: string;
   github?: string;
   website?: string;
+  contributions: string[];
   languages: string[];
   overview: string;
   features: string[];
@@ -150,7 +151,7 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
     image: '/projects/Frijio.PNG',
     github: 'https://github.com/megdcosta/frijio',
     website: 'https://frijio.vercel.app',
-    languages: ['React', 'TypeScript', 'Next.js', 'Firestore', 'OpenAI'],
+    languages: ['React', 'TypeScript', 'Next.js', 'Firestore', 'Perplexity AI'],
     overview: `We created frij.io to tackle a problem we kept seeing in Canadian households, the chaos of food management that leads to waste and unnecessary spending. Our platform helps users manage their pantry and fridge inventory, collaborate on shared grocery lists, and split expenses with household members. We integrated AI to make it smarter the app suggests recipes based on your actual inventory, helping you minimize waste. The project earned us the Best AI Award at Hack Canada, validating that our solution addresses a real need while leveraging technology to make food management more efficient.`,
     features: [
       'Inventory tracking with expiration date alerts',
@@ -160,6 +161,11 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
       'Shopping list',
       'Multi-user household support'
     ],
+    contributions:[
+      "AI Recipe Suggestions: I implemented Perplexity AI to analyze the user's inventory and generate recipe ideas accordingly.",
+      "Receipt Scanning: Developed an AI feature that scans grocery receipts using photos and auto extracts food items only."
+    ],
+
     technologies: [
       { name: 'React & TypeScript', purpose: 'Building a type-safe, component-based UI' },
       { name: 'Node.js', purpose: 'Backend API for business logic and data processing' },
@@ -180,6 +186,10 @@ export const projectDetailContent: Record<string, ProjectDetail> = {
       'Real-time debate rooms with live participant updates',
       'AI automated fact-checking with source citations',
       'Reputation system and rewards for quality contributions'
+    ],
+    contributions: [
+      "Authentication System: Implemented user registration and login functionality to manage user access to the debate platform.",
+      "Firestore Database: Built the complete backend database structure including real-time debate rooms, user profiles, and debate history, with the most complex feature being the room assignment system that places users into their own debate sessions."
     ],
     technologies: [
       { name: 'React & TypeScript', purpose: 'Interactive real-time debate interface' },

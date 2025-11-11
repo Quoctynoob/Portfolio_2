@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData, type Project, type CategoryType } from '@/data/projectsData';
+import { CasualButton } from '@/components/ui/casual-button';
+import { FiGithub } from 'react-icons/fi';
+import { SquareArrowOutUpRight } from 'lucide-react';
 
 // NavHeader component with fixed state updates
 const NavHeader = ({ 
@@ -238,31 +241,16 @@ const ProjectsPage = () => {
                   {/* Links moved next to title */}
                   <div className="flex space-x-2">
                     {project.github && (
-                      <Link 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center w-8 h-8 hover:bg-subtle text-darkCharcoal rounded-full transition-colors duration-300"
-                        aria-label={`GitHub repo for ${project.name}`}
-                      >
-                        <Image src="/icons/github.svg" width={16} height={16} alt="GitHub" className="filter invert" />
-                      </Link>
+                      CasualButton({
+                        label: <FiGithub className="w-3 h-3 text-darkCharcoal" />,
+                        onClick: () => window.open(project.github, '_blank'),
+                      })
                     )}
-                    
                     {project.website && (
-                      <Link 
-                        href={project.website} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center w-8 h-8 hover:bg-subtle text-darkCharcoal rounded-full transition-colors duration-300"
-                        aria-label={`Live website for ${project.name}`}
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                          <polyline points="15 3 21 3 21 9"></polyline>
-                          <line x1="10" y1="14" x2="21" y2="3"></line>
-                        </svg>
-                      </Link>
+                      CasualButton({
+                        label: <SquareArrowOutUpRight className="w-3 h-3 text-darkCharcoal" />,
+                        onClick: () => window.open(project.website, '_blank'),
+                      })
                     )}
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import { skillCategories } from '@/data/aboutData';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import Link from 'next/link';
+import { TextEffect } from '@/components/ui/text-effect';
 
 const AboutPage = () => {
 
@@ -50,14 +51,14 @@ const AboutPage = () => {
     <div className="min-h-screen bg-lightPeach px-4 md:px-8 py-12">
       <div className="max-w-4xl mx-auto">
         {/* Page Header */}
-        <div className="mb-12 text-center animate-fade-in">
+        <div className="mb-12 text-center">
           <h1 className="text-4xl font-inter font-bold mb-2 text-center">
             About<span className="text-subtle">.</span>
           </h1>
         </div>
 
         {/* Bio Section */}
-        <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-16" style={{ animationDelay: '0.2s' }}>
           <div className="flex flex-col md:flex-row gap-8 items-center">
             {/* Profile Image Carousel */}
             <div className="w-full md:w-1/3">
@@ -121,28 +122,28 @@ const AboutPage = () => {
             {/* Bio Text */}
             <div className="w-full md:w-2/3 pl-3">
               <div className="p-4 rounded-xl">
-                <h2 className='text-xl md:text-2xl font-inter text-darkCharcoal mb-6'>
+                <TextEffect per="word" delay={0} preset='fade' className='text-xl md:text-2xl font-inter text-darkCharcoal mb-6'>
                   Hi, welcome to my page!
-                </h2>
-                <p className="text-md md:text-md mb-8 text-darkCharcoal font-inter">
+                </TextEffect>
+          
+                <TextEffect  per="word" preset='fade' delay={0.7} className="text-md md:text-md mb-8 text-darkCharcoal font-inter">
                    I like building things with code, and lately I've been getting more into embedded systems and IoT projects.
                   I find it very fun and interesting to combine my full-stack development skills with embedded systems to 
                   bridge software and hardware.
                   Right now I'm working on a fridge management app with a built-in camera. You can check it out
-                  <span> <Link href="/projects/" className='underline hover:text-amber-900'>here</Link></span>.
-                  <br></br><br></br>
+                  
                   Outside of work, I'm pretty into tennis, tbh I could honestly play at any time lol. 
                   Recently I've picked up video editing, and I also enjoy travelling and capturing the scenery 
                   I see along the way. Anyways, thanks for stopping by and feel free to look around!
 
-                </p>
+                </TextEffect>
               </div>
             </div>
           </div>
         </div>
 
         {/* Education Section */}
-        <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div className="mb-12" style={{ animationDelay: '0.3s' }}>
           <h2 className='text-2xl font-inter mb-6 text-darkCharcoal'>
             Education
           </h2>
@@ -158,7 +159,7 @@ const AboutPage = () => {
         </div>
             
         {/* Skills section - Keep motion for interactive tooltips */}
-        <div className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
+        <div className="" style={{ animationDelay: '0.5s' }}>
           <h2 className="text-2xl font-inter font-bold mb-6 text-darkCharcoal">
             Skills
           </h2>
