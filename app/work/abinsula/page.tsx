@@ -8,10 +8,14 @@ import {
 export default function AbinsulaPage() {
   return (
     <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20 max-w-7xl">
-      <div className="text-center font-inter font-bold text-darkCharcoal text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-8 sm:mb-10 md:mb-12">
+      <div className="text-left font-inter font-bold text-darkCharcoal text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-8 sm:mb-10 md:mb-12">
         Working on it - Abinsula Experience
       </div>
+      {/* Title  */}
       {/* Goals and Results section */}
+      <div className="text-left">
+        Goal
+      </div>
       <div className="flex flex-col gap-4 items-center">
         <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
           <AccordionItem className="w-full" value="item-1">
