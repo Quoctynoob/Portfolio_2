@@ -108,3 +108,27 @@ button, a, [role="button"] {
 html.overflow-hidden body {
   overflow: hidden;
 }
+
+/* Accordion custom utilities for Tailwind v4 */
+@layer utilities {
+  .rounded-base {
+    border-radius: 5px;
+  }
+
+  .rounded-b-base {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .shadow-shadow {
+    box-shadow: 4px 4px 0px 0px var(--border);
+  }
+
+  .font-base {
+    font-weight: 500;
+  }
+
+  .font-heading {
+    font-weight: 700;
+  }
+}
