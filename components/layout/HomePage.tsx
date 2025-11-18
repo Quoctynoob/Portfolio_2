@@ -7,13 +7,13 @@ import { VerticalCutReveal } from '../common/VerticalCutReveal';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4  font-inter">
+    <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-4">
       {/* First item*/}
       <div>
         <VerticalCutReveal
         splitBy="characters"
         staggerDuration={0.025}
-        containerClassName='text-3xl md:text-6xl mb-2 font-inter items-center justify-center font-light'
+        containerClassName='text-3xl md:text-6xl mb-2 items-center justify-center font-light'
         reverse={true}
         staggerFrom="first"
         transition={{
@@ -28,7 +28,7 @@ export default function HomePage() {
       <VerticalCutReveal
         splitBy="characters"
         staggerDuration={0.025}
-        containerClassName='text-3xl md:text-6xl mb-2 font-inter items-center justify-center font-light'
+        containerClassName='text-3xl md:text-6xl mb-2 items-center justify-center font-light'
         staggerFrom="first"
         transition={{
           type: "spring",
@@ -42,7 +42,7 @@ export default function HomePage() {
       <VerticalCutReveal
         splitBy="characters"
         staggerDuration={0.025}
-        containerClassName='text-3xl md:text-6xl mb-2 font-inter items-center justify-center font-light'
+        containerClassName='text-3xl md:text-6xl mb-2 items-center justify-center font-light'
         reverse={true}
         staggerFrom="first"
         transition={{
@@ -58,7 +58,7 @@ export default function HomePage() {
       <VerticalCutReveal
         splitBy="characters"
         staggerDuration={0.025}
-        containerClassName='text-3xl md:text-6xl mb-2 font-inter items-center justify-center font-light'
+        containerClassName='text-3xl md:text-6xl mb-2 items-center justify-center font-light'
         staggerFrom="first"
         transition={{
           type: "spring",

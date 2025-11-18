@@ -48,7 +48,7 @@ export default function Navbar() {
       </div>
 
       {/* Navigation tabs on the right */}
-      <div className="hidden md:flex gap-4 font-inter">
+      <div className="hidden md:flex gap-4">
         <Link
           href="/about"
           className="p-2 px-4 group"

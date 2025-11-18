@@ -171,10 +171,10 @@ const ProjectsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-7xl font-noto">
-      <h1 className="text-4xl font-inter font-bold mb-8 text-center">My Projects<span className='text-subtle'>.</span></h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">My Projects<span className='text-subtle'>.</span></h1>
       
       {/* Navigation Header */}
-      <div className="flex justify-center mb-12 font-inter text-darkCharcoal">
+      <div className="flex justify-center mb-12 text-darkCharcoal">
         <NavHeader activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       </div>
       
@@ -213,7 +213,7 @@ const ProjectsPage = () => {
                           if (!statusInfo) return null;
                           return (
                             <div key={index} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full">
-                              <span className="text-xs text-darkCharcoal font-inter font-light">{statusInfo.text}</span>
+                              <span className="text-xs text-darkCharcoal font-light">{statusInfo.text}</span>
                               <div className={`w-2 h-2 rounded-full ${statusInfo.dot}`}></div>
                             </div>
                           );
@@ -236,7 +236,7 @@ const ProjectsPage = () => {
                 
                 {/* Project header with title and links */}
                 <div className="w-full flex items-center justify-between mb-2">
-                  <h3 className="text-xl font-inter font-medium">{project.name}</h3>
+                  <h3 className="text-xl font-medium">{project.name}</h3>
                   
                   {/* Links moved next to title */}
                   <div className="flex space-x-2">
@@ -256,7 +256,7 @@ const ProjectsPage = () => {
                 </div>
                 
                 {/* Project description */}
-                <p className="text-left font-inter font-light text-darkCharcoal mb-2 w-full">{project.description}</p>
+                <p className="text-left font-light text-darkCharcoal mb-2 w-full">{project.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -270,7 +270,7 @@ const ProjectsPage = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center py-12"
         >
-          <p className="text-xl text-darkCharcoal font-inter">No projects found</p>
+          <p className="text-xl text-darkCharcoal">No projects found</p>
         </motion.div>
       )}
     </div>

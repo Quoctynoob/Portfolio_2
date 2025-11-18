@@ -1,88 +1,442 @@
+'use client';
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Image from 'next/image';
+import Link from "next/link";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from '@/components/ui/carousel';
+import { useEffect, useState } from 'react';
 
 export default function AbinsulaPage() {
+  const [activeSection, setActiveSection] = useState('introduction');
+  const [activeProject, setActiveProject] = useState('project1');
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    const sections = ['introduction', 'company', 'role', 'goals', 'conclusion', 'thanks', 'reel'];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 lg:py-20 max-w-7xl">
-      <div className="text-left font-inter font-bold text-darkCharcoal text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-8 sm:mb-10 md:mb-12">
-        Working on it - Abinsula Experience
+      {/* Hero Section */}
+      <div className="mb-16 pb-8 border-b border-darkCharcoal/20">
+        <div className="space-y-0.5 mb-6 text-darkCharcoal">
+          <p className="text-lg md:text-xl font-semibold">Software Developer Internship in Sardinia, Italy</p>
+          <p className="text-lg md:text-xl">July 2025 - December 2025</p>
+          <p className="text-base md:text-lg">1982 views</p>
+        </div>
+        <Link href="https://www.abinsula.com/" target="_blank" className="inline-block hover:opacity-80 transition-opacity">
+          <Image
+            src="/image/abinsula_logo_1.png"
+            alt="Abinsula Logo"
+            width={800}
+            height={300}
+            priority
+            className="object-contain"
+          />
+        </Link>
       </div>
-      {/* Title  */}
-      {/* Goals and Results section */}
-      <div className="text-left">
-        Goal
-      </div>
-      <div className="flex flex-col gap-4 items-center">
-        <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
-          <AccordionItem className="w-full" value="item-1">
-            <AccordionTrigger>Strengthen Full-Stack Development Skills</AccordionTrigger>
-            <AccordionContent>
-              Through building a complete web application, I significantly improved my front-end design 
-              abilities while gaining hands-on experience with ORM queries and database operations. Working 
-              alongside my mentor and another intern taught me to balance both sides of development while 
-              maintaining code quality. I developed a deeper understanding of full-stack development approach 
-              beyond just specific technologies.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
-          <AccordionItem className="w-full" value="item-1">
-            <AccordionTrigger>Gain experience in Embedded Systems and Hardware Testing</AccordionTrigger>
-            <AccordionContent>
-              Through the water tank monitoring project, I learned Arduino programming and worked with ESP32 
-              microcontrollers under the guidance of my colleague. I conducted extensive hardware testing to 
-              ensure product reliability and learned debugging techniques specific to embedded systems. This 
-              experience expanded my understanding beyond pure software development and showed me how software 
-              and hardware integrate in real-world IoT products.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
-          <AccordionItem className="w-full" value="item-1">
-            <AccordionTrigger>Master Professional Development Workflows</AccordionTrigger>
-            <AccordionContent>
-              Working at Abinsula introduced me to professional development practices that I hadn't experienced 
-              in personal projects or hackathons. I learned Git workflows including branching, merging, and 
-              handling merge conflicts in a team environment. My supervisor taught me how to conduct code reviews 
-              and provide constructive feedback, which became especially valuable when I later reviewed the new 
-              intern's code. I also adapted to using task management systems to track progress and coordinate 
-              with team members. These collaborative practices gave me a solid foundation for working on any 
-              professional development team.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
-          <AccordionItem className="w-full" value="item-1">
-            <AccordionTrigger>Develop Leadership and Mentoring Skills</AccordionTrigger>
-            <AccordionContent>
-              During my first four months, my supervisor taught me proper code review practices and how to 
-              evaluate code quality for Git merges. As I gained confidence in my technical abilities, my 
-              mentor intentionally stepped back from the project to give me an opportunity to develop 
-              supervisory skills. I took responsibility for mentoring a new intern who joined the team, 
-              teaching them full-stack development concepts and guiding them through our project codebase. 
-              The transition from being mentored to mentoring others helped me develop communication skills 
-              for explaining technical concepts and gave me confidence in my ability to support other developers.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-        <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
-          <AccordionItem className="w-full" value="item-1">
-            <AccordionTrigger>Adapt to Living and Working in a New Culture</AccordionTrigger>
-            <AccordionContent>
-              Moving to Sardinia meant adapting to living independently in a foreign country while working 
-              professionally. I learned basic Italian to navigate daily life and communicate with colleagues, 
-              which helped me understand workplace conversations and build relationships with my team. Adapting 
-              to Italian work culture taught me different approaches to communication and collaboration. I also 
-              explored Sardinia and traveled around Italy during weekends, which deepened my appreciation for 
-              different cultures and perspectives. Living and working abroad developed my independence and 
-              showed me I can thrive in unfamiliar environments.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+
+      {/* Content with Sticky Sidebar */}
+      <div className="flex gap-8 mt-8">
+        {/* Sticky Sidebar Navigation */}
+        <aside className="hidden lg:block w-48 shrink-0">
+          <nav className="sticky top-8 space-y-2">
+            <a
+              href="#introduction"
+              className={`block text-sm transition-colors ${
+                activeSection === 'introduction'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Introduction
+            </a>
+            <a
+              href="#company"
+              className={`block text-sm transition-colors ${
+                activeSection === 'company'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Company
+            </a>
+            <a
+              href="#role"
+              className={`block text-sm transition-colors ${
+                activeSection === 'role'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Role
+            </a>
+            <a
+              href="#goals"
+              className={`block text-sm transition-colors ${
+                activeSection === 'goals'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Goals
+            </a>
+            <a
+              href="#conclusion"
+              className={`block text-sm transition-colors ${
+                activeSection === 'conclusion'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Conclusion
+            </a>
+            <a
+              href="#thanks"
+              className={`block text-sm transition-colors ${
+                activeSection === 'thanks'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Thanks
+            </a>
+            <a
+              href="#reel"
+              className={`block text-sm transition-colors ${
+                activeSection === 'reel'
+                  ? 'text-darkCharcoal font-semibold border-l-2 border-darkCharcoal pl-3'
+                  : 'text-darkCharcoal/60 hover:text-darkSubtle pl-3'
+              }`}
+            >
+              Behind the Scenes
+            </a>
+          </nav>
+        </aside>
+
+        {/* Main Content */}
+        <div className="flex-1">
+          {/* Introduction Section */}
+          <section id="introduction" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Introduction</h2>
+            <div className="flex flex-col md:flex-row gap-6 items-start">
+              <div className="flex-1">
+                <p className="text-base md:text-lg leading-relaxed">
+                  I completed my first software developer internship at Abinsula in Sardinia, Italy from July to December
+                  2025. Working as a Full-Stack Developer, I built a web application for a local club and contributed to
+                  an IoT water tank project. This role expanded my skills beyond web development into embedded systems and
+                  gave me valuable experience working abroad.
+                </p>
+              </div>
+              <div className="w-full md:w-80 flex-shrink-0">
+                <div className="relative h-64 w-full overflow-hidden rounded-lg">
+                  <Image
+                    src="/image/abinsula_me.jpg"
+                    alt="Abinsula & Me"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* About the Company Section */}
+          <section id="company" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Company</h2>
+            <div>
+              <p className="text-base md:text-lg leading-relaxed mb-8">
+                Abinsula is a tech company from Sardinia, Italy. Their name means "from the island"
+                (ab insula), reflecting their identity as a company putting Sardinian technology on
+                the global map. Founded in 2012, they specialize in embedded, IoT, web and mobile
+                solutions, with over 100 employees building custom software and hardware for clients
+                worldwide while representing Sardinian innovation. You can read more about Abinsula <span> </span>
+                <Link href="https://www.linkedin.com/company/abinsula/" className="underline hover:text-darkSubtle">here</Link>.
+              </p>
+            </div>
+            {/* Profile Image Carousel */}
+            <div className="mt-8">
+              <div className="w-full md:w-2/3">
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                        <Image src="/image/abinsula_office_1.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                        <Image src="/image/abinsula_office_2.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                        <Image src="/image/abinsula_office_3.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious className="-left-12" />
+                  <CarouselNext className="-right-12" />
+                </Carousel>
+              </div>
+            </div>
+          </section>
+
+          {/* Role/Jobs Description Section */}
+          <section id="role" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Role/Jobs Description</h2>
+
+            {/* Project Tabs */}
+            <div className="flex gap-4 mb-8">
+              <button
+                onClick={() => setActiveProject('project1')}
+                className={`px-6 py-2 rounded-lg font-medium transition-all ${
+                  activeProject === 'project1'
+                    ? 'bg-darkCharcoal text-white'
+                    : 'bg-gray-200 text-darkCharcoal hover:bg-gray-300'
+                }`}
+              >
+                Project 1
+              </button>
+              <button
+                onClick={() => setActiveProject('project2')}
+                className={`px-6 py-2 rounded-lg font-medium transition-all ${
+                  activeProject === 'project2'
+                    ? 'bg-darkCharcoal text-white'
+                    : 'bg-gray-200 text-darkCharcoal hover:bg-gray-300'
+                }`}
+              >
+                Project 2
+              </button>
+            </div>
+
+            {/* Project 1 Content */}
+            {activeProject === 'project1' && (
+              <div className="space-y-6">
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-1 space-y-4">
+                    <h3 className="text-2xl font-bold text-darkCharcoal">Project Title 1</h3>
+                    <p className="text-base md:text-lg leading-relaxed">
+                      This is a placeholder description for Project 1. Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    </p>
+                  </div>
+                  <div className="w-full md:w-80 flex-shrink-0">
+                    <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-200 flex items-center justify-center">
+                      <span className="text-gray-400">Project 1 Image</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <Link
+                    href="#"
+                    className="inline-flex items-center text-darkCharcoal hover:text-darkSubtle underline font-medium"
+                  >
+                    Read more about Project 1 →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* Project 2 Content */}
+            {activeProject === 'project2' && (
+              <div className="space-y-6">
+                <div className="flex flex-col md:flex-row gap-6 items-start">
+                  <div className="flex-1 space-y-4">
+                    <h3 className="text-2xl font-bold text-darkCharcoal">Project Title 2</h3>
+                    <p className="text-base md:text-lg leading-relaxed">
+                      This is a placeholder description for Project 2. Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    </p>
+                  </div>
+                  <div className="w-full md:w-80 flex-shrink-0">
+                    <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-200 flex items-center justify-center">
+                      <span className="text-gray-400">Project 2 Image</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <Link
+                    href="#"
+                    className="inline-flex items-center text-darkCharcoal hover:text-darkSubtle underline font-medium"
+                  >
+                    Read more about Project 2 →
+                  </Link>
+                </div>
+              </div>
+            )}
+          </section>
+
+          {/* Goals and Results Section */}
+          <section id="goals" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Goals</h2>
+            <div className="flex flex-col gap-4">
+              <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
+                <AccordionItem className="w-full" value="item-1">
+                  <AccordionTrigger>Strengthen Full-Stack Development Skills</AccordionTrigger>
+                  <AccordionContent>
+                    Through building a complete web application, I significantly improved my front-end design
+                    abilities while gaining hands-on experience with ORM queries and database operations. Working
+                    alongside my mentor and another intern taught me to balance both sides of development while
+                    maintaining code quality. I developed a deeper understanding of full-stack development approach
+                    beyond just specific technologies.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
+                <AccordionItem className="w-full" value="item-1">
+                  <AccordionTrigger>Gain experience in Embedded Systems and Hardware Testing</AccordionTrigger>
+                  <AccordionContent>
+                    Through the water tank monitoring project, I learned Arduino programming and worked with ESP32
+                    microcontrollers under the guidance of my colleague. I conducted extensive hardware testing to
+                    ensure product reliability and learned debugging techniques specific to embedded systems. This
+                    experience expanded my understanding beyond pure software development and showed me how software
+                    and hardware integrate in real-world IoT products.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
+                <AccordionItem className="w-full" value="item-1">
+                  <AccordionTrigger>Master Professional Development Workflows</AccordionTrigger>
+                  <AccordionContent>
+                    Working at Abinsula introduced me to professional development practices that I hadn't experienced
+                    in personal projects or hackathons. I learned Git workflows including branching, merging, and
+                    handling merge conflicts in a team environment. My supervisor taught me how to conduct code reviews
+                    and provide constructive feedback, which became especially valuable when I later reviewed the new
+                    intern's code. I also adapted to using task management systems to track progress and coordinate
+                    with team members. These collaborative practices gave me a solid foundation for working on any
+                    professional development team.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
+                <AccordionItem className="w-full" value="item-1">
+                  <AccordionTrigger>Develop Leadership and Mentoring Skills</AccordionTrigger>
+                  <AccordionContent>
+                    During my first four months, my supervisor taught me proper code review practices and how to
+                    evaluate code quality for Git merges. As I gained confidence in my technical abilities, my
+                    mentor intentionally stepped back from the project to give me an opportunity to develop
+                    supervisory skills. I took responsibility for mentoring a new intern who joined the team,
+                    teaching them full-stack development concepts and guiding them through our project codebase.
+                    The transition from being mentored to mentoring others helped me develop communication skills
+                    for explaining technical concepts and gave me confidence in my ability to support other developers.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+              <Accordion className="w-full max-w-full md:max-w-2xl lg:max-w-3xl" type="single" collapsible>
+                <AccordionItem className="w-full" value="item-1">
+                  <AccordionTrigger>Adapt to Living and Working in a New Culture</AccordionTrigger>
+                  <AccordionContent>
+                    Moving to Sardinia meant adapting to living independently in a foreign country while working
+                    professionally. I learned basic Italian to navigate daily life and communicate with colleagues,
+                    which helped me understand workplace conversations and build relationships with my team. Adapting
+                    to Italian work culture taught me different approaches to communication and collaboration. I also
+                    explored Sardinia and traveled around Italy during weekends, which deepened my appreciation for
+                    different cultures and perspectives. Living and working abroad developed my independence and
+                    showed me I can thrive in unfamiliar environments.
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </div>
+          </section>
+
+          {/* Conclusion Section */}
+          <section id="conclusion" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Conclusion</h2>
+            <div>
+              <p className="text-base md:text-lg leading-relaxed">
+                During my internship search, I never imagined I'd spend the next six months living in Sardinia, Italy,
+                an experience that transformed me both professionally and personally.
+                <br></br><br></br>
+                This internship strengthened my full-stack development skills and introduced me to embedded systems.
+                I was able to apply what I learned from hackathons and personal projects in a professional setting.
+                I grew from being mentored during my first months to mentoring a new intern by the end, showing how much
+                I developed in just half a year. I also learned professional development practices like Git workflows,
+                code reviews, and team collaboration.
+                <br></br><br></br>
+                What made this experience unique was combining technical growth with living abroad. I adapted to a new
+                language, culture, and work environment while building my development skills. I gained both technical
+                abilities and life skills like independence, adaptability, and cross-cultural communication.
+                <br></br><br></br>
+                This experience has left me confident in my abilities as a developer and ready to bring both my
+                technical skills and adaptability to future opportunities. I'm grateful for every challenge and experience
+                along the way.
+              </p>
+            </div>
+          </section>
+
+          {/* Thanks Section */}
+          <section id="thanks" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Thanks</h2>
+            <div>
+              <p className="text-base md:text-lg leading-relaxed">
+                - TODO
+                {/*I want to sincerely thank Abinsula for this incredible opportunity to grow as a developer and
+                experience life in Sardinia. Special thanks to my mentors and colleagues for their guidance,
+                patience, and support throughout my internship. I'm also grateful to the new intern I had the
+                chance to mentor, as teaching reinforced my own learning. Finally, thank you to the entire
+                Abinsula team for welcoming me and making this experience truly unforgettable.*/}
+              </p>
+            </div>
+          </section>
+
+          {/* Reel Section */}
+          <section id="reel" className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Behind the Scenes</h2>
+            {/* Instagram Reel Link */}
+            <div>
+              <Link
+                href="https://www.instagram.com/p/DRDjC9oAoTu/"
+                target="_blank"
+                className="group inline-block"
+              >
+                <div className="relative w-[200px] sm:w-[250px] h-[356px] sm:h-[444px] rounded-lg border-2 border-darkCharcoal bg-project-bg overflow-hidden cursor-pointer p-4">
+                  <div className="relative w-full h-full flex items-center justify-center p-4">
+                    <Image
+                      src="/image/SD_reel.jpg"
+                      alt="Behind the Scenes"
+                      fill
+                      className="object-cover rounded-lg"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

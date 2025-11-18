@@ -52,7 +52,7 @@ const AboutPage = () => {
       <div className="max-w-4xl mx-auto">
         {/* Page Header */}
         <div className="mb-12 text-center">
-          <h1 className="text-4xl font-inter font-bold mb-2 text-center">
+          <h1 className="text-4xl font-bold mb-2 text-center">
             About<span className="text-subtle">.</span>
           </h1>
         </div>
@@ -122,11 +122,11 @@ const AboutPage = () => {
             {/* Bio Text */}
             <div className="w-full md:w-2/3 pl-3">
               <div className="p-4 rounded-xl">
-                <TextEffect per="word" delay={0} preset='fade' className='text-xl md:text-2xl font-inter text-darkCharcoal mb-6'>
+                <TextEffect per="word" delay={0} preset='fade' className='text-xl md:text-2xl text-darkCharcoal mb-6'>
                   Hi, welcome to my page!
                 </TextEffect>
           
-                <TextEffect  per="word" preset='fade' delay={0.7} className="text-md md:text-md mb-8 text-darkCharcoal font-inter">
+                <TextEffect  per="word" preset='fade' delay={0.7} className="text-md md:text-md mb-8 text-darkCharcoal">
                    I like building things with code, and lately I've been getting more into embedded systems and IoT projects.
                   I find it very fun and interesting to combine my full-stack development skills with embedded systems to 
                   bridge software and hardware.
@@ -144,14 +144,14 @@ const AboutPage = () => {
 
         {/* Education Section */}
         <div className="mb-12" style={{ animationDelay: '0.3s' }}>
-          <h2 className='text-2xl font-inter mb-6 text-darkCharcoal'>
+          <h2 className='text-2xl mb-6 text-darkCharcoal'>
             Education
           </h2>
           <div className='pl-3'>
-            <p className='text-md md:text-md mb-2 text-darkCharcoal font-inter'>
+            <p className='text-md md:text-md mb-2 text-darkCharcoal'>
               Bachelor of Computing in Computer Science - University of Guelph (2023 - Present)
             </p>
-            <ul className='list-disc list-inside text-md text-darkCharcoal font-inter ml-4 space-y-1'>
+            <ul className='list-disc list-inside text-md text-darkCharcoal ml-4 space-y-1'>
               <li>Major in Computer Science</li>
               <li>Minor in Geomatics</li>
             </ul>
@@ -160,14 +160,14 @@ const AboutPage = () => {
             
         {/* Skills section - Keep motion for interactive tooltips */}
         <div className="" style={{ animationDelay: '0.5s' }}>
-          <h2 className="text-2xl font-inter font-bold mb-6 text-darkCharcoal">
+          <h2 className="text-2xl font-bold mb-6 text-darkCharcoal">
             Skills
           </h2>
 
           <div className="space-y-8">
             {skillCategories.map((category, index) => (
               <div key={index} className="mb-6">
-                <h3 className="text-xl font-inter font-semibold mb-4 text-darkCharcoal">
+                <h3 className="text-xl font-semibold mb-4 text-darkCharcoal">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-4">

@@ -33,14 +33,14 @@ const TimelineEntry = ({
         {/* Job information column */}
         <div className="flex-grow group">
           {/* Period */}
-          <div className="text-sm text-darkCharcoal mb-1 font-inter font-light">{experience.period}</div>
+          <div className="text-sm text-darkCharcoal mb-1 font-light">{experience.period}</div>
 
           {/* Company name (larger) */}
-          <div className="text-xl font-bold text-darkCharcoal  mb-1 transition-colors duration-300 font-inter">{experience.company}</div>
+          <div className="text-xl font-bold text-darkCharcoal  mb-1 transition-colors duration-300">{experience.company}</div>
 
           {/* Position (smaller) */}
           {experience.position && (
-            <div className="text-base text-darkCharcoal font-light font-inter mb-2">{experience.position}</div>
+            <div className="text-base text-darkCharcoal font-light mb-2">{experience.position}</div>
           )}
         </div>
 
@@ -79,7 +79,7 @@ export default function WorkPage() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl font-noto">
-      <h2 className={`text-4xl font-bold mb-12 font-inter text-center transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+      <h2 className={`text-4xl font-bold mb-12 text-center transition-all duration-700 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
         Experience<span className='text-subtle'>.</span>
       </h2>
       

@@ -23,7 +23,7 @@ export default function ProjectDetailPage({
   if (!project) {
     return (
       <div className="min-h-screen bg-lightPeach flex items-center justify-center">
-        <div className="text-center font-inter">
+        <div className="text-center">
           <h1 className="text-4xl font-semibold text-darkCharcoal mb-4">404 - Project not found</h1>
           <button
             onClick={() => router.back()}
@@ -38,7 +38,7 @@ export default function ProjectDetailPage({
 //transition-transform group-hover:-translate-x-1
   return (
     <div className="min-h-screen bg-lightPeach py-12">
-      <div className="container mx-auto px-4 max-w-5xl font-inter">
+      <div className="container mx-auto px-4 max-w-5xl">
         {/* Back button */}
         <button
           onClick={() => router.back()}
@@ -102,7 +102,7 @@ export default function ProjectDetailPage({
             {/* My Contributions */}
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">My Contributions</h2>
-              <div className='font-inter font-light space-y-2'>
+              <div className='font-light space-y-2'>
                 {project.contributions.map((contribution, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-darkCharcoal mt-1 flex-shrink-0">
@@ -117,7 +117,7 @@ export default function ProjectDetailPage({
             {/* Key Features */}
             <section className="mb-10">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">Key Features</h2>
-              <ul className="space-y-2 font-inter font-light">
+              <ul className="space-y-2 font-light">
                 {project.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <span className="text-darkCharcoal mt-1 flex-shrink-0">
@@ -130,7 +130,7 @@ export default function ProjectDetailPage({
             </section>
 
             {/* Tech stack tags */}
-            <section className="mt-10 pt-6 border-t border-subtle font-inter">
+            <section className="mt-10 pt-6 border-t border-subtle">
               <h3 className="text-md font-semibold text-darkCharcoal mb-3">Tech Used</h3>
               <div className="flex flex-wrap gap-2">
                 {project.languages.map((lang, index) => (

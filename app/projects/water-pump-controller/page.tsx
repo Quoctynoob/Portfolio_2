@@ -37,7 +37,7 @@ export default function WaterPumpControllerPage() {
           </div>
 
           {/* Content section */}
-          <div className="p-8 md:p-12 font-inter">
+          <div className="p-8 md:p-12">
             {/* Header */}
             <header className="mb-8 border-b border-subtle pb-6">
               <h1 className="text-4xl md:text-5xl font-bold text-darkCharcoal mb-4">
@@ -49,7 +49,7 @@ export default function WaterPumpControllerPage() {
             </header>
 
             {/* Overview */}
-            <section className="mb-10 font-inter font-light">
+            <section className="mb-10 font-light">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">Overview</h2>
               <p className="text-darkCharcoal text-lg leading-relaxed">
                 This system automates water pump operation using three ESP32 microcontrollers 
@@ -59,7 +59,7 @@ export default function WaterPumpControllerPage() {
             </section>
 
             {/* My Contributions */}
-            <section className="mb-10 font-inter font-light">
+            <section className="mb-10 font-light">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">My Contributions</h2>
               <div>
                 ....
@@ -67,7 +67,7 @@ export default function WaterPumpControllerPage() {
             </section>
 
             {/* Key Features */}
-            <section className="mb-10 font-inter font-light">
+            <section className="mb-10 font-light">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">Key Features</h2>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -98,7 +98,7 @@ export default function WaterPumpControllerPage() {
             </section>
 
             {/* Tech stack tags */}
-            <section className="mt-10 pt-6 border-t border-subtle font-inter font-light">
+            <section className="mt-10 pt-6 border-t border-subtle font-light">
               <h3 className="text-md font-semibold text-darkCharcoal mb-3">Tech Used</h3>
               <div className="flex flex-wrap gap-2">
                 <span className="px-4 py-2 border-darkCharcoal border-2 text-darkCharcoal rounded-full font-medium text-sm">
