@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 
 export default function AbinsulaPage() {
   const [activeSection, setActiveSection] = useState('introduction');
-  const [activeProject, setActiveProject] = useState('project1');
+  const [activeProject, setActiveProject] = useState('ss');
 
   useEffect(() => {
     const observerOptions = {
@@ -152,7 +152,7 @@ export default function AbinsulaPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Introduction</h2>
             <div className="flex flex-col md:flex-row gap-6 items-start">
               <div className="flex-1">
-                <p className="text-base md:text-lg leading-relaxed">
+                <p className="text-base md:text-md leading-relaxed">
                   I completed my first software developer internship at Abinsula in Sardinia, Italy from July to December
                   2025. Working as a Full-Stack Developer, I built a web application for a local club and contributed to
                   an IoT water tank project. This role expanded my skills beyond web development into embedded systems and
@@ -176,7 +176,7 @@ export default function AbinsulaPage() {
           <section id="company" className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Company</h2>
             <div>
-              <p className="text-base md:text-lg leading-relaxed mb-8">
+              <p className="text-base md:text-md leading-relaxed mb-8">
                 Abinsula is a tech company from Sardinia, Italy. Their name means "from the island"
                 (ab insula), reflecting their identity as a company putting Sardinian technology on
                 the global map. Founded in 2012, they specialize in embedded, IoT, web and mobile
@@ -215,86 +215,104 @@ export default function AbinsulaPage() {
 
           {/* Role/Jobs Description Section */}
           <section id="role" className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Role/Jobs Description</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Roles/J*bs Description</h2>
+
+            <p className="mb-5 text-md">
+              As a Full-Stack Developer, I focused on web application development while also getting the chance to 
+              work on an embedded systems project. This allowed me to expand my skills beyond web development and 
+              learn how software and hardware work together. My work centered around two main projects.
+            </p>
 
             {/* Project Tabs */}
             <div className="flex gap-4 mb-8">
               <button
-                onClick={() => setActiveProject('project1')}
+                onClick={() => setActiveProject('ss')}
                 className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  activeProject === 'project1'
+                  activeProject === 'ss'
                     ? 'bg-darkCharcoal text-white'
                     : 'bg-gray-200 text-darkCharcoal hover:bg-gray-300'
                 }`}
               >
-                Project 1
+                SimpleShop
               </button>
               <button
-                onClick={() => setActiveProject('project2')}
+                onClick={() => setActiveProject('wpc')}
                 className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  activeProject === 'project2'
+                  activeProject === 'wpc'
                     ? 'bg-darkCharcoal text-white'
                     : 'bg-gray-200 text-darkCharcoal hover:bg-gray-300'
                 }`}
               >
-                Project 2
+                Water Pump Controller
               </button>
             </div>
 
             {/* Project 1 Content */}
-            {activeProject === 'project1' && (
+            {activeProject === 'ss' && (
               <div className="space-y-6">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="flex-1 space-y-4">
-                    <h3 className="text-2xl font-bold text-darkCharcoal">Project Title 1</h3>
-                    <p className="text-base md:text-lg leading-relaxed">
-                      This is a placeholder description for Project 1. Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    <h3 className="text-2xl font-bold text-darkCharcoal">SimpleShop</h3>
+                    <p className="text-base md:text-md leading-relaxed">
+                      I worked on developing "SimpleShop," a full-stack web application to sell merchandise 
+                      online. The platform allows customers to browse products, manage orders, and complete 
+                      secure payments.
                     </p>
+                    <h3 className="font-semibold text-darkCharcoal">My contributions:</h3>
+                    <ul className="list-disc list-inside text-base md:text-md leading-relaxed space-y-2">
+                      <li>
+                        Designed and implemented database schema and ORM operations using Prisma
+                      </li>
+                      <li>
+                        Built data validation layer using Zod to ensure data integrity
+                      </li>
+                      <li>
+                        Created and managed database seeding scripts for initial data population
+                      </li>
+                      <li>
+                        Developed full-stack checkout functionality integrating Stripe payment API,
+                        including front-end UI design and back-end API endpoints
+                      </li>
+                    </ul>
                   </div>
                   <div className="w-full md:w-80 flex-shrink-0">
-                    <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400">Project 1 Image</span>
-                    </div>
+                    <Image src="/image/simpleshop.png" alt="SimpleShop" width={320} height={240} className="rounded-lg" />
                   </div>
-                </div>
-                <div>
-                  <Link
-                    href="#"
-                    className="inline-flex items-center text-darkCharcoal hover:text-darkSubtle underline font-medium"
-                  >
-                    Read more about Project 1 →
-                  </Link>
                 </div>
               </div>
             )}
 
             {/* Project 2 Content */}
-            {activeProject === 'project2' && (
+            {activeProject === 'wpc' && (
               <div className="space-y-6">
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   <div className="flex-1 space-y-4">
-                    <h3 className="text-2xl font-bold text-darkCharcoal">Project Title 2</h3>
-                    <p className="text-base md:text-lg leading-relaxed">
-                      This is a placeholder description for Project 2. Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore
-                      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    <h3 className="text-2xl font-bold text-darkCharcoal">Water Pump Controller</h3>
+                    <p className="text-base md:text-md leading-relaxed">
+                      I contributed to building an automated water pump controller, using three ESP32 
+                      microcontrollers to manage pump operations, monitor water flow and tank levels, 
+                      and enable remote control via mobile app and Telegram bot.
                     </p>
+                    <h3 className="font-semibold text-darkCharcoal">My contributions:</h3>
+                    <ul className="list-disc list-inside text-base md:text-md leading-relaxed space-y-2">
+                      <li>
+                        Programmed Tank Monitor ESP32 using Arduino framework to read 5 water level sensors 
+                        (XKC-Y25) and control motorized valve for water distribution
+                      </li>
+                      <li>
+                        Developed HTTP server on Master ESP32 to provide REST API endpoints, enabling Android 
+                        app to remotely control pump and monitor system status
+
+                      </li>
+                      <li>
+                        Performed comprehensive hardware-software integration testing across all three distributed 
+                        ESP32 controllers, debugging communication protocols (ESP-NOW, TCP) and ensuring fail-safe operation
+                      </li>
+                    </ul>
                   </div>
                   <div className="w-full md:w-80 flex-shrink-0">
-                    <div className="relative h-64 w-full overflow-hidden rounded-lg bg-gray-200 flex items-center justify-center">
-                      <span className="text-gray-400">Project 2 Image</span>
-                    </div>
+                    <Image src="/image/water_pump.png" alt="Water Pump Controller" width={320} height={240} className="rounded-lg" />
                   </div>
-                </div>
-                <div>
-                  <Link
-                    href="#"
-                    className="inline-flex items-center text-darkCharcoal hover:text-darkSubtle underline font-medium"
-                  >
-                    Read more about Project 2 →
-                  </Link>
                 </div>
               </div>
             )}
@@ -377,7 +395,7 @@ export default function AbinsulaPage() {
           <section id="conclusion" className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Conclusion</h2>
             <div>
-              <p className="text-base md:text-lg leading-relaxed">
+              <p className="text-base md:text-md leading-relaxed">
                 During my internship search, I never imagined I'd spend the next six months living in Sardinia, Italy,
                 an experience that transformed me both professionally and personally.
                 <br></br><br></br>

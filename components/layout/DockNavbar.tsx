@@ -22,7 +22,7 @@ export default function DockNavbar() {
         />
 
         <DockIcon 
-          href="https://www.instagram.com/tilburgquoc/" 
+          href="https://www.instagram.com/quoctyy/" 
           src="/icons/instagram.svg" 
           alt="Instagram"
           external={true}
