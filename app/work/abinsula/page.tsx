@@ -305,8 +305,8 @@ export default function AbinsulaPage() {
 
                       </li>
                       <li>
-                        Performed comprehensive hardware-software integration testing across all three distributed 
-                        ESP32 controllers, debugging communication protocols (ESP-NOW, TCP) and ensuring fail-safe operation
+                        Performed hardware-software integration testing across all ESP32 controllers, debugging 
+                        communication protocols (ESP-NOW, TCP) and ensuring fail-safe operation
                       </li>
                     </ul>
                   </div>
