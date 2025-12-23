@@ -127,15 +127,14 @@ const AboutPage = () => {
                 </TextEffect>
           
                 <TextEffect  per="word" preset='fade' delay={0.7} className="text-md md:text-md mb-8 text-darkCharcoal">
-                   I like building things with code, and lately I've been getting more into embedded systems and IoT projects.
+                  I like building things with code, and lately I've been getting more into embedded systems and IoT projects.
                   I find it very fun and interesting to combine my full-stack development skills with embedded systems to 
                   bridge software and hardware.
-                  Right now I'm working on a fridge management app with a built-in camera. You can check it out
-                  
-                  Outside of work, I'm pretty into tennis, tbh I could honestly play at any time lol. 
+                </TextEffect>
+                <TextEffect  per="word" preset='fade' delay={6.5} className="text-md md:text-md mb-8 text-darkCharcoal">
+                  Outside of work, I'm pretty into tennis, tbh I could honestly play at anytime lol. 
                   Recently I've picked up video editing, and I also enjoy travelling and capturing the scenery 
                   I see along the way. Anyways, thanks for stopping by and feel free to look around!
-
                 </TextEffect>
               </div>
             </div>

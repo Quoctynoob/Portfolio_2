@@ -177,7 +177,7 @@ export default function AbinsulaPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Company</h2>
             <div>
               <p className="text-base md:text-md leading-relaxed mb-8">
-                Abinsula is a tech company from Sardinia, Italy. Their name means "from the island"
+                Abinsula is a tech company from Sardinia, Italy. Their name literally means "from the island"
                 (ab insula), reflecting their identity as a company putting Sardinian technology on
                 the global map. Founded in 2012, they specialize in embedded, IoT, web and mobile
                 solutions, with over 100 employees building custom software and hardware for clients
@@ -187,7 +187,7 @@ export default function AbinsulaPage() {
             </div>
             {/* Profile Image Carousel */}
             <div className="mt-8">
-              <div className="w-full md:w-2/3">
+              <div className="w-full">
                 <Carousel className="w-full">
                   <CarouselContent>
                     <CarouselItem>
@@ -210,6 +210,7 @@ export default function AbinsulaPage() {
                   <CarouselNext className="-right-12" />
                 </Carousel>
               </div>
+              <div className="mt-3 text-sm text-darkCharcoal/60 italic text-left">Abinsula's main office in Sassari, Sardinia</div>
             </div>
           </section>
 
@@ -308,6 +309,10 @@ export default function AbinsulaPage() {
                         Performed hardware-software integration testing across all ESP32 controllers, debugging 
                         communication protocols (ESP-NOW, TCP) and ensuring fail-safe operation
                       </li>
+                      <li>
+                        Built Android application with real-time UI for displaying multi-sensor tank levels and 
+                        controlling pump/valve operations through REST API integration
+                      </li>
                     </ul>
                   </div>
                   <div className="w-full md:w-80 flex-shrink-0">
@@ -350,13 +355,13 @@ export default function AbinsulaPage() {
                 <AccordionItem className="w-full" value="item-1">
                   <AccordionTrigger>Master Professional Development Workflows</AccordionTrigger>
                   <AccordionContent>
-                    Working at Abinsula introduced me to professional development practices that I hadn't experienced
+                    Working at Abinsula taught me to professional development practices that I hadn't experienced
                     in personal projects or hackathons. I learned Git workflows including branching, merging, and
                     handling merge conflicts in a team environment. My supervisor taught me how to conduct code reviews
                     and provide constructive feedback, which became especially valuable when I later reviewed the new
-                    intern's code. I also adapted to using task management systems to track progress and coordinate
-                    with team members. These collaborative practices gave me a solid foundation for working on any
-                    professional development team.
+                    intern's code. I also adapted to using ticketing systems to track progress and coordinate
+                    with team members. These collaborative practices prepared me for working on professional 
+                    development teams.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -366,10 +371,10 @@ export default function AbinsulaPage() {
                   <AccordionContent>
                     During my first four months, my supervisor taught me proper code review practices and how to
                     evaluate code quality for Git merges. As I gained confidence in my technical abilities, my
-                    mentor intentionally stepped back from the project to give me an opportunity to develop
-                    supervisory skills. I took responsibility for mentoring a new intern who joined the team,
-                    teaching them full-stack development concepts and guiding them through our project codebase.
-                    The transition from being mentored to mentoring others helped me develop communication skills
+                    mentor stepped back to let me develop supervisory skills. I took on mentoring 
+                    a new intern who joined the team, teaching them full-stack development concepts and guiding 
+                    them through our project codebase.
+                    Going from being mentored to mentoring someone else helped me develop communication skills
                     for explaining technical concepts and gave me confidence in my ability to support other developers.
                   </AccordionContent>
                 </AccordionItem>
@@ -378,13 +383,13 @@ export default function AbinsulaPage() {
                 <AccordionItem className="w-full" value="item-1">
                   <AccordionTrigger>Adapt to Living and Working in a New Culture</AccordionTrigger>
                   <AccordionContent>
-                    Moving to Sardinia meant adapting to living independently in a foreign country while working
+                    Living in Sardinia meant adapting to living independently in a foreign country while working
                     professionally. I learned basic Italian to navigate daily life and communicate with colleagues,
-                    which helped me understand workplace conversations and build relationships with my team. Adapting
+                    helping me understand workplace conversations and connect with my team. Adapting
                     to Italian work culture taught me different approaches to communication and collaboration. I also
                     explored Sardinia and traveled around Italy during weekends, which deepened my appreciation for
-                    different cultures and perspectives. Living and working abroad developed my independence and
-                    showed me I can thrive in unfamiliar environments.
+                    different cultures and perspectives. This experience developed my independence and confidence in 
+                    handling unfamiliar environments.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -420,14 +425,50 @@ export default function AbinsulaPage() {
           <section id="thanks" className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Thanks</h2>
             <div>
-              <p className="text-base md:text-lg leading-relaxed">
-                - TODO
-                {/*I want to sincerely thank Abinsula for this incredible opportunity to grow as a developer and
-                experience life in Sardinia. Special thanks to my mentors and colleagues for their guidance,
-                patience, and support throughout my internship. I'm also grateful to the new intern I had the
-                chance to mentor, as teaching reinforced my own learning. Finally, thank you to the entire
-                Abinsula team for welcoming me and making this experience truly unforgettable.*/}
+              <p className="text-base md:text-md leading-relaxed">
+                {/* Opening */}
+                A special thank you to Gianfranco, my supervisor, and Federica from HR, for reaching out and giving me this 
+                unique opportunity in Italy. Their support made this entire experience possible.
+                <br></br><br></br>
+                {/* Thanking mentor */}
+                I want to thank Carlo Meloni, my mentor, for his guidance during my internship. He taught me the company's 
+                development workflow, from using version control and handling pull requests to working with ticketing 
+                systems and communicating through Google Chat. His web development especially expertise was incredible, 
+                and he was always willing to help me learn. What I valued most was his teaching style: he didn't just 
+                give me answers but encouraged me to figure things out myself first. His patience made me a better and 
+                more confident developer.
+                <br></br><br></br>
+                {/* Thanking embedded */}
+                I'm also grateful to Manolo and Davide Gianni for teaching me about hardware and IoT/embedded systems. 
+                They were always willing to answer my questions about Arduino, ESP32, and how software communicates with 
+                hardware. Beyond the technical knowledge, they showed me what they were working on and talked about their 
+                projects, giving me insight into other areas of the company beyond web development. Their patience and 
+                openness helped me develop a real interest in embedded systems.
+                <br></br><br></br>
+                {/* Ending */}
+                Finally, I'm grateful to all my colleagues who made my experience in Sardinia unforgettable. They 
+                welcomed me not just as a coworker but as a friend, spending time with me outside of work and showing 
+                me life on the island. Their friendship and warmth made me feel at home despite being far from Canada. 
+                They made this internship more than just a work term; it became a personal adventure I'll always cherish.
               </p>
+              <div className="w-full mt-8">
+                <Carousel className="md:w-2/3">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                        <Image src="/image/bowling_everyone.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem>
+                      <div className="relative h-80 w-full overflow-hidden rounded-xl">
+                        <Image src="/image/beach_everyone.jpg" alt="Quoc Le" fill className="object-cover object-center" priority />
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious className="-left-12" />
+                  <CarouselNext className="-right-12" />
+                </Carousel>
+              </div>
             </div>
           </section>
 
@@ -454,6 +495,12 @@ export default function AbinsulaPage() {
               </Link>
             </div>
           </section>
+
+          {/*<section>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Extras</h2>
+
+          </section>*/}
         </div>
       </div>
     </div>

@@ -2,12 +2,12 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData, type Project, type CategoryType } from '@/data/projectsData';
 import { CasualButton } from '@/components/ui/casual-button';
 import { FiGithub } from 'react-icons/fi';
+import { TbHandClick } from "react-icons/tb";
 import { SquareArrowOutUpRight } from 'lucide-react';
 
 // NavHeader component with fixed state updates
@@ -189,7 +189,7 @@ const ProjectsPage = () => {
             variants={containerVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={itemVariants}
@@ -202,6 +202,23 @@ const ProjectsPage = () => {
                   }`}
                   onClick={() => project.slug && router.push(`/projects/${project.slug}`)}
                 >
+                  {/* Click indicator for first project only */}
+                  {index === 0 && project.slug && (
+                    <motion.div
+                      className="absolute bottom-6 right-10 z-20 -rotate-12"
+                      animate={{
+                        y: [0, -10, 0],
+                      }}
+                      transition={{
+                        duration: 1.1,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <TbHandClick className="w-8 h-8 text-darkCharcoal fill-white" />
+                    </motion.div>
+                  )}
+
                   {/* Status indicator in top right - only for completed and ongoing */}
                   {project.category.find(cat => cat === 'completed' || cat === 'ongoing') && (
                     <div className="absolute top-2 right-2 z-10">

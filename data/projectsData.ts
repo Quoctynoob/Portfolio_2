@@ -22,7 +22,7 @@ export const projectsData: Project[] = [
     name: "Water Pump Controller",
     description: "A distributed IoT system for remote water pump management with tank level sensor, smart shutoffs, and Android app control.",
     image: "/image/water_pump.png",
-    category: ["ongoing"],
+    category: ["completed"],
     languages: ["Arduino", "Kotlin", "ESP32", "Cloudflare"],
     slug: "water-pump-controller"
   },

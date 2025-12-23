@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 // import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
+import Link from 'next/link';
 // import { SquareArrowOutUpRight } from 'lucide-react'; // Uncomment when you add links
 
 export default function WaterPumpControllerPage() {
@@ -44,7 +45,7 @@ export default function WaterPumpControllerPage() {
                 Water Pump Controller
               </h1>
               <p className="text-l text-darkCharcoal mb-6 font-light">
-                Ongoing project developed in collaboration with a colleague
+                Project developed in collaboration with a colleague @ <Link href="/work/abinsula" className='underline'>Abinsula</Link>
               </p>
             </header>
 
@@ -61,9 +62,32 @@ export default function WaterPumpControllerPage() {
             {/* My Contributions */}
             <section className="mb-10 font-light">
               <h2 className="text-2xl font-bold text-darkCharcoal mb-4">My Contributions</h2>
-              <div>
-                ....
-              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-darkCharcoal mt-1 flex-shrink-0">
+                    ‣
+                  </span>
+                  <span className="text-darkCharcoal text-lg">Programmed Tank Monitor ESP32 using Arduino framework to read 5 water level sensors (XKC-Y25) and control motorized valve for water distribution</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-darkCharcoal mt-1 flex-shrink-0">
+                    ‣
+                  </span>
+                  <span className="text-darkCharcoal text-lg">Developed HTTP server on Master ESP32 to provide REST API endpoints, enabling Android app to remotely control pump and monitor system status</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-darkCharcoal mt-1 flex-shrink-0">
+                    ‣
+                  </span>
+                  <span className="text-darkCharcoal text-lg">Built Android application with real-time UI for displaying multi-sensor tank levels and controlling pump/valve operations through REST API integration</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-darkCharcoal mt-1 flex-shrink-0">
+                    ‣
+                  </span>
+                  <span className="text-darkCharcoal text-lg">Performed hardware-software integration testing across all ESP32 controllers, debugging communication protocols (ESP-NOW, TCP) and ensuring fail-safe operation</span>
+                </li>
+              </ul>
             </section>
 
             {/* Key Features */}

@@ -11,7 +11,7 @@ export type WorkExperience = {
 export const workExperiences: WorkExperience[] = [
   {
     id: 1,
-    period: "June 2025 - Present",
+    period: "Jun 2025 - Dec 2025",
     company: "Abinsula",
     position: "Software Developer Intern",
     slug: "abinsula"
@@ -26,7 +26,7 @@ export const workExperiences: WorkExperience[] = [
 
   {
     id: 3,
-    period: "Sep 2023 - April 2025",
+    period: "Sep 2023 - Apr 2025",
     company: "Google Developer Student Club",
     position: "Staff Member",
 
