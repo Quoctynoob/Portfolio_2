@@ -53,7 +53,7 @@ export default function AbinsulaPage() {
         <div className="space-y-0.5 mb-6 text-darkCharcoal">
           <p className="text-lg md:text-xl font-semibold">Software Developer Internship in Sardinia, Italy</p>
           <p className="text-lg md:text-xl">July 2025 - December 2025</p>
-          <p className="text-base md:text-lg">1982 views</p>
+          {/* <p className="text-base md:text-lg">1982 views</p> */}
         </div>
         <Link href="https://www.abinsula.com/" target="_blank" className="inline-block hover:opacity-80 transition-opacity">
           <Image
