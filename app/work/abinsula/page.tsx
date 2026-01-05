@@ -216,7 +216,7 @@ export default function AbinsulaPage() {
 
           {/* Role/Jobs Description Section */}
           <section id="role" className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Roles/J*bs Description</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-darkCharcoal mb-8">Roles Description</h2>
 
             <p className="mb-5 text-md">
               As a Full-Stack Developer, I focused on web application development while also getting the chance to 
