@@ -16,10 +16,12 @@ import {
   CarouselNext
 } from '@/components/ui/carousel';
 import { useEffect, useState } from 'react';
+import { CartoonButton } from "@/components/ui/cartoon-button";
 
 export default function AbinsulaPage() {
   const [activeSection, setActiveSection] = useState('introduction');
   const [activeProject, setActiveProject] = useState('ss');
+
 
   useEffect(() => {
     const observerOptions = {
@@ -160,13 +162,15 @@ export default function AbinsulaPage() {
                 </p>
               </div>
               <div className="w-full md:w-80 flex-shrink-0">
-                <div className="relative h-64 w-full overflow-hidden rounded-lg">
-                  <Image
-                    src="/image/abinsula_me.jpg"
-                    alt="Abinsula & Me"
-                    fill
-                    className="object-cover"
-                  />
+                <div className="border-2 border-darkCharcoal rounded-lg bg-project-bg p-4">
+                  <div className="relative h-64 w-full overflow-hidden rounded-lg">
+                    <Image
+                      src="/image/abinsula_me.jpg"
+                      alt="Abinsula & Me"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -187,7 +191,7 @@ export default function AbinsulaPage() {
             </div>
             {/* Profile Image Carousel */}
             <div className="mt-8">
-              <div className="w-full">
+              <div className="w-full border-2 border-darkCharcoal rounded-xl p-4">
                 <Carousel className="w-full">
                   <CarouselContent>
                     <CarouselItem>
@@ -206,8 +210,8 @@ export default function AbinsulaPage() {
                       </div>
                     </CarouselItem>
                   </CarouselContent>
-                  <CarouselPrevious className="-left-12" />
-                  <CarouselNext className="-right-12" />
+                  <CarouselPrevious className="-left-16" />
+                  <CarouselNext className="-right-16" />
                 </Carousel>
               </div>
               <div className="mt-3 text-sm text-darkCharcoal/60 italic text-left">Abinsula's main office in Sassari, Sardinia</div>
@@ -226,26 +230,18 @@ export default function AbinsulaPage() {
 
             {/* Project Tabs */}
             <div className="flex gap-4 mb-8">
-              <button
+              <CartoonButton
+                label="SimpleShop"
                 onClick={() => setActiveProject('ss')}
-                className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  activeProject === 'ss'
-                    ? 'bg-darkCharcoal text-white'
-                    : 'bg-gray-200 text-darkCharcoal hover:bg-gray-300'
-                }`}
-              >
-                SimpleShop
-              </button>
-              <button
+                size="sm"
+                bgColor="bg-main"
+              />
+              <CartoonButton
+                label="Water Pump Controller"
                 onClick={() => setActiveProject('wpc')}
-                className={`px-6 py-2 rounded-lg font-medium transition-all ${
-                  activeProject === 'wpc'
-                    ? 'bg-darkCharcoal text-white'
-                    : 'bg-gray-200 text-darkCharcoal hover:bg-gray-300'
-                }`}
-              >
-                Water Pump Controller
-              </button>
+                size="sm"
+                bgColor="bg-main"
+              />
             </div>
 
             {/* Project 1 Content */}
@@ -276,7 +272,7 @@ export default function AbinsulaPage() {
                       </li>
                     </ul>
                   </div>
-                  <div className="w-full md:w-80 flex-shrink-0">
+                  <div className="w-full md:w-80 flex-shrink-0 border-2 border-darkCharcoal rounded-lg bg-project-bg p-4">
                     <Image src="/image/simpleshop.png" alt="SimpleShop" width={320} height={240} className="rounded-lg" />
                   </div>
                 </div>
@@ -315,7 +311,7 @@ export default function AbinsulaPage() {
                       </li>
                     </ul>
                   </div>
-                  <div className="w-full md:w-80 flex-shrink-0">
+                  <div className="w-full md:w-80 flex-shrink-0 border-2 border-darkCharcoal rounded-lg bg-project-bg p-4">
                     <Image src="/image/water_pump.png" alt="Water Pump Controller" width={320} height={240} className="rounded-lg" />
                   </div>
                 </div>
@@ -452,7 +448,7 @@ export default function AbinsulaPage() {
                 They made this internship more than just a work term; it became a personal adventure I'll always cherish.
               </p>
               <div className="w-full mt-8">
-                <Carousel className="md:w-2/3">
+                <Carousel className="md:w-2/3 border-2 border-darkCharcoal rounded-xl p-4">
                   <CarouselContent>
                     <CarouselItem>
                       <div className="relative h-80 w-full overflow-hidden rounded-xl">
