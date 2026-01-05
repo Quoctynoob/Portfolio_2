@@ -6,7 +6,7 @@ import { CartoonButton } from '../ui/cartoon-button';
 
 export default function ResumeDownload() {
   const handleOpen = () => {
-    window.open('/resume.pdf', '_blank');
+    window.open('/image/resume.pdf', '_blank');
   };
 
   return (
