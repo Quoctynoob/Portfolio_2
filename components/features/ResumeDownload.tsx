@@ -6,10 +6,7 @@ import { CartoonButton } from '../ui/cartoon-button';
 
 export default function ResumeDownload() {
   const handleOpen = () => {
-    toast('Please reach out to my email for my resume', {
-      description: 'I\'m currently updating my resume.',
-      duration: 4000,
-    });
+    window.open('/resume.pdf', '_blank');
   };
 
   return (
