@@ -7,7 +7,7 @@ export default function Footer() {
     
     return (
       <footer className="p-4 text-right text-sm text-darkCharcoal mt-auto">
-        <p>Last updated: Dec 22nd, 2025 by <span className="underline font-semibold">Quoc Le</span></p>
+        <p>Last updated: Jan 5th, 2026 by <span className="underline font-semibold">Quoc Le</span></p>
       </footer>
     );
   }
